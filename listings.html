@@ -41,6 +41,11 @@
 </head>
 
 <body data-page="listing" class="bg-white dark:bg-gray-900 text-secondary dark:text-white font-sans">
+   <button
+    id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
 <div id="site-header"></div>
 <script src="header.js"></script>
 <!-- HEADER SPACER -->
@@ -685,6 +690,14 @@
    btn.addEventListener("click", () => {
      menu.classList.toggle("hidden");
    });
+</script>
+<script>
+  // Theme toggle logic
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+  });
 </script>
 </body>
 </html>
