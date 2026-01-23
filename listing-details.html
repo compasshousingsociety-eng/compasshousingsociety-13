@@ -33,17 +33,38 @@
   src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
 </script>
 
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#1A56DB",
+          secondary: "#0F172A",
+        }
+      }
+    }
+  };
+</script>
+
+
 </head>
 
 <body data-page="listingDetails" class="bg-white dark:bg-gray-900 text-secondary dark:text-white font-sans">
 
 <!-- HEADER SPACER -->
-<div data-page="listingDetails" class="pt-24"></div>
+  <button
+    id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
 <div id="site-header"></div>
 <script src="header.js"></script>
 
 <!-- ===================== PROPERTY DETAILS - SECTION 1 ===================== -->
-<section class="w-full py-10">
+<section class="w-full py-10  mt-[110px]">
   <div class="container mx-auto px-4">
 
     <!-- TOP BAR: TITLE + PRICE -->
@@ -822,6 +843,14 @@
   </div>
 </footer>
 
+<script>
+  // Theme toggle logic
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+  });
+</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
@@ -875,5 +904,6 @@
      menu.classList.toggle("hidden");
    });
 </script>
+
 </body>
 </html>

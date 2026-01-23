@@ -9,16 +9,23 @@
     </a>
 
     <nav class="hidden md:flex items-center gap-8 text-secondary dark:text-gray-200 font-medium">
-      <a href="home1.html" class="hover:text-primary nav-link" data-page="home">Home</a>
-      <a href="listings.html" class="hover:text-primary nav-link" data-page="listing">Property Listing</a>
+      <a href="index.html" class="hover:text-primary nav-link" data-page="home1">Home 1</a>
+      <a href="home1.html" class="hover:text-primary nav-link" data-page="home2">Home 2</a>
+      <a href="listings.html" class="hover:text-primary nav-link" data-page="listing">Listing</a>
+      <a href="listing-details.html" class="block py-2 border-b hover:text-primary nav-link" data-page="listingDetails">Listing Details</a>
+
       <a href="contact.html" class="hover:text-primary nav-link" data-page="contact">Contact</a>
       <a href="about.html" class="hover:text-primary nav-link" data-page="about">About</a>
       <a href="blog.html" class="hover:text-primary nav-link" data-page="blog">Blog</a>
+           <a href="blog-details.html" class="block py-2 hover:text-primary nav-link" data-page="blogdetails">Blog Details</a>
+                <a href="404.html" class="block py-2 hover:text-primary nav-link" data-page="404">404 Page</a>
+
+
     </nav>
 
     <div class="hidden md:flex items-center gap-4">
-      <a href="signup.html" class="hover:text-primary">Sign Up</a>
-      <a href="coming-soon.html" class="px-5 py-2 bg-blue-700 text-white rounded-md">Create A Listing</a>
+      <a href="signup.html" data-page="signup" class="hover:text-primary">Sign Up</a>
+      <a href="coming-soon.html" data-page="comingsoon" class="px-5 py-2 bg-blue-700 text-white rounded-md">Create A Listing</a>
     </div>
 
     <button id="mobileMenuBtn" class="md:hidden text-3xl">☰</button>
@@ -38,26 +45,31 @@
   <div id="mobileMenu"
        class="hidden bg-white dark:bg-secondary shadow-md px-4 py-4 md:hidden flex-col w-full space-y-2">
 
-    <a href="home1.html" class="block py-2 border-b hover:text-primary nav-link" data-page="home">Home</a>
-    <a href="listings.html" class="block py-2 border-b hover:text-primary nav-link" data-page="listing">Property Listing</a>
+    <a href="index.html" class="block py-2 border-b hover:text-primary nav-link" data-page="home1">Home 1</a>
+    <a href="home1.html" class="block py-2 border-b hover:text-primary nav-link" data-page="home2">Home 2</a>
+
+    <a href="listings.html" class="block py-2 border-b hover:text-primary nav-link" data-page="listing">Listing</a>
+        <a href="listing-details.html" class="block py-2 border-b hover:text-primary nav-link" data-page="listingDetails">Listing Details</a>
     <a href="contact.html" class="block py-2 border-b hover:text-primary nav-link" data-page="contact">Contact</a>
     <a href="about.html" class="block py-2 border-b hover:text-primary nav-link" data-page="about">About</a>
     <a href="blog.html" class="block py-2 hover:text-primary nav-link" data-page="blog">Blog</a>
+     <a href="blog-details.html" class="block py-2 hover:text-primary nav-link" data-page="blogdetails">Blog Details</a>
+     <a href="404.html" class="block py-2 hover:text-primary nav-link" data-page="404">404 Page</a>
 
     <div class="flex flex-col gap-3 mt-3">
-      <a href="signup.html" class="block py-2">Sign Up</a>
-      <a href="coming-soon.html"
+      <a href="signup.html" data-page="signup" class="block py-2">Sign Up</a>
+      <a href="coming-soon.html" data-page="comingsoon"
          class="block w-full px-4 py-2 bg-primary text-white rounded-md text-center">
          Create Listing
       </a>
-        <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center">
+        <!-- <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center">
         <svg width="24" height="24" fill="none" stroke="currentColor"
              stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="9" cy="21" r="1"></circle>
           <circle cx="19" cy="21" r="1"></circle>
           <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
         </svg>
-      </button>
+      </button> -->
     </div>
 
   </div>

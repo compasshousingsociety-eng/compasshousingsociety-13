@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            secondary: "#0F172A",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+        },
+      },
+      darkMode: "class",
+    };
+  </script>
+</head>
+
+<body data-page="404" class="bg-white dark:bg-gray-900 text-secondary dark:text-white">
+  <button
+    id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
+<!-- ========== GLOBAL HEADER ========== -->
+<div id="site-header"></div>
+<script src="header.js"></script>
+
+<!-- SPACER FIXED HEADER -->
+<div class="pt-28"></div>
+
+<!-- ========================== 404 CONTENT ========================== -->
+<section class="flex flex-col items-center justify-center text-center px-4 py-20">
+
+  <h1 class="text-8xl font-extrabold text-primary mb-4">404</h1>
+
+  <h2 class="text-3xl font-bold text-secondary dark:text-white mb-4">
+    Page Not Found
+  </h2>
+
+  <p class="text-gray-600 dark:text-gray-400 max-w-lg mb-8">
+    Oops! The page you're looking for doesn't exist or has been moved.
+    Please check the URL or go back to the homepage.
+  </p>
+
+  <!-- BUTTONS -->
+  <div class="flex items-center gap-4">
+    <a href="index.html"
+       class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition">
+      Go to Home
+    </a>
+
+    <a href="contact.html"
+       class="px-6 py-3 border border-primary text-primary rounded-lg font-medium hover:bg-primary hover:text-white transition">
+      Contact Support
+    </a>
+  </div>
+
+  
+
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="w-full bg-gray-100 dark:bg-gray-900 py-16 mt-20">
+  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
+
+    <div>
+      <div class="flex items-center gap-2 mb-6">
+        <img src="https://placehold.co/40x40?text=🏙️" class="w-8 h-8" />
+        <h3 class="text-2xl font-bold">RealPro</h3>
+      </div>
+
+      <ul class="space-y-5 text-gray-600 dark:text-gray-300">
+        <li class="flex gap-3">📍 3755 St SE Salem, Australia</li>
+        <li class="flex gap-3">📞 (305) 555-4446</li>
+        <li class="flex gap-3">✉️ Youremail@gmail.com</li>
+      </ul>
+
+      <div class="flex gap-4 mt-6 text-xl">
+        <a>🐦</a> <a>📘</a> <a>📸</a> <a>▶️</a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-lg font-semibold mb-4">Explore</h4>
+      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+        <li>About Us</li>
+        <li>Our Projects</li>
+        <li>Pricing</li>
+        <li>Appointment</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-lg font-semibold mb-4">Links</h4>
+      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+        <li>Services</li>
+        <li>Contact</li>
+        <li>Home Buying</li>
+        <li>Real Estate</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-lg font-semibold mb-3">Subscribe</h4>
+      <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+        Sign up for our newsletter
+      </p>
+
+      <div class="flex">
+        <input type="email" placeholder="Your Email"
+               class="px-4 py-2 w-full rounded-l-md border dark:bg-gray-800" />
+        <button class="px-6 bg-primary text-white rounded-r-md">
+          Subscribe
+        </button>
+      </div>
+    </div>
+
+  </div>
+</footer>
+<script>
+  // Theme toggle logic
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+  });
+</script>
+</body>
+</html>

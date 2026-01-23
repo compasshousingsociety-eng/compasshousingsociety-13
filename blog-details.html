@@ -20,15 +20,38 @@
       pointer-events: none;
       z-index: -1;
     }
+            html.dark body::before {
+  opacity: 0.05;
+  filter: brightness(0.6);
+}
   </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#1A56DB",
+          secondary: "#0F172A",
+        }
+      }
+    }
+  }
+</script>
 </head>
 
 <body data-page="blogdetails" class="bg-white dark:bg-gray-900">
-
+ <button
+    id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
  <div id="site-header"></div>
 <script src="header.js"></script>
 <!-- PAGE WRAPPER -->
-<div class="container mx-auto px-4 py-12 max-w-4xl">
+<div class="container mx-auto px-4 py-12 max-w-4xl  mt-[110px]">
 
   <!-- DATE + CATEGORY -->
   <div class="text-center text-gray-500 text-sm dark:text-gray-400 mb-3">
@@ -449,6 +472,14 @@
    btn.addEventListener("click", () => {
      menu.classList.toggle("hidden");
    });
+</script>
+<script>
+  // Theme toggle logic
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+  });
 </script>
 </body>
 </html>

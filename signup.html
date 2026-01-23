@@ -7,7 +7,25 @@
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
+  <style>
+      body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+            html.dark body::before {
+  opacity: 0.05;
+  filter: brightness(0.6);
+}
+  </style>
   <script>
     tailwind.config = {
       theme: {
@@ -28,13 +46,17 @@
   data-page="signup"
   class="bg-gray-50 dark:bg-gray-900 text-secondary dark:text-white"
 >
-
+ <button
+    id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
 <!-- ========== GLOBAL HEADER ========== -->
 <div id="site-header"></div>
 <script src="header.js"></script>
 
 <!-- ============ PAGE WRAPPER (Fix Header Space) ============ -->
-<div class="min-h-screen flex items-center justify-center px-4 mt-[110px]">
+<div class="min-h-screen flex items-center justify-center px-4 mt-[130px]">
 
   <div class="w-full max-w-lg bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-8">
 
@@ -283,6 +305,13 @@
     }
   });
 </script>
-
+<script>
+  // Theme toggle logic
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+  });
+</script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light scroll-smooth">
+
 
 <head>
   <meta charset="UTF-8" />
@@ -7,6 +8,8 @@
   <title>Contact Us</title>
   <script src="https://cdn.tailwindcss.com"></script>
     <style>
+
+
       body::before {
       content: "";
       position: fixed;
@@ -20,15 +23,39 @@
       pointer-events: none;
       z-index: -1;
     }
+          html.dark body::before {
+  opacity: 0.05;
+  filter: brightness(0.6);
+}
   </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#1A56DB",
+          secondary: "#0F172A",
+        }
+      }
+    }
+  }
+</script>
+
 </head>
 
 <body data-page="contact" class="bg-white dark:bg-gray-900">
-
+  <button
+    id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
 <div id="site-header"></div>
 <script src="header.js"></script>
 <!-- ================= CONTACT PAGE ================= -->
-<section class="container mx-auto px-4 py-16">
+<section class="container mx-auto px-4 py-16  mt-[110px]">
 
   <!-- Page Title -->
   <h2 class="text-3xl font-bold text-secondary dark:text-white mb-10">
@@ -262,7 +289,14 @@
     .bindPopup("Our Office Location")
     .openPopup();
 </script>
-
+<script>
+  // Theme toggle logic
+  const toggle = document.getElementById("themeToggle");
+  toggle.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+  });
+</script>
 
 </body>
 </html>

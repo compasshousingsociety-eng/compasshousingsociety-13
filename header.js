@@ -17,7 +17,8 @@ fetch("header.html")
 
     // Breadcrumb text update
     const bread = {
-      home: "Home",
+      home1: "Home 1",
+      home2: "Home 2",
       listing: "Listing",
       contact: "Contact",
       about: "About",
@@ -26,7 +27,9 @@ fetch("header.html")
       login: "Log In",
       home1:"Home1",
       listingDetails:"Listing Details",
-      blogdetails:"blog details"
+      blogdetails:"blog details",
+      404:"404",
+      comingsoon:"Creating Listing"
 
     };
 
