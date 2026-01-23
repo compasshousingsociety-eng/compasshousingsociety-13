@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon - RealPro</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            secondary: "#0F172A",
+          },
+          fontFamily: { sans: ["Inter", "sans-serif"] },
+        },
+      },
+      darkMode: "class",
+    };
+  </script>
+ <style>
+      body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+  </style>
+  <style>
+   
+  </style>
+</head>
+
+<body class="font-sans bg-gray-900 text-white coming-bg">
+
+<!-- OVERLAY -->
+<div class="absolute inset-0 "></div>
+
+<!-- PAGE CONTENT -->
+<div class="relative min-h-screen flex flex-col items-center justify-center text-center px-4">
+
+  <!-- Logo -->
+  <a href="index.html" class="flex items-center gap-2 mb-6">
+    <img src="Images/colored-logo.png" class="w-12 h-12">
+    <span class="text-3xl font-bold">RealPro</span>
+  </a>
+
+  <!-- Title -->
+  <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
+    Coming Soon
+  </h1>
+
+  <p class="text-gray-300 text-lg md:text-xl max-w-xl mb-10">
+    We’re working hard to bring you something amazing. Stay tuned!
+  </p>
+
+  <!-- COUNTDOWN -->
+  <div id="countdown" class="flex gap-5 md:gap-10 text-center mb-10">
+
+    <div>
+      <h2 id="days" class="text-4xl font-bold">00</h2>
+      <p class="text-sm mt-1">Days</p>
+    </div>
+
+    <div>
+      <h2 id="hours" class="text-4xl font-bold">00</h2>
+      <p class="text-sm mt-1">Hours</p>
+    </div>
+
+    <div>
+      <h2 id="minutes" class="text-4xl font-bold">00</h2>
+      <p class="text-sm mt-1">Minutes</p>
+    </div>
+
+    <div>
+      <h2 id="seconds" class="text-4xl font-bold">00</h2>
+      <p class="text-sm mt-1">Seconds</p>
+    </div>
+
+  </div>
+
+  <!-- EMAIL SUBSCRIBE -->
+  <div class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      class="px-4 py-3 w-full rounded-lg bg-white/90 text-gray-900 outline-none border border-gray-300"
+    />
+
+    <button class="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90">
+      Notify Me
+    </button>
+  </div>
+
+</div>
+
+<!-- COUNTDOWN SCRIPT -->
+<script>
+  const targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + 7); // 7-day countdown
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance <= 0) return;
+
+    document.getElementById("days").innerText =
+      Math.floor(distance / (1000 * 60 * 60 * 24));
+
+    document.getElementById("hours").innerText =
+      Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    document.getElementById("minutes").innerText =
+      Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+    document.getElementById("seconds").innerText =
+      Math.floor((distance % (1000 * 60)) / 1000);
+  }
+
+  setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>
