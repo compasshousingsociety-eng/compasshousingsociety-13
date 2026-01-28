@@ -1,16 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
 
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us</title>
+
+  <!-- Tailwind CSS (Only Once) -->
   <script src="https://cdn.tailwindcss.com"></script>
-    <style>
 
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            secondary: "#0F172A",
+          },
+        },
+      },
+    };
+  </script>
 
-      body::before {
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* Global Page Watermark Background */
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
@@ -23,280 +43,244 @@
       pointer-events: none;
       z-index: -1;
     }
-          html.dark body::before {
-  opacity: 0.05;
-  filter: brightness(0.6);
-}
-  </style>
-  <script src="https://cdn.tailwindcss.com"></script>
 
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          primary: "#1A56DB",
-          secondary: "#0F172A",
-        }
-      }
+    html.dark body::before {
+      opacity: 0.10;
+      filter: brightness(0.4);
     }
-  }
-</script>
+  </style>
 
 </head>
 
-<body data-page="contact" class="bg-white dark:bg-gray-900">
+<body data-page="contact" class="bg-white dark:bg-gray-900 text-secondary dark:text-white">
+
+  <!-- Theme Toggle -->
   <button
     id="themeToggle"
     class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
     🌓
   </button>
-<div id="site-header"></div>
-<script src="header.js"></script>
-<!-- ================= CONTACT PAGE ================= -->
-<section class="container mx-auto px-4 py-16  mt-[110px]">
 
-  <!-- Page Title -->
-  <h2 class="text-3xl font-bold text-secondary dark:text-white mb-10">
-    Contact Us
-  </h2>
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
 
-  <!-- Row 1 -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+  <!-- ================= CONTACT PAGE ================= -->
+  <section class="container mx-auto px-4 py-14 mt-[110px]">
 
-    <!-- LEFT IMAGE -->
-    <img src="Images/contact.jpg"
-         class="w-full h-[420px] object-cover rounded-xl shadow-md" />
+    <!-- Page Title -->
+    <h2 class="text-3xl font-bold mb-10">Contact Us</h2>
 
-    <!-- RIGHT FORM -->
-    <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700
-                rounded-xl p-8 shadow-md">
+    <!-- Row 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
 
-      <h3 class="text-2xl font-bold text-secondary dark:text-white text-center mb-2">
-        Get In Touch
-      </h3>
+      <!-- LEFT IMAGE -->
+      <img src="Images/contact.jpg"
+           alt="Contact illustration"
+           class="w-full h-[420px] object-cover rounded-xl shadow-md" />
 
-      <p class="text-center text-gray-600 dark:text-gray-400 text-sm mb-6">
-        Please enter your details to create a new account.
-      </p>
+      <!-- RIGHT FORM -->
+      <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700
+                  rounded-xl p-8 shadow-md">
 
-      <!-- FORM -->
-      <form class="space-y-4">
-        <input type="text" placeholder="Name"
-               class="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-800 
-                      border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary" />
+        <h3 class="text-2xl font-bold text-center mb-2">Get In Touch</h3>
 
-        <input type="email" placeholder="Email"
-               class="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-800 
-                      border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary" />
-
-        <textarea placeholder="Tell us a little bit about your destination dream"
-                  rows="4"
-                  class="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-800 
-                         border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary"></textarea>
-
-        <button type="submit"
-                class="w-full py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition">
-          Submit Now
-        </button>
-
-        <p class="text-center text-xs text-gray-500 dark:text-gray-400">
-          By contacting us, you agree to our 
-          <a href="#" class="text-primary underline">Terms Of Service</a> 
-          and 
-          <a href="#" class="text-primary underline">Privacy Policy</a>.
+        <p class="text-center text-gray-600 dark:text-gray-400 text-sm mb-6">
+          Please enter your details and we will get back to you shortly.
         </p>
-      </form>
 
-    </div>
+        <!-- FORM -->
+     <!-- FORM -->
+<form id="contactForm" class="space-y-4">
+
+  <!-- NAME FIELD -->
+  <div>
+    <label class="block text-sm font-semibold mb-1">
+      Name <span class="text-red-500">*</span>
+    </label>
+
+    <input 
+      id="name"
+      type="text"
+      placeholder="Enter your name"
+      class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
+             border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary" />
+
+    <p id="nameError" class="text-red-500 text-xs mt-1 hidden"></p>
   </div>
 
-  <!-- Row 2 -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-14">
+  <!-- EMAIL FIELD -->
+  <div>
+    <label class="block text-sm font-semibold mb-1">
+      Email <span class="text-red-500">*</span>
+    </label>
 
-    <!-- CONTACT INFO -->
-    <div>
-      <h3 class="text-2xl font-bold text-secondary dark:text-white mb-4">
-        Connecting Near Or Far
-      </h3>
+    <input 
+      id="email"
+      type="email"
+      placeholder="Enter your email"
+      class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
+             border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary" />
 
-      <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta
-        justo eget risus consectetur, non venenatis elit blandit. Mauris vehicula,
-        libero a iaculis fringilla, ipsum ipsum tincidunt velit, at convallis velit
-        ante tincidunt dui.
-      </p>
-
-      <p class="mb-2"><strong>Address:</strong> Chicago, Los Angeles</p>
-      <p class="mb-2"><strong>Mobile:</strong> (559) 392-5009</p>
-      <p class="mb-4"><strong>Email:</strong> agency006@gmail.com</p>
-
-      <!-- Social Icons -->
-      <div class="flex gap-4 text-xl">
-        <a class="hover:text-primary">🐦</a>
-        <a class="hover:text-primary">📘</a>
-        <a class="hover:text-primary">📸</a>
-        <a class="hover:text-primary">▶️</a>
-      </div>
-    </div>
-
-    <!-- MAP -->
-    <div class="rounded-xl overflow-hidden shadow-lg border border-gray-300 dark:border-gray-700">
-      <div id="contactMap" class="w-full h-[350px]"></div>
-    </div>
-
+    <p id="emailError" class="text-red-500 text-xs mt-1 hidden"></p>
   </div>
 
-</section>
+  <!-- MESSAGE FIELD -->
+  <div>
+    <label class="block text-sm font-semibold mb-1">
+      Message <span class="text-red-500">*</span>
+    </label>
 
-<!-- ===================== FOOTER ===================== -->
-   <footer class="w-full bg-gray-100 dark:bg-gray-900 py-16">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
+    <textarea 
+      id="message"
+      rows="4"
+      placeholder="Tell us a little bit about your destination dream"
+      class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
+             border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary"></textarea>
 
-    <!-- LEFT: LOGO + CONTACT INFO -->
-    <div>
-      <!-- Logo -->
-      <!-- <div class="flex items-center gap-2 mb-5">
-        <span class="text-primary text-3xl">🏙️</span>
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div> -->
-
-      <!-- Contact Items -->
-        <div class="flex items-center gap-2 mb-6">
-        <img src="https://placehold.co/40x40?text=🏙️" class="w-8 h-8">
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div>
-
-      <!-- Contact Items -->
-      <ul class="space-y-5 text-gray-600 dark:text-gray-300">
-
-        <!-- Location -->
-        <li class="flex items-start gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z"/>
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z"/>
-          </svg>
-          <span>
-            3755 St SE Salem, Corner with Sunny Boulevard,<br>
-            37557, Australia
-          </span>
-        </li>
-
-        <!-- Phone -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M2.25 6.75l4.5-2.25L9 8.25l-2.25 1.5c.75 1.5 2.25 3 3.75 3.75l1.5-2.25 3.75 2.25-2.25 4.5c-4.5-1.5-9-6-11.25-11.25z"/>
-          </svg>
-          (305) 555-4446
-        </li>
-
-        <!-- Email -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M21.75 6.75l-9.75 7.5-9.75-7.5m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V6.75z"/>
-          </svg>
-          Youremail@gmail.com
-        </li>
-
-      </ul>
-
-      <!-- Social Icons -->
-      <div class="flex items-center gap-4 mt-6 text-xl">
-        <a class="hover:text-primary transition">🐦</a>
-        <a class="hover:text-primary transition">📘</a>
-        <a class="hover:text-primary transition">📸</a>
-        <a class="hover:text-primary transition">▶️</a>
-      </div>
-      
-    </div>
-
-    <!-- EXPLORE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Explore</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>About Us</li>
-        <li>Our Projects</li>
-        <li>Pricing</li>
-        <li>Testimonial</li>
-        <li>Appointment</li>
-      </ul>
-    </div>
-
-    <!-- LINKS -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Links</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>Services</li>
-        <li>Contact</li>
-        <li>Home Buying</li>
-        <li>Home Selling</li>
-        <li>Real Estate</li>
-      </ul>
-    </div>
-
-    <!-- T&C + SUBSCRIBE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">T&C</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300 mb-6">
-        <li>Property on sale</li>
-        <li>About Us</li>
-        <li>Our Team</li>
-        <li>Terms of use</li>
-        <li>Privacy Policy</li>
-      </ul>
-
-      <!-- Subscribe -->
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-3">Subscribe</h4>
-      <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-        Sign Up for Our Newsletter to get Latest Updates and Offers
-      </p>
-
-      <div class="flex">
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="px-4 py-2 w-full rounded-l-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none">
-        <button class="px-6  bg-blue-700 hover:bg-primary/90 text-white rounded-r-md">
-       
-          Subscribe
-        </button>
-      </div>
-    </div>
-
+    <p id="messageError" class="text-red-500 text-xs mt-1 hidden"></p>
   </div>
-</footer>
 
-<!-- ================= LEAFLET MAP (REAL INTERACTIVE MAP) ================= -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <button
+    type="submit"
+    class="w-full py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition">
+    Submit Now
+  </button>
+</form>
 
-<script>
-  // MAP INIT
-  var map = L.map('contactMap').setView([40.7128, -74.0060], 10); // Default: New York
 
-  // TILE LAYER
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 18,
-  }).addTo(map);
+      </div>
+    </div>
 
-  // MARKER
-  L.marker([40.7128, -74.0060]).addTo(map)
-    .bindPopup("Our Office Location")
-    .openPopup();
-</script>
-<script>
-  // Theme toggle logic
-  const toggle = document.getElementById("themeToggle");
-  toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.toggle("light");
+    <!-- Row 2 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-14">
+
+      <!-- CONTACT INFO -->
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Connecting Near Or Far</h3>
+
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+          Feel free to reach out to us using the contact form. Our team will respond quickly
+          and help you find the perfect property that suits your needs.
+        </p>
+
+        <p class="mb-2"><strong>Address:</strong> 3755 St SE Salem, Australia</p>
+        <p class="mb-2"><strong>Mobile:</strong> (305) 555-4446</p>
+        <p class="mb-4"><strong>Email:</strong> youremail@gmail.com</p>
+
+        <!-- Social Icons (SVG) -->
+        <div class="flex items-center gap-4 text-xl opacity-80">
+
+          <a class="hover:text-primary transition"><i class="fa-brands fa-facebook"></i></a>
+          <a class="hover:text-primary transition"><i class="fa-brands fa-twitter"></i></a>
+          <a class="hover:text-primary transition"><i class="fa-brands fa-instagram"></i></a>
+          <a class="hover:text-primary transition"><i class="fa-brands fa-youtube"></i></a>
+
+        </div>
+      </div>
+
+      <!-- MAP -->
+      <div class=" z-[-1] rounded-xl overflow-hidden shadow-lg border border-gray-300 dark:border-gray-700">
+        <div id="contactMap" class="w-full h-[350px]"></div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+ <div id="site-footer" class="px-4 md:px-8"></div>
+  <script type="module" src="footer.js"></script>
+
+  <!-- ================= LEAFLET MAP ================= -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    // MAP INIT
+    const map = L.map('contactMap').setView([40.7128, -74.0060], 10);
+
+    // TILE LAYER
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+    }).addTo(map);
+
+    // MARKER
+    L.marker([40.7128, -74.0060])
+      .addTo(map)
+      .bindPopup("Our Office Location")
+      .openPopup();
+  </script>
+
+  <script>
+    // Correct Theme Toggle
+    const toggle = document.getElementById("themeToggle");
+    toggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+    });
+  </script>
+  <script>
+  const form = document.getElementById("contactForm");
+
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const msgInput = document.getElementById("message");
+
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const messageError = document.getElementById("messageError");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    let valid = true;
+
+    // NAME VALIDATION
+    const nameValue = nameInput.value.trim();
+
+    if (!nameValue) {
+      nameError.textContent = "Name is required.";
+      nameError.classList.remove("hidden");
+      valid = false;
+    } else if (!/^[A-Za-z ]+$/.test(nameValue)) {
+      nameError.textContent = "Only alphabets allowed. No numbers or special characters.";
+      nameError.classList.remove("hidden");
+      valid = false;
+    } else {
+      nameError.classList.add("hidden");
+    }
+
+    // EMAIL VALIDATION
+    const emailValue = emailInput.value.trim();
+    if (!emailValue) {
+      emailError.textContent = "Email is required.";
+      emailError.classList.remove("hidden");
+      valid = false;
+    } else {
+      emailError.classList.add("hidden");
+    }
+
+    // MESSAGE VALIDATION
+    if (!msgInput.value.trim()) {
+      messageError.textContent = "Message is required.";
+      messageError.classList.remove("hidden");
+      valid = false;
+    } else {
+      messageError.classList.add("hidden");
+    }
+
+    if (!valid) return;
+
+    alert("Form submitted successfully!");
+  });
+
+  // REMOVE LEADING SPACES LIVE
+  nameInput.addEventListener("input", () => {
+    nameInput.value = nameInput.value.replace(/^\s+/g, "");
   });
 </script>
 
+
 </body>
+
 </html>

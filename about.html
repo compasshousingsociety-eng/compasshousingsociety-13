@@ -1,30 +1,34 @@
 <!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us - RealPro</title>
+  <title>About Us - Compass Housing</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Tailwind Config -->
   <script>
     tailwind.config = {
-      darkMode: 'class',
+      darkMode: "class",
       theme: {
         extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-          colors: { primary: '#1A56DB', secondary: '#0F172A' }
+          colors: {
+            primary: "#1A56DB",
+            secondary: "#0F172A"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
         }
       }
-    }
+    };
   </script>
+
   <style>
-      body::before {
+    /* Background Watermark */
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
@@ -40,295 +44,172 @@
   </style>
 </head>
 
-<body data-page="about" class="bg-white dark:bg-gray-900 text-secondary dark:text-white "
+<body data-page="about" class="bg-white dark:bg-gray-900 text-secondary dark:text-white">
 
->
- <button
-    id="themeToggle"
-    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+  <!-- Theme Toggle -->
+  <button id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition">
     🌓
   </button>
- 
- <!-- <div class="absolute inset-0 bg-white/70 backdrop-blur-sm"></div> -->
 
-<!-- ===================== HEADER (reuse from home) ===================== -->
-<div id="site-header"></div>
-<script src="header.js"></script>
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
 
-<!-- ===================== SECTION 1: ABOUT HERO ===================== -->
-<section class="w-full mt-[130px]">
-  <div class="container mx-auto px-4 text-center mb-10">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
-    <img src="Images/about/aboutbanner.jpg"
-         class="rounded-xl shadow-lg w-full object-cover"/>
-  </div>
-</section>
+  <!-- =============== HERO SECTION =============== -->
+  <section class="w-full mt-[120px] py-10">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
 
-<!-- ===================== SECTION 2: OUR VISION ===================== -->
-<section class="w-full py-16">
-  <div class="container mx-auto px-4 text-center">
-
-    <h3 class="text-3xl font-bold mb-12">Our Vision</h3>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-      <div class="p-6">
-        <div class="text-primary text-4xl mb-4">📦</div>
-        <h4 class="text-xl font-semibold mb-2">Creating Lifelong Possessions</h4>
-        <p class="text-gray-600 dark:text-gray-300">We deliver top-tier real estate solutions to reshape communities.</p>
-      </div>
-
-      <div class="p-6">
-        <div class="text-primary text-4xl mb-4">🛡️</div>
-        <h4 class="text-xl font-semibold mb-2">Empowering Real-Estate Decisions</h4>
-        <p class="text-gray-600 dark:text-gray-300">Helping clients make informed, confident choices.</p>
-      </div>
-
-      <div class="p-6">
-        <div class="text-primary text-4xl mb-4">📈</div>
-        <h4 class="text-xl font-semibold mb-2">Innovating For a Better Tomorrow</h4>
-        <p class="text-gray-600 dark:text-gray300">We use innovation to shape the future of the housing market.</p>
-      </div>
-
+      <img src="Images/about/aboutbanner.jpg"
+        class="rounded-xl shadow-lg w-full h-[380px] md:h-[420px] object-cover" />
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- =============== OUR VISION =============== -->
+  <section class="w-full py-14">
+    <div class="container mx-auto px-4 text-center">
 
-<!-- ===================== SECTION 3: OUR STORY ===================== -->
-<section class="w-full py-20 bg-gray-50 dark:bg-gray-800">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <h3 class="text-3xl font-bold mb-10">Our Vision</h3>
 
-    <img src="Images/about/hands.jpg"
-         class="rounded-xl shadow-lg"/>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-    <div>
-      <h3 class="text-3xl font-bold mb-4">Our Story</h3>
+        <div class="p-6">
+          <div class="text-primary text-4xl mb-4">📦</div>
+          <h4 class="text-xl font-semibold mb-2">Creating Lifelong Possessions</h4>
+          <p class="text-gray-600 dark:text-gray-300">We deliver top-tier real estate solutions to reshape communities.</p>
+        </div>
+
+        <div class="p-6">
+          <div class="text-primary text-4xl mb-4">🛡️</div>
+          <h4 class="text-xl font-semibold mb-2">Empowering Real-Estate Decisions</h4>
+          <p class="text-gray-600 dark:text-gray-300">Helping clients make informed, confident choices.</p>
+        </div>
+
+        <div class="p-6">
+          <div class="text-primary text-4xl mb-4">📈</div>
+          <h4 class="text-xl font-semibold mb-2">Innovating For a Better Tomorrow</h4>
+          <p class="text-gray-600 dark:text-gray300">We use innovation to shape the future of the housing market.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== OUR STORY =============== -->
+  <section class="w-full py-14 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+      <img src="Images/about/hands.jpg" class="rounded-xl shadow-lg" />
+
+      <div>
+        <h3 class="text-3xl font-bold mb-4">Our Story</h3>
       <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-        We began with a mission to transform property buying and selling.
-        Today, we are one of the leading real estate groups with a strong
-        presence in key cities, serving thousands of clients with trust and efficiency.
-      </p>
-      <a href="#" class="bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary/90">
-        Read More →
-      </a>
+  Compass Housing began with a simple vision — to make the journey of finding a home easier,
+  transparent, and more human. What started as a small initiative has grown into a trusted real estate
+  society known for reliability, innovation, and customer-first values. <br><br>
+
+  Over the years, we have built a strong reputation for helping families and individuals discover
+  properties that truly match their lifestyle and goals. Our society is driven by the belief that a
+  home is more than a place to live — it is the foundation of security, comfort, and future growth. <br><br>
+
+  From modern residential developments to a supportive community ecosystem, Compass Housing continues to
+  evolve with the needs of our residents. Our commitment to ethical practices, consistent service, and
+  long-term value creation has shaped who we are today. <br><br>
+
+  As we move forward, our story remains rooted in the same purpose: creating meaningful spaces,
+  strengthening communities, and guiding every customer with honesty, care, and expertise.
+</p>
+
+
+        <a href="#" class="inline-block bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary/90">
+          Read More →
+        </a>
+      </div>
+
     </div>
+  </section>
 
-  </div>
-</section>
-
-<!-- ===================== SECTION 4: OUR MISSION ===================== -->
-<section class="w-full py-20">
+  <!-- =============== OUR MISSION =============== -->
+<section class="w-full py-14">
   <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
     <div>
       <h3 class="text-3xl font-bold mb-4">Our Mission</h3>
+
       <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-        Our mission is simple: to redefine how people find homes by offering
-        personalized solutions, expert guidance, and a seamless buying experience.
+        At Compass Housing, our mission is to redefine how people discover, explore, and secure the homes they dream of.
+        We believe that a home is more than a place to live—it is a foundation for future growth, cherished memories, and
+        lifelong stability. <br><br>
+
+        Our commitment is to simplify the real-estate journey through personalized support, transparent communication,
+        and expert guidance. Every client deserves clarity and confidence during one of the most important decisions of
+        their life, and we strive to deliver exactly that. <br><br>
+
+        We focus on building communities that encourage sustainable living, enhance lifestyle standards, and empower
+        individuals and families to thrive. With innovation, integrity, and the latest market intelligence, we ensure
+        every experience is seamless—from the first inquiry to the final key handover. <br><br>
+
+        Our mission is rooted in excellence and driven by a vision to shape future-ready housing solutions that meet
+        modern needs while creating long-lasting value for every homeowner.
       </p>
-      <a href="#" class="bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary/90">
+
+      <a href="#" class="inline-block bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary/90">
         Read More →
       </a>
     </div>
 
-    <img src="Images/about/dymondb.jpg"
-         class="rounded-xl shadow-lg"/>
-
-  </div>
-</section>
-
-<!-- ===================== SECTION 5: MEET THE TEAM ===================== -->
-<section class="w-full py-20">
-  <div class="container mx-auto px-4 text-center">
-
-    <h3 class="text-3xl font-bold mb-10">Meet The Team</h3>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
-        <img src="Images/about/abouthuman.jpg"
-             class="rounded-lg mb-4 w-full h-64 object-cover"/>
-        <h4 class="text-lg font-semibold">Jonathan Doe</h4>
-        <p class="text-gray-500 dark:text-gray-400">Consultant</p>
-      </div>
-
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
-        <img src="Images/home1/team2.png"
-             class="rounded-lg mb-4 w-full h-64 object-cover"/>
-        <h4 class="text-lg font-semibold">Rachel Dave</h4>
-        <p class="text-gray-500 dark:text-gray-400">Senior Advisor</p>
-      </div>
-
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
-        <img src="Images/home1/team3.png"
-             class="rounded-lg mb-4 w-full h-64 object-cover"/>
-        <h4 class="text-lg font-semibold">Steven Wilson</h4>
-        <p class="text-gray-500 dark:text-gray-400">Market Expert</p>
-      </div>
-
-    </div>
+    <img src="Images/about/dymondb.jpg" class="rounded-xl shadow-lg" />
 
   </div>
 </section>
 
 
-<!-- ===================== FOOTER ===================== -->
-   <footer class="w-full bg-gray-100 dark:bg-gray-900 py-16">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
+  <!-- =============== TEAM SECTION =============== -->
+  <section class="w-full py-14">
+    <div class="container mx-auto px-4 text-center">
 
-    <!-- LEFT: LOGO + CONTACT INFO -->
-    <div>
-      <!-- Logo -->
-      <!-- <div class="flex items-center gap-2 mb-5">
-        <span class="text-primary text-3xl">🏙️</span>
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div> -->
+      <h3 class="text-3xl font-bold mb-10">Meet The Team</h3>
 
-      <!-- Contact Items -->
-        <div class="flex items-center gap-2 mb-6">
-        <img src="https://placehold.co/40x40?text=🏙️" class="w-8 h-8">
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
+          <img src="Images/about/abouthuman.jpg"
+            class="rounded-lg mb-4 w-full h-64 object-cover" />
+          <h4 class="text-lg font-semibold">Jonathan Doe</h4>
+          <p class="text-gray-500 dark:text-gray-400">Consultant</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
+          <img src="Images/home1/team2.png"
+            class="rounded-lg mb-4 w-full h-64 object-cover" />
+          <h4 class="text-lg font-semibold">Rachel Dave</h4>
+          <p class="text-gray-500 dark:text-gray-400">Senior Advisor</p>
+        </div>
+
+        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
+          <img src="Images/home1/team3.png"
+            class="rounded-lg mb-4 w-full h-64 object-cover" />
+          <h4 class="text-lg font-semibold">Steven Wilson</h4>
+          <p class="text-gray-500 dark:text-gray-400">Market Expert</p>
+        </div>
+
       </div>
 
-      <!-- Contact Items -->
-      <ul class="space-y-5 text-gray-600 dark:text-gray-300">
-
-        <!-- Location -->
-        <li class="flex items-start gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z"/>
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z"/>
-          </svg>
-          <span>
-            3755 St SE Salem, Corner with Sunny Boulevard,<br>
-            37557, Australia
-          </span>
-        </li>
-
-        <!-- Phone -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M2.25 6.75l4.5-2.25L9 8.25l-2.25 1.5c.75 1.5 2.25 3 3.75 3.75l1.5-2.25 3.75 2.25-2.25 4.5c-4.5-1.5-9-6-11.25-11.25z"/>
-          </svg>
-          (305) 555-4446
-        </li>
-
-        <!-- Email -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M21.75 6.75l-9.75 7.5-9.75-7.5m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V6.75z"/>
-          </svg>
-          Youremail@gmail.com
-        </li>
-
-      </ul>
-
-      <!-- Social Icons -->
-      <div class="flex items-center gap-4 mt-6 text-xl">
-        <a class="hover:text-primary transition">🐦</a>
-        <a class="hover:text-primary transition">📘</a>
-        <a class="hover:text-primary transition">📸</a>
-        <a class="hover:text-primary transition">▶️</a>
-      </div>
-      
     </div>
+  </section>
 
-    <!-- EXPLORE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Explore</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>About Us</li>
-        <li>Our Projects</li>
-        <li>Pricing</li>
-        <li>Testimonial</li>
-        <li>Appointment</li>
-      </ul>
-    </div>
+  <!-- FOOTER -->
+  <div id="site-footer" class="px-4 md:px-8"></div>
+  <script type="module" src="footer.js"></script>
 
-    <!-- LINKS -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Links</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>Services</li>
-        <li>Contact</li>
-        <li>Home Buying</li>
-        <li>Home Selling</li>
-        <li>Real Estate</li>
-      </ul>
-    </div>
-
-    <!-- T&C + SUBSCRIBE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">T&C</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300 mb-6">
-        <li>Property on sale</li>
-        <li>About Us</li>
-        <li>Our Team</li>
-        <li>Terms of use</li>
-        <li>Privacy Policy</li>
-      </ul>
-
-      <!-- Subscribe -->
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-3">Subscribe</h4>
-      <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-        Sign Up for Our Newsletter to get Latest Updates and Offers
-      </p>
-
-      <div class="flex">
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="px-4 py-2 w-full rounded-l-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none">
-        <button class="px-6 bg-primary hover:bg-primary/90 text-white rounded-r-md">
-          Subscribe
-        </button>
-      </div>
-    </div>
-
-  </div>
-</footer>
-
-<script>
-   // Auto-highlight active page
-   const page = document.body.getAttribute("data-page"); 
-   document.querySelectorAll(".nav-link").forEach(link => {
-      if (link.dataset.page === page) {
-         link.classList.add("text-primary", "font-semibold");
-      }
-   });
-
-   // Set breadcrumb from data-page
-   const bread = {
-      home: "Home",
-      listing: "Listing",
-      contact: "Contact",
-      about: "About",
-      blog: "Blog"
-   };
-   if (bread[page]) {
-      document.getElementById("breadcrumbPage").innerText = bread[page];
-   }
-
-   // Mobile menu toggle
-   const btn = document.getElementById("mobileMenuBtn");
-   const menu = document.getElementById("mobileMenu");
-
-   btn.addEventListener("click", () => {
-     menu.classList.toggle("hidden");
-   });
-</script>
-<script>
-  // Theme toggle logic
-  const toggle = document.getElementById("themeToggle");
-  toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.toggle("light");
-  });
-</script>
+  <script>
+    // Theme toggle logic
+    const toggle = document.getElementById("themeToggle");
+    toggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+    });
+  </script>
 </body>
+
 </html>

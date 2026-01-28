@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Property Listing - RealPro</title>
+  <title>Property Listing - Compass Housing</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -274,9 +274,11 @@
 
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-secondary dark:text-white">Map Location</h3>
-            <button class="px-4 py-2 bg-primary text-white text-sm rounded-md hover:bg-primary/90">
+            <button  onclick="window.open('https://www.google.com/maps?q=43.45,-80.483','_blank')" class="px-4 py-2 bg-primary text-white text-sm rounded-md hover:bg-primary/90">
               Open Map
             </button>
+           
+
           </div>
 
           <!-- FIXED MAP LOADING -->
@@ -572,7 +574,7 @@
           <!-- Heart Icon -->
           <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" fill="none"
-                 viewBox="0 0 24 24" stroke="currentColor">
+                 viewBox="0 0 24 24" stroke="currentColor" onclick="alert('Saved to Wishlist')">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="M3.172 5.172a4 4 0 015.656 0L12 8.343l3.172-3.171a4 4 0 115.656 5.656L12 21.657 3.172 10.828a4 4 0 010-5.656z" />
             </svg>
@@ -610,7 +612,7 @@
 
             <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 
                            text-secondary dark:text-white rounded-md hover:bg-gray-100 
-                           dark:hover:bg-gray-700 text-sm transition">
+                           dark:hover:bg-gray-700 text-sm transition" >
               View Detail
             </button>
           </div>
@@ -629,7 +631,7 @@
 
           <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
+              viewBox="0 0 24 24" stroke="currentColor" onclick="alert('Saved to Wishlist')">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="M3.172 5.172a4 4 0 015.656 0L12 8.343l3.172-3.171a4 4 0 115.656 5.656L12 21.657 3.172 10.828a4 4 0 010-5.656z" />
             </svg>
@@ -673,7 +675,7 @@
 
           <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
+              viewBox="0 0 24 24" stroke="currentColor" onclick="alert('Saved to Wishlist')">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="M3.172 5.172a4 4 0 015.656 0L12 8.343l3.172-3.171a4 4 0 115.656 5.656L12 21.657 3.172 10.828a4 4 0 010-5.656z" />
             </svg>
@@ -685,7 +687,7 @@
 
           <div class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm mb-2">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor">
+              viewBox="0 0 24 24" stroke="currentColor" onclick="alert('Saved to Wishlist')">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                 d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -712,9 +714,10 @@
 
     <!-- VIEW ALL BUTTON -->
 <div class="mt-10 text-center">
-  <button class="px-6 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800 transition">
-    View All
-  </button>
+<a href="listings.html"
+   class="px-6 py-2 bg-primary text-white rounded-md hover:bg-primary/90 rounded-md transition">
+  See All Properties
+</a>
 </div>
 
 
@@ -723,125 +726,8 @@
 </section>
 
 <!-- ===================== FOOTER ===================== -->
-   <footer class="w-full bg-gray-100 dark:bg-gray-900 py-16">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
-
-    <!-- LEFT: LOGO + CONTACT INFO -->
-    <div>
-      <!-- Logo -->
-      <!-- <div class="flex items-center gap-2 mb-5">
-        <span class="text-primary text-3xl">🏙️</span>
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div> -->
-
-      <!-- Contact Items -->
-        <div class="flex items-center gap-2 mb-6">
-        <img src="https://placehold.co/40x40?text=🏙️" class="w-8 h-8">
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div>
-
-      <!-- Contact Items -->
-      <ul class="space-y-5 text-gray-600 dark:text-gray-300">
-
-        <!-- Location -->
-        <li class="flex items-start gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z"/>
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z"/>
-          </svg>
-          <span>
-            3755 St SE Salem, Corner with Sunny Boulevard,<br>
-            37557, Australia
-          </span>
-        </li>
-
-        <!-- Phone -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M2.25 6.75l4.5-2.25L9 8.25l-2.25 1.5c.75 1.5 2.25 3 3.75 3.75l1.5-2.25 3.75 2.25-2.25 4.5c-4.5-1.5-9-6-11.25-11.25z"/>
-          </svg>
-          (305) 555-4446
-        </li>
-
-        <!-- Email -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M21.75 6.75l-9.75 7.5-9.75-7.5m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V6.75z"/>
-          </svg>
-          Youremail@gmail.com
-        </li>
-
-      </ul>
-
-      <!-- Social Icons -->
-      <div class="flex items-center gap-4 mt-6 text-xl">
-        <a class="hover:text-primary transition">🐦</a>
-        <a class="hover:text-primary transition">📘</a>
-        <a class="hover:text-primary transition">📸</a>
-        <a class="hover:text-primary transition">▶️</a>
-      </div>
-      
-    </div>
-
-    <!-- EXPLORE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Explore</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>About Us</li>
-        <li>Our Projects</li>
-        <li>Pricing</li>
-        <li>Testimonial</li>
-        <li>Appointment</li>
-      </ul>
-    </div>
-
-    <!-- LINKS -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Links</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>Services</li>
-        <li>Contact</li>
-        <li>Home Buying</li>
-        <li>Home Selling</li>
-        <li>Real Estate</li>
-      </ul>
-    </div>
-
-    <!-- T&C + SUBSCRIBE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">T&C</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300 mb-6">
-        <li>Property on sale</li>
-        <li>About Us</li>
-        <li>Our Team</li>
-        <li>Terms of use</li>
-        <li>Privacy Policy</li>
-      </ul>
-
-      <!-- Subscribe -->
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-3">Subscribe</h4>
-      <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-        Sign Up for Our Newsletter to get Latest Updates and Offers
-      </p>
-
-      <div class="flex">
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="px-4 py-2 w-full rounded-l-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none">
-        <button class="px-6  bg-blue-700 hover:bg-primary/90 text-white rounded-r-md">
-       
-          Subscribe
-        </button>
-      </div>
-    </div>
-
-  </div>
-</footer>
+<div id="site-footer" class="px-4 md:px-8"></div>
+<script type="module" src="footer.js"></script>
 
 <script>
   // Theme toggle logic

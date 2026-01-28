@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Coming Soon - RealPro</title>
+  <title>Coming Soon - Compass Housing</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -12,18 +13,16 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            primary: "#1A56DB",
-            secondary: "#0F172A",
-          },
+          colors: { primary: "#1A56DB", secondary: "#0F172A" },
           fontFamily: { sans: ["Inter", "sans-serif"] },
         },
       },
       darkMode: "class",
     };
   </script>
- <style>
-      body::before {
+
+  <style>
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
@@ -37,113 +36,153 @@
       z-index: -1;
     }
   </style>
+
   <style>
-   
+    /* Global Button */
+    .btn-primary {
+      @apply px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition;
+    }
   </style>
 </head>
 
-<body data-page="comingsoon" class="bg-white dark:bg-gray-900 text-secondary dark:text-white ">
- <button
-    id="themeToggle"
+<body data-page="comingsoon" class="bg-white dark:bg-gray-900 text-secondary dark:text-white" style="padding-top: 1rem;">
+
+  <!-- Theme Toggle -->
+  <button id="themeToggle"
     class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
     🌓
   </button>
-<!-- OVERLAY -->
- <div id="site-header"></div>
-<script src="header.js"></script>
-<div class="absolute inset-0 "></div>
 
-<!-- PAGE CONTENT -->
-<div class="relative min-h-screen flex flex-col items-center justify-center text-center px-4">
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
 
-  <!-- Logo -->
-  <a href="index.html" class="flex items-center gap-2 mb-6">
-    <img src="Images/colored-logo.png" class="w-12 h-12">
-    <span class="text-3xl font-bold">RealPro</span>
-  </a>
+  <!-- PAGE CONTENT -->
+  <div class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20">
 
-  <!-- Title -->
-  <h1 class="text-4xl md:text-6xl font-extrabold mb-4">
-    Coming Soon
-  </h1>
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2 mb-6">
+      <img src="Images/colored-logo.png" class="w-12 h-12" />
+      <span class="text-3xl font-bold">Compass Housing</span>
+    </a>
 
-  <p class="text-gray-300 text-lg md:text-xl max-w-xl mb-10">
-    We’re working hard to bring you something amazing. Stay tuned!
-  </p>
+    <!-- Title -->
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Coming Soon</h1>
 
-  <!-- COUNTDOWN -->
-  <div id="countdown" class="flex gap-5 md:gap-10 text-center mb-10">
+    <p class="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-xl mb-10">
+      We’re working hard to bring you something amazing. Stay tuned!
+    </p>
 
-    <div>
-      <h2 id="days" class="text-4xl font-bold">00</h2>
-      <p class="text-sm mt-1">Days</p>
+    <!-- COUNTDOWN -->
+    <div id="countdown" class="flex gap-6 md:gap-12 text-center mb-12">
+
+      <div>
+        <h2 id="days" class="text-4xl font-bold">00</h2>
+        <p class="text-sm mt-1">Days</p>
+      </div>
+
+      <div>
+        <h2 id="hours" class="text-4xl font-bold">00</h2>
+        <p class="text-sm mt-1">Hours</p>
+      </div>
+
+      <div>
+        <h2 id="minutes" class="text-4xl font-bold">00</h2>
+        <p class="text-sm mt-1">Minutes</p>
+      </div>
+
+      <div>
+        <h2 id="seconds" class="text-4xl font-bold">00</h2>
+        <p class="text-sm mt-1">Seconds</p>
+      </div>
+
     </div>
 
-    <div>
-      <h2 id="hours" class="text-4xl font-bold">00</h2>
-      <p class="text-sm mt-1">Hours</p>
+    <!-- EMAIL SUBSCRIBE -->
+    <div class="flex flex-col sm:flex-row items-center gap-2 w-full max-w-md">
+      <!-- <input id="notifyEmail" type="email" placeholder="Enter your email"
+        class="px-4 py-3 w-full rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 outline-none border border-gray-300 dark:border-gray-700" /> -->
+
+  <input
+          type="email"
+          placeholder="Your Email"
+          class="px-4 py-3 w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none"
+        />
+ <button
+  id="notifyBtn"
+  class="px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 whitespace-nowrap"
+>
+  Notify Me
+</button>
     </div>
 
-    <div>
-      <h2 id="minutes" class="text-4xl font-bold">00</h2>
-      <p class="text-sm mt-1">Minutes</p>
-    </div>
-
-    <div>
-      <h2 id="seconds" class="text-4xl font-bold">00</h2>
-      <p class="text-sm mt-1">Seconds</p>
-    </div>
+    <p id="notifyError" class="text-red-500 text-sm mt-2 hidden">Please enter a valid email.</p>
+    <p id="notifySuccess" class="text-green-500 text-sm mt-2 hidden">You will be notified!</p>
 
   </div>
 
-  <!-- EMAIL SUBSCRIBE -->
-  <div class="flex flex-col sm:flex-row items-center gap-3 w-full max-w-md">
-    <input
-      type="email"
-      placeholder="Enter your email"
-      class="px-4 py-3 w-full rounded-lg bg-white/90 text-gray-900 outline-none border border-gray-300"
-    />
+  <!-- FOOTER -->
+ <div id="site-footer" class="px-4 md:px-8"></div>
+  <script type="module" src="footer.js"></script>
 
-    <button class="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90">
-      Notify Me
-    </button>
-  </div>
+  <!-- COUNTDOWN SCRIPT -->
+  <script>
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 7);
 
-</div>
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const dist = targetDate - now;
 
-<!-- COUNTDOWN SCRIPT -->
-<script>
-  const targetDate = new Date();
-  targetDate.setDate(targetDate.getDate() + 7); // 7-day countdown
+      if (dist <= 0) return;
 
-  function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
+      document.getElementById("days").innerText =
+        Math.floor(dist / (1000 * 60 * 60 * 24));
 
-    if (distance <= 0) return;
+      document.getElementById("hours").innerText =
+        Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
-    document.getElementById("days").innerText =
-      Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById("minutes").innerText =
+        Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
 
-    document.getElementById("hours").innerText =
-      Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("seconds").innerText =
+        Math.floor((dist % (1000 * 60)) / 1000);
+    }
+    setInterval(updateCountdown, 1000);
+  </script>
 
-    document.getElementById("minutes").innerText =
-      Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  <!-- NOTIFY ME VALIDATION -->
+  <script>
+    const emailInput = document.getElementById("notifyEmail");
+    const btn = document.getElementById("notifyBtn");
+    const errorMsg = document.getElementById("notifyError");
+    const successMsg = document.getElementById("notifySuccess");
 
-    document.getElementById("seconds").innerText =
-      Math.floor((distance % (1000 * 60)) / 1000);
-  }
+    btn.addEventListener("click", () => {
+      errorMsg.classList.add("hidden");
+      successMsg.classList.add("hidden");
 
-  setInterval(updateCountdown, 1000);
-</script>
-<script>
-  // Theme toggle logic
-  const toggle = document.getElementById("themeToggle");
-  toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.toggle("light");
-  });
-</script>
+      const email = emailInput.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailRegex.test(email)) {
+        errorMsg.classList.remove("hidden");
+        emailInput.classList.add("border-red-500");
+        return;
+      }
+
+      emailInput.classList.remove("border-red-500");
+      successMsg.classList.remove("hidden");
+      emailInput.value = "";
+    });
+  </script>
+
+  <!-- THEME TOGGLE -->
+  <script>
+    document.getElementById("themeToggle").onclick = () =>
+      document.documentElement.classList.toggle("dark");
+  </script>
+
 </body>
+
 </html>

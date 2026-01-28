@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Listing - RealPro</title>
+  <title>Listing - Compass Housing</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -38,9 +38,73 @@
       z-index: -1;
     }
   </style>
+
+  <style>
+
+  /* ===============================
+     GLOBAL BUTTON (PRIMARY)
+     =============================== */
+  .btn-primary,
+  button:not(.no-global):not([class*="border"]):not([class*="bg-transparent"]) {
+    @apply bg-primary text-white px-6 py-3 rounded-md font-medium 
+           hover:bg-primary/90 transition;
+  }
+
+  /* ===============================
+     GLOBAL OUTLINE BUTTON
+     =============================== */
+  .btn-outline,
+  a.border,
+  button[class*="border"]:not(.no-global) {
+    @apply border border-primary text-primary px-5 py-2 rounded-md 
+           hover:bg-primary hover:text-white transition;
+  }
+
+  /* ===============================
+     GLOBAL LINK STYLE
+     =============================== */
+  a:not(.no-global):not(.nav-link):not(.subscribe-btn) {
+    @apply text-primary hover:text-primary/80 transition;
+  }
+
+  /* ===============================
+     GLOBAL INPUTS + SELECTS
+     =============================== */
+  input,
+  select,
+  textarea {
+    @apply px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 
+           bg-white dark:bg-gray-900 text-secondary dark:text-white 
+           focus:ring-2 focus:ring-primary outline-none text-sm;
+  }
+
+  /* ===============================
+     GLOBAL PAGE PADDING
+     =============================== */
+  body {
+    @apply px-4 md:px-8;
+  }
+
+  /* ===============================
+     GLOBAL SECTION SPACING
+     =============================== */
+  section {
+    @apply py-10;
+  }
+
+  /* ===============================
+     GLOBAL CARD STYLE
+     =============================== */
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 
+           dark:border-gray-700 shadow-sm p-5;
+  }
+
+</style>
+
 </head>
 
-<body data-page="listing" class="bg-white dark:bg-gray-900 text-secondary dark:text-white font-sans">
+<body data-page="listing" class="px-4 md:px-8 bg-white dark:bg-gray-900 text-secondary dark:text-white font-sans">
    <button
     id="themeToggle"
     class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
@@ -60,7 +124,7 @@
       </h1>
 <div class="flex items-center gap-6 text-gray-700 dark:text-gray-300">
 
-  <!-- MOST POPULAR DROPDOWN -->
+  <div class="relative">
   <div class="flex items-center gap-1 cursor-pointer select-none" id="sortToggle">
     <span id="sortLabel">Most popular</span>
 
@@ -80,6 +144,9 @@
     <p class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Highest price</p>
     <p class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Newest</p>
   </div>
+
+
+</div>
 
   <!-- VIEW TOGGLE -->
   <div class="flex items-center gap-3 text-xl">
@@ -506,124 +573,8 @@
   </div>
 
 </section>
-   <footer class="w-full bg-gray-100 dark:bg-gray-900 py-16">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
-
-    <!-- LEFT: LOGO + CONTACT INFO -->
-    <div>
-      <!-- Logo -->
-      <!-- <div class="flex items-center gap-2 mb-5">
-        <span class="text-primary text-3xl">🏙️</span>
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div> -->
-
-      <!-- Contact Items -->
-        <div class="flex items-center gap-2 mb-6">
-        <img src="https://placehold.co/40x40?text=🏙️" class="w-8 h-8">
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div>
-
-      <!-- Contact Items -->
-      <ul class="space-y-5 text-gray-600 dark:text-gray-300">
-
-        <!-- Location -->
-        <li class="flex items-start gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z"/>
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z"/>
-          </svg>
-          <span>
-            3755 St SE Salem, Corner with Sunny Boulevard,<br>
-            37557, Australia
-          </span>
-        </li>
-
-        <!-- Phone -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M2.25 6.75l4.5-2.25L9 8.25l-2.25 1.5c.75 1.5 2.25 3 3.75 3.75l1.5-2.25 3.75 2.25-2.25 4.5c-4.5-1.5-9-6-11.25-11.25z"/>
-          </svg>
-          (305) 555-4446
-        </li>
-
-        <!-- Email -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M21.75 6.75l-9.75 7.5-9.75-7.5m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V6.75z"/>
-          </svg>
-          Youremail@gmail.com
-        </li>
-
-      </ul>
-
-      <!-- Social Icons -->
-      <div class="flex items-center gap-4 mt-6 text-xl">
-        <a class="hover:text-primary transition">🐦</a>
-        <a class="hover:text-primary transition">📘</a>
-        <a class="hover:text-primary transition">📸</a>
-        <a class="hover:text-primary transition">▶️</a>
-      </div>
-      
-    </div>
-
-    <!-- EXPLORE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Explore</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>About Us</li>
-        <li>Our Projects</li>
-        <li>Pricing</li>
-        <li>Testimonial</li>
-        <li>Appointment</li>
-      </ul>
-    </div>
-
-    <!-- LINKS -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Links</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>Services</li>
-        <li>Contact</li>
-        <li>Home Buying</li>
-        <li>Home Selling</li>
-        <li>Real Estate</li>
-      </ul>
-    </div>
-
-    <!-- T&C + SUBSCRIBE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">T&C</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300 mb-6">
-        <li>Property on sale</li>
-        <li>About Us</li>
-        <li>Our Team</li>
-        <li>Terms of use</li>
-        <li>Privacy Policy</li>
-      </ul>
-
-      <!-- Subscribe -->
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-3">Subscribe</h4>
-      <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-        Sign Up for Our Newsletter to get Latest Updates and Offers
-      </p>
-
-      <div class="flex">
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="px-4 py-2 w-full rounded-l-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none">
-        <button class="px-6 bg-primary hover:bg-primary/90 text-white rounded-r-md">
-          Subscribe
-        </button>
-      </div>
-    </div>
-
-  </div>
-</footer>
+<div id="site-footer"></div>
+<script type="module" src="footer.js"></script>
 <script>
   // SORT DROPDOWN
   const sortToggle = document.getElementById("sortToggle");

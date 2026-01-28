@@ -96,7 +96,7 @@
   <title>Home 4 – Compass Housing</title>
 </head>
 
-<body data-page="home2" class="bg-white text-secondary dark:bg-secondary dark:text-white font-sans"
+<body data-page="home2" class=" px-4 md:px-8 bg-white text-secondary dark:bg-secondary dark:text-white font-sans"
 >
 
   <!-- ================= THEME TOGGLE BUTTON ================= -->
@@ -244,75 +244,73 @@
 <section class="w-full py-20">
   <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-    <!-- LEFT: TWO CIRCULAR IMAGES -->
-    <div class="relative flex items-center justify-center">
+    <!-- LEFT SIDE – PREMIUM IMAGE DESIGN -->
+    <div class="relative flex justify-center">
 
-      <!-- Circle Image 1 -->
-      <div class="w-56 h-56 rounded-full overflow-hidden shadow-xl">
-        <img src="Images/home1/3r3.png"
-             class="w-full h-full object-cover">
+      <!-- Main Oval Image -->
+      <div class="w-72 h-96 rounded-[40px] overflow-hidden shadow-xl">
+        <img 
+          src="https://images.unsplash.com/photo-1527030280862-64139fba04ca?auto=format&fit=crop&w=800&q=80"
+          class="w-full h-full object-cover">
       </div>
 
-      <!-- Circle Image 2 -->
-      <div class="w-56 h-56 rounded-full overflow-hidden shadow-xl absolute right-0 translate-x-20">
-        <img src="Images/home1/3r2.png"
-             class="w-full h-full object-cover">
-      </div>
-
-      <!-- Arrow Icon / Decorative Line -->
-      <div class="absolute -top-5 left-28">
-        <img src="Images/home1/3r1.png" class="opacity-70">
-      </div>
-
-      <!-- Decorative Badge -->
-      <div class="absolute bottom-4 -left-6">
-        <img src="https://placehold.co/90x90?text=Badge" class="rounded-full shadow-md">
+      <!-- Floating Smaller Image -->
+      <div class="absolute -bottom-6 -left-6 w-40 h-40 rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-gray-900 hidden md:block">
+        <img 
+          src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=600&q=80"
+          class="w-full h-full object-cover">
       </div>
 
     </div>
 
-    <!-- RIGHT: TEXT CONTENT -->
+    <!-- RIGHT SIDE – TEXT CONTENT -->
     <div class="space-y-6">
 
-      <p class="text-gray-500 dark:text-gray-300 text-sm font-medium">
-        About Housebox
+      <p class="text-primary text-3xl md:text-4xl font-semibold tracking-wide">
+        ABOUT HOUSEBOX
       </p>
 
-      <h2 class="text-3xl md:text-4xl font-bold text-secondary dark:text-white leading-snug">
-        Embrace the<br>
-        Elegance Our<br>
-        Exclusive Property
+      <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white leading-snug">
+        Embrace the Elegance of Our<br>
+        Exclusive Property Collections
       </h2>
 
-      <p class="text-gray-600 dark:text-gray-300 leading-relaxed max-w-md">
-        At HouseBox, we’re redefining the way people find, sell, and invest in properties. 
-        Our mission is to simplify real estate by providing innovative solutions, expert guidance, 
-        and a personalized approach for every client.
+      <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+        At HouseBox, we redefine the real estate experience by offering 
+        personalized guidance, innovative technology, and hand-picked properties 
+        that match your lifestyle. Our mission is to make property buying and 
+        investing simple, transparent, and empowering.
       </p>
 
-      <!-- Stats Row -->
-      <div class="flex items-center gap-10 pt-4">
+      <!-- Stats -->
+      <div class="grid grid-cols-3 gap-6 pt-4">
 
         <div class="text-center">
-          <h3 class="text-3xl font-bold text-secondary dark:text-white">0<span class="text-primary">K</span></h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm">Homes</p>
+          <h3 class="text-3xl font-bold text-secondary dark:text-white">
+            12<span class="text-primary">K+</span>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-300 text-sm">Homes Listed</p>
         </div>
 
         <div class="text-center">
-          <h3 class="text-3xl font-bold text-secondary dark:text-white">0<span class="text-primary">K</span></h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm">Happy Client</p>
+          <h3 class="text-3xl font-bold text-secondary dark:text-white">
+            9<span class="text-primary">K+</span>
+          </h3>
+          <p class="text-gray-500 dark:text-gray-300 text-sm">Happy Clients</p>
         </div>
 
         <div class="text-center">
-          <h3 class="text-3xl font-bold text-secondary dark:text-white">0%</h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm">Satisfaction Rate</p>
+          <h3 class="text-3xl font-bold text-secondary dark:text-white">
+            98%
+          </h3>
+          <p class="text-gray-500 dark:text-gray-300 text-sm">Satisfaction</p>
         </div>
 
       </div>
 
-      <!-- Button -->
+      <!-- CTA Button -->
       <a href="#"
-         class="inline-block bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition">
+        class="inline-block bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition">
         See All Properties →
       </a>
 
@@ -320,6 +318,8 @@
 
   </div>
 </section>
+
+
 
 <!-- edit -->
 
@@ -334,8 +334,8 @@
     <div class="flex items-center justify-between mb-6">
 
       <div>
-        <p class="text-sm text-primary font-medium">Our Top Property</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-secondary dark:text-white">
+        <p class="text-sm text-3xl md:text-4xl text-primary font-medium">Our Top Property</p>
+        <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white">
           Our Featured Properties
         </h2>
       </div>
@@ -573,10 +573,10 @@
   <div class="container mx-auto px-4 text-center">
 
     <!-- SECTION TITLE -->
-    <p class="text-primary font-medium text-sm mb-2">Our Gallery</p>
+    <p class="text-primary text-3xl md:text-4xl font-medium text-sm mb-2">Our Gallery</p>
 
-    <h2 class="text-3xl md:text-4xl font-bold text-secondary dark:text-white mb-12">
-      Our Property<br>Showcase
+    <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-12">
+      Our Property Showcase
     </h2>
 
     <!-- IMAGE GRID -->
@@ -628,8 +628,8 @@
 
     <!-- Title Block -->
     <div class="text-center mb-10">
-      <p class="text-sm text-primary font-medium">Our Best Featured Item</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-secondary dark:text-white">
+      <p class=" text-3xl md:text-4xl text-primary font-medium">Our Best Featured Item</p>
+      <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white">
         Our Featured Items
       </h2>
     </div>
@@ -729,9 +729,9 @@
   <div class="container mx-auto px-4 text-center">
 
     <!-- Section Heading -->
-    <p class="text-primary font-medium text-sm mb-2">Our Testimonials</p>
-    <h2 class="text-3xl md:text-4xl font-bold text-secondary dark:text-white mb-14">
-      Feedback Our <br> Investor
+    <p class="text-primary  font-medium text-3xl md:text-4xl mb-2">Our Testimonials</p>
+    <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-14">
+      Feedback Our Investor
     </h2>
 
     <!-- FLEX WRAPPER (MAP LEFT + TESTIMONIAL RIGHT) -->
@@ -798,10 +798,10 @@
   <div class="container mx-auto px-4 text-center">
 
     <!-- SECTION HEADING -->
-    <p class="text-primary font-medium text-sm mb-2">Our Team</p>
+    <p class="text-primary font-medium text-3xl md:text-4xl mb-2">Our Team</p>
 
-    <h2 class="text-3xl md:text-4xl font-bold text-secondary dark:text-white mb-14">
-      Experts Behind <br> HouseBox
+    <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-14">
+      Experts Behind HouseBox
     </h2>
 
     <!-- TEAM GRID -->
@@ -815,13 +815,6 @@
         <div class="p-5 text-left">
           <h3 class="text-lg font-semibold text-secondary dark:text-white">Adman Michel</h3>
           <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Consultant</p>
-
-          <!-- Icons -->
-          <div class="flex items-center gap-4 text-xl text-gray-600 dark:text-gray-300">
-            <a class="hover:text-primary transition">📘</a>
-            <a class="hover:text-primary transition">🐦</a>
-            <a class="hover:text-primary transition">💼</a>
-          </div>
         </div>
       </div>
 
@@ -833,12 +826,6 @@
         <div class="p-5 text-left">
           <h3 class="text-lg font-semibold text-secondary dark:text-white">Miss Rafael Daniel</h3>
           <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Consultant</p>
-
-          <div class="flex items-center gap-4 text-xl text-gray-600 dark:text-gray-300">
-            <a class="hover:text-primary transition">📘</a>
-            <a class="hover:text-primary transition">🐦</a>
-            <a class="hover:text-primary transition">💼</a>
-          </div>
         </div>
       </div>
 
@@ -850,12 +837,6 @@
         <div class="p-5 text-left">
           <h3 class="text-lg font-semibold text-secondary dark:text-white">Patty Lindgrenl</h3>
           <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Consultant</p>
-
-          <div class="flex items-center gap-4 text-xl text-gray-600 dark:text-gray-300">
-            <a class="hover:text-primary transition">📘</a>
-            <a class="hover:text-primary transition">🐦</a>
-            <a class="hover:text-primary transition">💼</a>
-          </div>
         </div>
       </div>
 
@@ -868,11 +849,6 @@
           <h3 class="text-lg font-semibold text-secondary dark:text-white">Kathy Wilkinson Sr.</h3>
           <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Consultant</p>
 
-          <div class="flex items-center gap-4 text-xl text-gray-600 dark:text-gray-300">
-            <a class="hover:text-primary transition">📘</a>
-            <a class="hover:text-primary transition">🐦</a>
-            <a class="hover:text-primary transition">💼</a>
-          </div>
         </div>
       </div>
 
@@ -918,124 +894,8 @@
   </div>
 
 </section>
-    <footer class="w-full bg-gray-100 dark:bg-gray-900 py-16">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
-
-    <!-- LEFT: LOGO + CONTACT INFO -->
-    <div>
-      <!-- Logo -->
-      <!-- <div class="flex items-center gap-2 mb-5">
-        <span class="text-primary text-3xl">🏙️</span>
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div> -->
-
-      <!-- Contact Items -->
-        <div class="flex items-center gap-2 mb-6">
-        <img src="https://placehold.co/40x40?text=🏙️" class="w-8 h-8">
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div>
-
-      <!-- Contact Items -->
-      <ul class="space-y-5 text-gray-600 dark:text-gray-300">
-
-        <!-- Location -->
-        <li class="flex items-start gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z"/>
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z"/>
-          </svg>
-          <span>
-            3755 St SE Salem, Corner with Sunny Boulevard,<br>
-            37557, Australia
-          </span>
-        </li>
-
-        <!-- Phone -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M2.25 6.75l4.5-2.25L9 8.25l-2.25 1.5c.75 1.5 2.25 3 3.75 3.75l1.5-2.25 3.75 2.25-2.25 4.5c-4.5-1.5-9-6-11.25-11.25z"/>
-          </svg>
-          (305) 555-4446
-        </li>
-
-        <!-- Email -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M21.75 6.75l-9.75 7.5-9.75-7.5m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V6.75z"/>
-          </svg>
-          Youremail@gmail.com
-        </li>
-
-      </ul>
-
-      <!-- Social Icons -->
-      <div class="flex items-center gap-4 mt-6 text-xl">
-        <a class="hover:text-primary transition">🐦</a>
-        <a class="hover:text-primary transition">📘</a>
-        <a class="hover:text-primary transition">📸</a>
-        <a class="hover:text-primary transition">▶️</a>
-      </div>
-      
-    </div>
-
-    <!-- EXPLORE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Explore</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>About Us</li>
-        <li>Our Projects</li>
-        <li>Pricing</li>
-        <li>Testimonial</li>
-        <li>Appointment</li>
-      </ul>
-    </div>
-
-    <!-- LINKS -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Links</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>Services</li>
-        <li>Contact</li>
-        <li>Home Buying</li>
-        <li>Home Selling</li>
-        <li>Real Estate</li>
-      </ul>
-    </div>
-
-    <!-- T&C + SUBSCRIBE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">T&C</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300 mb-6">
-        <li>Property on sale</li>
-        <li>About Us</li>
-        <li>Our Team</li>
-        <li>Terms of use</li>
-        <li>Privacy Policy</li>
-      </ul>
-
-      <!-- Subscribe -->
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-3">Subscribe</h4>
-      <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-        Sign Up for Our Newsletter to get Latest Updates and Offers
-      </p>
-
-      <div class="flex">
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="px-4 py-2 w-full rounded-l-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none">
-        <button class="px-6 bg-primary hover:bg-primary/90 text-white rounded-r-md">
-          Subscribe
-        </button>
-      </div>
-    </div>
-
-  </div>
-</footer>
+  <div id="site-footer" ></div>
+  <script type="module" src="footer.js"></script>
 
 <script>
   const featuredItems = [
@@ -1102,19 +962,6 @@
   // Initial Load
   updateSlider();
 </script>
-
-
-<!-- <script>
-// Mobile menu toggle
-const mobileBtnHome4 = document.getElementById("mobileMenuBtnHome4");
-const mobileMenuHome4 = document.getElementById("mobileMenuHome4");
-
-mobileBtnHome4.addEventListener("click", () => {
-  mobileMenuHome4.classList.toggle("hidden");
-});
-</script> -->
-
-
   <!-- ================= SCRIPTS ================= -->
   <script>
     // Theme toggle logic

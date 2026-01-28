@@ -4,9 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog</title>
+
+  <!-- TailwindCSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body::before {
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            secondary: "#0F172A",
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Global Button Class -->
+  <style>
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
@@ -19,398 +38,283 @@
       pointer-events: none;
       z-index: -1;
     }
-            html.dark body::before {
-  opacity: 0.05;
-  filter: brightness(0.6);
-}
-  </style>
-    <script src="https://cdn.tailwindcss.com"></script>
 
-<script>
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          primary: "#1A56DB",
-          secondary: "#0F172A",
-        }
-      }
+    html.dark body::before {
+      opacity: 0.05;
+      filter: brightness(0.6);
     }
-  }
-</script>
+
+    /* GLOBAL BUTTON STYLE */
+    .btn-primary {
+      @apply bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition;
+    }
+  </style>
 </head>
 
-<body data-page="blog" class="bg-white dark:bg-gray-900">
- <button
-    id="themeToggle"
+<body data-page="blog" class="bg-white dark:bg-gray-900 text-secondary dark:text-white">
+
+  <!-- THEME TOGGLE -->
+  <button id="themeToggle"
     class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
     🌓
   </button>
-<div id="site-header"></div>
-<script src="header.js"></script>
-<!-- PAGE CONTAINER -->
-<div class="container mx-auto px-4 py-10  mt-[110px] pt-4">
 
-  <!-- PAGE TITLE -->
-  <h2 class="text-center text-3xl font-bold text-secondary dark:text-white mb-10">
-    Our Blog
-  </h2>
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
 
-  <!-- ======================================================
-        SECTION 1 – FEATURED BLOG GRID (Left big + right small)
-  ====================================================== -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-14">
+  <!-- MAIN CONTAINER -->
+  <div class="container mx-auto px-4 py-14 mt-[110px]">
 
-    <!-- LEFT FEATURED -->
-    <div class="col-span-2 relative rounded-xl overflow-hidden shadow-lg group">
+    <!-- TITLE -->
+    <h2 class="text-center text-3xl font-bold mb-10">Our Blog</h2>
 
-      <img src="Images/blog.jpg"
-           class="w-full h-[300px] object-cover" />
+    <!-- ========== FEATURED BLOG GRID ========== -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-14">
 
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+      <!-- BIG LEFT FEATURED -->
+      <div class="col-span-2 relative rounded-xl overflow-hidden shadow-lg group">
+        <img src="Images/blog.jpg" class="w-full h-[300px] object-cover" />
 
-      <div class="absolute bottom-4 left-4 text-white">
-        <span class="px-3 py-1 bg-blue-600 text-xs rounded-md">Real Estate</span>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
 
-        <h3 class="text-xl font-semibold mt-3">
-          High Rise Townhouse Investment Review
-        </h3>
+        <div class="absolute bottom-4 left-4 text-white">
+          <span class="px-3 py-1 bg-blue-600 text-xs rounded-md">Real Estate</span>
 
-        <div class="flex items-center gap-4 text-sm opacity-90 mt-2">
-          <span>📅 Jan 10, 2022</span>
-          <span>👤 Admin</span>
+          <h3 class="text-xl font-semibold mt-3">
+            High Rise Townhouse Investment Review
+          </h3>
+
+          <div class="flex items-center gap-4 text-sm opacity-90 mt-2">
+            <span>📅 Jan 10, 2022</span>
+            <span>👤 Admin</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SMALL BLOG ITEMS -->
+      <div class="space-y-4">
+
+        <a href="blog-details.html"
+           class="flex gap-4 items-center rounded-lg overflow-hidden shadow border hover:shadow-lg transition">
+          <img src="Images/home1/himg2.png" class="w-28 h-20 object-cover" />
+          <div class="p-2">
+            <h4 class="font-semibold">Blog Title Here</h4>
+            <p class="text-xs text-gray-500 mt-1">📅 Jan 10, 2022</p>
+          </div>
+        </a>
+
+        <a href="blog-details.html"
+           class="flex gap-4 items-center rounded-lg overflow-hidden shadow border hover:shadow-lg transition">
+          <img src="Images/home1/himg2.png" class="w-28 h-20 object-cover" />
+          <div class="p-2">
+            <h4 class="font-semibold">Blog Title Here</h4>
+            <p class="text-xs text-gray-500 mt-1">📅 Jan 10, 2022</p>
+          </div>
+        </a>
+
+        <a href="blog-details.html"
+           class="flex gap-4 items-center rounded-lg overflow-hidden shadow border hover:shadow-lg transition">
+          <img src="Images/home1/himg2.png" class="w-28 h-20 object-cover" />
+          <div class="p-2">
+            <h4 class="font-semibold">Blog Title Here</h4>
+            <p class="text-xs text-gray-500 mt-1">📅 Jan 10, 2022</p>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- ========== SEARCH + SORT ========== -->
+    <div class="flex flex-wrap justify-between items-center gap-4 my-10">
+
+      <!-- SEARCH -->
+ <div class="flex flex-col sm:flex-row items-center gap-2 w-full max-w-md">
+  
+  <!-- <input 
+    type="text" 
+    placeholder="Type to search..." 
+    class="flex-1 px-4 py-2 bg-transparent outline-none text-gray-700 dark:text-gray-200"
+  />
+
+  <button 
+    class="px-4 py-2 bg-primary text-white text-sm font-medium hover:bg-primary/90 transition">
+    Search
+  </button> -->
+
+  
+  <input
+         type="text" 
+     placeholder="Type to search..." 
+          class="px-4 py-3 w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none"
+        />
+ <button
+  id="notifyBtn"
+  class="px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 whitespace-nowrap"
+>
+    Search
+</div>
+
+
+      <!-- SORT DROPDOWN -->
+      <div class="relative">
+        <button id="sortToggle"
+          class="flex items-center gap-2 border px-4 py-2 rounded-md text-sm text-gray-700 dark:text-gray-300">
+          Most Popular ⌄
+        </button>
+
+        <div id="sortMenu"
+          class="hidden absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 border rounded-md shadow-md z-20 text-sm">
+
+          <p class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Most Popular</p>
+          <p class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Latest</p>
+          <p class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Oldest</p>
+
         </div>
       </div>
 
     </div>
 
-    <!-- RIGHT SMALL BLOGS -->
-    <div class="space-y-4">
+    <!-- ========== BLOG GRID ========== -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
 
       <!-- ITEM -->
       <a href="blog-details.html"
-   class="flex gap-4 items-center rounded-lg overflow-hidden shadow border cursor-pointer hover:shadow-lg transition">
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
 
-        <img src="Images/home1/himg2.png" class="w-28 h-20 object-cover" />
-        <div class="p-2">
-          <h4 class="font-semibold text-secondary dark:text-white text-sm">Blog Title Here</h4>
-          <p class="text-xs text-gray-500 mt-1">📅 Jan 10, 2022</p>
+        <img src="Images/home1/ga4.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
+        </div>
+      </a>
+
+      <!-- OTHER DUPLICATES (8 remaining) -->
+      <!-- Just repeated as in your file—kept unchanged except structure fixed -->
+
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
+
+        <img src="Images/home1/ga2.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
         </div>
       </a>
 
       <a href="blog-details.html"
-   class="flex gap-4 items-center rounded-lg overflow-hidden shadow border cursor-pointer hover:shadow-lg transition">
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
 
-        <img src="Images/home1/himg2.png" class="w-28 h-20 object-cover" />
-        <div class="p-2">
-          <h4 class="font-semibold text-secondary dark:text-white text-sm">Blog Title Here</h4>
-          <p class="text-xs text-gray-500 mt-1">📅 Jan 10, 2022</p>
+        <img src="Images/home1/himg1.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
         </div>
       </a>
 
-    <a href="blog-details.html"
-   class="flex gap-4 items-center rounded-lg overflow-hidden shadow border cursor-pointer hover:shadow-lg transition">
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
 
-        <img src="Images/home1/himg2.png" class="w-28 h-20 object-cover" />
-        <div class="p-2">
-          <h4 class="font-semibold text-secondary dark:text-white text-sm">Blog Title Here</h4>
-          <p class="text-xs text-gray-500 mt-1">📅 Jan 10, 2022</p>
+        <img src="Images/home1/himg4.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
         </div>
-      </div>
+      </a>
 
-    </a>
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
 
-  </div>
+        <img src="Images/home1/himg3.png" class="w-full h-48 object-cover rounded-t-xl" />
 
-  <!-- ======================================================
-        SECTION 2 – Search + Filter Row
-  ====================================================== -->
-  <div class="flex flex-wrap justify-between items-center gap-4 my-10">
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
 
-    <!-- Search -->
-    <div class="flex items-center border rounded-md overflow-hidden">
-      <input type="text"
-             placeholder="Type to search..."
-             class="px-4 py-2 outline-none" />
-      <button class="px-4 py-2 bg-primary text-white">Search</button>
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
+        </div>
+      </a>
+
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
+
+        <img src="Images/home1/ga7.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
+        </div>
+      </a>
+
     </div>
 
-    <!-- Sort -->
-    <div class="flex items-center gap-2">
-      <span class="text-gray-600 dark:text-gray-300 text-sm">Most popular</span>
-      <button class="text-gray-500 text-xl">⌄</button>
-    </div>
-
-  </div>
-
-  <!-- ======================================================
-        SECTION 3 – Blog Grid (large list)
-  ====================================================== -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-
-    <!-- BLOG CARD -->
-   <a href="blog-details.html"
-   class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition cursor-pointer">
-
-      <img src="Images/home1/ga4.png"
-           class="w-full h-48 object-cover rounded-t-xl" />
-      <div class="p-4">
-        <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
-          <span>📅 January 10, 2022</span>
-          <span>•</span>
-          <span>🏷️ Technology</span>
-        </div>
-
-        <h4 class="font-semibold text-secondary dark:text-white mb-2">
-          Blog Title Goes Here
-        </h4>
-
-        <p class="text-gray-500 dark:text-gray-400 text-sm">
-          A fairy tale… short description goes here.
-        </p>
-      </div>
-    </a>
-
-    <!-- Duplicate 8 more -->
-  <a href="blog-details.html"
-   class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition cursor-pointer">
-
-      <img src="Images/home1/ga2.png" class="w-full h-48 object-cover rounded-t-xl" />
-      <div class="p-4">
-        <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
-          <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
-        </div>
-        <h4 class="font-semibold text-secondary dark:text-white mb-2">Blog Title Goes Here</h4>
-        <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
-      </div>
-    </a>
-
-    <a href="blog-details.html"
-   class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition cursor-pointer">
-
-      <img src="Images/home1/himg1.png" class="w-full h-48 object-cover rounded-t-xl" />
-      <div class="p-4">
-        <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
-          <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
-        </div>
-        <h4 class="font-semibold text-secondary dark:text-white mb-2">Blog Title Goes Here</h4>
-        <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
-      </div>
-    </a>
-
-   <a href="blog-details.html"
-   class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition cursor-pointer">
-
-      <img src="Images/home1/himg4.png" class="w-full h-48 object-cover rounded-t-xl" />
-      <div class="p-4">
-        <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
-          <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
-        </div>
-        <h4 class="font-semibold text-secondary dark:text-white mb-2">Blog Title Goes Here</h4>
-        <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
-      </div>
-    </a>
-
-   <a href="blog-details.html"
-   class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition cursor-pointer">
-
-      <img src="Images/home1/himg3.png" class="w-full h-48 object-cover rounded-t-xl" />
-      <div class="p-4">
-        <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
-          <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
-        </div>
-        <h4 class="font-semibold text-secondary dark:text-white mb-2">Blog Title Goes Here</h4>
-        <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
-      </div>
-    </a>
-
-    <a href="blog-details.html"
-   class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition cursor-pointer">
-
-      <img src="Images/home1/ga7.png" class="w-full h-48 object-cover rounded-t-xl" />
-      <div class="p-4">
-        <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
-          <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
-        </div>
-        <h4 class="font-semibold text-secondary dark:text-white mb-2">Blog Title Goes Here</h4>
-        <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
-      </div>
-    </a>
-
-  </div>
-
-  <!-- ======================================================
-        SECTION 4 – Pagination
-  ====================================================== -->
-  <div class="text-center">
-    <div class="inline-flex items-center gap-2">
-
-      <button class="w-8 h-8 border rounded-md">1</button>
-      <button class="w-8 h-8 border rounded-md bg-primary text-white">2</button>
-      <button class="w-8 h-8 border rounded-md">3</button>
-      <button class="w-8 h-8 border rounded-md">></button>
-
-    </div>
-  </div>
-
-</div><!-- end container -->
-
-   <footer class="w-full bg-gray-100 dark:bg-gray-900 py-16">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10">
-
-    <!-- LEFT: LOGO + CONTACT INFO -->
-    <div>
-      <!-- Logo -->
-      <!-- <div class="flex items-center gap-2 mb-5">
-        <span class="text-primary text-3xl">🏙️</span>
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div> -->
-
-      <!-- Contact Items -->
-        <div class="flex items-center gap-2 mb-6">
-        <img src="https://placehold.co/40x40?text=🏙️" class="w-8 h-8">
-        <h3 class="text-2xl font-bold text-secondary dark:text-white">RealPro</h3>
-      </div>
-
-      <!-- Contact Items -->
-      <ul class="space-y-5 text-gray-600 dark:text-gray-300">
-
-        <!-- Location -->
-        <li class="flex items-start gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z"/>
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z"/>
-          </svg>
-          <span>
-            3755 St SE Salem, Corner with Sunny Boulevard,<br>
-            37557, Australia
-          </span>
-        </li>
-
-        <!-- Phone -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M2.25 6.75l4.5-2.25L9 8.25l-2.25 1.5c.75 1.5 2.25 3 3.75 3.75l1.5-2.25 3.75 2.25-2.25 4.5c-4.5-1.5-9-6-11.25-11.25z"/>
-          </svg>
-          (305) 555-4446
-        </li>
-
-        <!-- Email -->
-        <li class="flex items-center gap-3">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" 
-                  d="M21.75 6.75l-9.75 7.5-9.75-7.5m19.5 0A2.25 2.25 0 0019.5 4.5H4.5a2.25 2.25 0 00-2.25 2.25v10.5a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V6.75z"/>
-          </svg>
-          Youremail@gmail.com
-        </li>
-
-      </ul>
-
-      <!-- Social Icons -->
-      <div class="flex items-center gap-4 mt-6 text-xl">
-        <a class="hover:text-primary transition">🐦</a>
-        <a class="hover:text-primary transition">📘</a>
-        <a class="hover:text-primary transition">📸</a>
-        <a class="hover:text-primary transition">▶️</a>
-      </div>
-      
-    </div>
-
-    <!-- EXPLORE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Explore</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>About Us</li>
-        <li>Our Projects</li>
-        <li>Pricing</li>
-        <li>Testimonial</li>
-        <li>Appointment</li>
-      </ul>
-    </div>
-
-    <!-- LINKS -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">Links</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300">
-        <li>Services</li>
-        <li>Contact</li>
-        <li>Home Buying</li>
-        <li>Home Selling</li>
-        <li>Real Estate</li>
-      </ul>
-    </div>
-
-    <!-- T&C + SUBSCRIBE -->
-    <div>
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-4">T&C</h4>
-      <ul class="space-y-3 text-gray-600 dark:text-gray-300 mb-6">
-        <li>Property on sale</li>
-        <li>About Us</li>
-        <li>Our Team</li>
-        <li>Terms of use</li>
-        <li>Privacy Policy</li>
-      </ul>
-
-      <!-- Subscribe -->
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mb-3">Subscribe</h4>
-      <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
-        Sign Up for Our Newsletter to get Latest Updates and Offers
-      </p>
-
-      <div class="flex">
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="px-4 py-2 w-full rounded-l-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none">
-        <button class="px-6 bg-blue-700 hover:bg-primary/90 text-white rounded-r-md">
-          Subscribe
-        </button>
+    <!-- ========== PAGINATION ========== -->
+    <div class="text-center">
+      <div class="inline-flex items-center gap-2">
+        <button class="w-8 h-8 border rounded-md">1</button>
+        <button class="w-8 h-8 border rounded-md bg-primary text-white">2</button>
+        <button class="w-8 h-8 border rounded-md">3</button>
+        <button class="w-8 h-8 border rounded-md">></button>
       </div>
     </div>
 
   </div>
-</footer>
 
-<script>
-   // Auto-highlight active page
-   const page = document.body.getAttribute("data-page"); 
-   document.querySelectorAll(".nav-link").forEach(link => {
-      if (link.dataset.page === page) {
-         link.classList.add("text-primary", "font-semibold");
-      }
-   });
+  <!-- FOOTER -->
+  <div id="site-footer" class="px-4 md:px-8"></div>
+  <script type="module" src="footer.js"></script>
 
-   // Set breadcrumb from data-page
-   const bread = {
-      home: "Home",
-      listing: "Listing",
-      contact: "Contact",
-      about: "About",
-      blog: "Blog"
-   };
-   if (bread[page]) {
-      document.getElementById("breadcrumbPage").innerText = bread[page];
-   }
+  <!-- DROPDOWN SCRIPT -->
+  <script>
+    const sortToggle = document.getElementById("sortToggle");
+    const sortMenu = document.getElementById("sortMenu");
 
-   // Mobile menu toggle
-   const btn = document.getElementById("mobileMenuBtn");
-   const menu = document.getElementById("mobileMenu");
+    sortToggle.addEventListener("click", () => {
+      sortMenu.classList.toggle("hidden");
+    });
 
-   btn.addEventListener("click", () => {
-     menu.classList.toggle("hidden");
-   });
-</script>
-<script>
-  // Theme toggle logic
-  const toggle = document.getElementById("themeToggle");
-  toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.toggle("light");
-  });
-</script>
+    sortMenu.querySelectorAll("p").forEach(item => {
+      item.addEventListener("click", () => {
+        sortToggle.innerHTML = item.textContent + " ⌄";
+        sortMenu.classList.add("hidden");
+      });
+    });
+  </script>
+
+  <!-- THEME TOGGLE -->
+  <script>
+    const toggle = document.getElementById("themeToggle");
+    toggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("dark");
+    });
+  </script>
+
 </body>
 </html>
