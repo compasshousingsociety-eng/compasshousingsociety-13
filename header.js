@@ -15,8 +15,8 @@ fetch("header.html")
     const bread = {
       home1: "Home 1",
       home2: "Home 2",
-      listing: "Listings",
-      listingDetails:"Listing Details",
+      services: "Services",
+      servicesDetails:"Service Details",
       blog: "Blog",
       blogdetails:"Blog Details",
       contact: "Contact",

@@ -91,9 +91,9 @@ export function loadFooter(selector = "site-footer") {
     <div class="space-y-3">
       <h4 class="text-lg font-semibold text-secondary dark:text-white">Links</h4>
       <ul class="text-gray-600 dark:text-gray-300 space-y-2 text-sm">
-        <li><a href="listings.html" class="hover:text-primary">Services</a></li>
+        <li><a href="services.html" class="hover:text-primary">Services</a></li>
         <li><a href="contact.html" class="hover:text-primary">Contact</a></li>
-        <li><a href="listing-details.html" class="hover:text-primary">Home Buying</a></li>
+        <li><a href="services-details.html" class="hover:text-primary">Home Buying</a></li>
         <li><a href="coming-soon.html" class="hover:text-primary">Home Selling</a></li>
         <li><a href="404.html" class="hover:text-primary">Real Estate</a></li>
       </ul>
