@@ -4,11 +4,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us - Compass Housing</title>
+  <title>About Us – Compass Housing Society</title>
 
-  <!-- Tailwind -->
+  <!-- FONT -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- CONFIG -->
   <script>
     tailwind.config = {
       darkMode: "class",
@@ -16,200 +20,188 @@
         extend: {
           colors: {
             primary: "#1A56DB",
-            secondary: "#0F172A"
+            dark: "#0F172A",
+            light: "#F5F7FA",
           },
-          fontFamily: {
-            sans: ["Inter", "sans-serif"]
-          }
+          fontFamily: { sans: ["Inter", "sans-serif"] },
         }
       }
     };
   </script>
 
+  <!-- GLOBAL BUTTONS -->
   <style>
-    /* Background Watermark */
+    .btn-primary {
+      @apply px-10 py-3 bg-primary text-white rounded-md font-medium hover:bg-primary/90 transition inline-flex justify-center;
+    }
+    .btn-light {
+      @apply px-10 py-3 bg-light text-dark dark:bg-dark/40 dark:text-white 
+             border border-light/40 dark:border-white/10 rounded-md 
+             hover:bg-light/80 dark:hover:bg-dark/60 transition;
+    }
+  </style>
+
+  <!-- WATERMARK -->
+  <style>
     body::before {
       content: "";
       position: fixed;
       inset: 0;
-      margin: auto;
       background-image: url("Images/transparent-logo-1.png");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 600px auto;
-      opacity: 0.10;
+      background-size: 500px;
+      opacity: 0.06;
       pointer-events: none;
       z-index: -1;
     }
   </style>
 </head>
 
-<body data-page="about" class="bg-white dark:bg-gray-900 text-secondary dark:text-white">
+<body class="bg-white dark:bg-dark text-dark dark:text-white font-sans" data-page="about">
 
-  <!-- Theme Toggle -->
-  <button id="themeToggle"
-    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 transition">
-    🌓
-  </button>
+<!-- THEME -->
+<button id="themeToggle"
+  class="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 z-[999]">
+  🌓
+</button>
 
-  <!-- HEADER -->
-  <div id="site-header"></div>
-  <script src="header.js"></script>
+<!-- HEADER -->
+<div id="site-header"></div>
+<script src="header.js"></script>
 
-  <!-- =============== HERO SECTION =============== -->
-  <section class="w-full mt-[120px] py-10">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
+<div class="pt-28"></div>
 
-      <img src="Images/about/aboutbanner.jpg"
-        class="rounded-xl shadow-lg w-full h-[380px] md:h-[420px] object-cover" />
-    </div>
-  </section>
+<!-- ================= HERO ================= -->
+<section style="padding-bottom: 2rem; " class=" ">
+  <div class="container mx-auto px-4 text-center bg-light/40 dark:bg-dark/30 border-b border-light/40 dark:border-white/10" style="padding-top: 2rem;">
+    <h1 class="text-4xl font-bold">About Us</h1>
+    <p class="text-dark/60 dark:text-white/60 mt-3 max-w-xl mx-auto">
+      Learn about our history, mission, and values that guide Compass Housing Society.
+    </p>
 
-  <!-- =============== OUR VISION =============== -->
-  <section class="w-full py-14">
-    <div class="container mx-auto px-4 text-center">
+    <img src="Images/about/aboutbanner.jpg"
+      class="rounded-xl shadow-xl w-full max-w-5xl mx-auto mt-10 h-[350px] md:h-[420px] object-cover" />
+  </div>
+</section>
 
-      <h3 class="text-3xl font-bold mb-10">Our Vision</h3>
+<!-- ================= OUR STORY ================= -->
+<section class="  bg-white dark:bg-dark " style="padding-bottom: 2rem;">
+  <div class="container mx-auto px-4  bg-light/40 dark:bg-gray-800/40 shadow-md" style="padding: 2.5rem;">
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-
-        <div class="p-6">
-          <div class="text-primary text-4xl mb-4">📦</div>
-          <h4 class="text-xl font-semibold mb-2">Creating Lifelong Possessions</h4>
-          <p class="text-gray-600 dark:text-gray-300">We deliver top-tier real estate solutions to reshape communities.</p>
-        </div>
-
-        <div class="p-6">
-          <div class="text-primary text-4xl mb-4">🛡️</div>
-          <h4 class="text-xl font-semibold mb-2">Empowering Real-Estate Decisions</h4>
-          <p class="text-gray-600 dark:text-gray-300">Helping clients make informed, confident choices.</p>
-        </div>
-
-        <div class="p-6">
-          <div class="text-primary text-4xl mb-4">📈</div>
-          <h4 class="text-xl font-semibold mb-2">Innovating For a Better Tomorrow</h4>
-          <p class="text-gray-600 dark:text-gray300">We use innovation to shape the future of the housing market.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- =============== OUR STORY =============== -->
-  <section class="w-full py-14 bg-gray-50 dark:bg-gray-800">
-    <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-      <img src="Images/about/hands.jpg" class="rounded-xl shadow-lg" />
-
-      <div>
-        <h3 class="text-3xl font-bold mb-4">Our Story</h3>
-      <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-  Compass Housing began with a simple vision — to make the journey of finding a home easier,
-  transparent, and more human. What started as a small initiative has grown into a trusted real estate
-  society known for reliability, innovation, and customer-first values. <br><br>
-
-  Over the years, we have built a strong reputation for helping families and individuals discover
-  properties that truly match their lifestyle and goals. Our society is driven by the belief that a
-  home is more than a place to live — it is the foundation of security, comfort, and future growth. <br><br>
-
-  From modern residential developments to a supportive community ecosystem, Compass Housing continues to
-  evolve with the needs of our residents. Our commitment to ethical practices, consistent service, and
-  long-term value creation has shaped who we are today. <br><br>
-
-  As we move forward, our story remains rooted in the same purpose: creating meaningful spaces,
-  strengthening communities, and guiding every customer with honesty, care, and expertise.
-</p>
-
-
-        <a href="#" class="inline-block bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary/90">
-          Read More →
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =============== OUR MISSION =============== -->
-<section class="w-full py-14">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-
-    <div>
-      <h3 class="text-3xl font-bold mb-4">Our Mission</h3>
-
-      <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-        At Compass Housing, our mission is to redefine how people discover, explore, and secure the homes they dream of.
-        We believe that a home is more than a place to live—it is a foundation for future growth, cherished memories, and
-        lifelong stability. <br><br>
-
-        Our commitment is to simplify the real-estate journey through personalized support, transparent communication,
-        and expert guidance. Every client deserves clarity and confidence during one of the most important decisions of
-        their life, and we strive to deliver exactly that. <br><br>
-
-        We focus on building communities that encourage sustainable living, enhance lifestyle standards, and empower
-        individuals and families to thrive. With innovation, integrity, and the latest market intelligence, we ensure
-        every experience is seamless—from the first inquiry to the final key handover. <br><br>
-
-        Our mission is rooted in excellence and driven by a vision to shape future-ready housing solutions that meet
-        modern needs while creating long-lasting value for every homeowner.
+    <div class="max-w-4xl mx-auto text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Story</h2>
+      <p class="text-dark/60 dark:text-white/60 text-lg">
+        A journey built on trust, transparency, and better living.
       </p>
-
-      <a href="#" class="inline-block bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary/90">
-        Read More →
-      </a>
     </div>
 
-    <img src="Images/about/dymondb.jpg" class="rounded-xl shadow-lg" />
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+
+      <div class="rounded-2xl overflow-hidden shadow-lg">
+        <img src="Images/about/hands.jpg" class="w-full h-96 object-cover" />
+      </div>
+
+      <div class="space-y-6 md:space-y-7">
+        <p class="text-dark/70 dark:text-white/70 leading-relaxed">
+          Compass Housing began with the mission to simplify how families find meaningful homes with trust and clarity.
+        </p>
+
+        <p class="text-dark/70 dark:text-white/70 leading-relaxed">
+          What started small has grown into a trusted society known for integrity, innovation, and people-first values.
+        </p>
+
+        <p class="text-dark/70 dark:text-white/70 leading-relaxed">
+          We have helped thousands discover homes that match their lifestyle, dreams, and long-term goals.
+        </p>
+
+        <!-- <a href="#" class="btn-primary">Read More →</a> -->
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUR MISSION ================= -->
+<section class="  bg-white dark:bg-dark " >
+  <div class="container mx-auto px-4  bg-light/40 dark:bg-gray-800/40 shadow-md " style="padding: 2.5rem;" >
+
+    <div class="max-w-4xl mx-auto text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Mission</h2>
+      <p class="text-dark/60 dark:text-white/60 text-lg">
+        Dedicated to shaping better living with transparency, innovation and trust.
+      </p>
+    </div>
+
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-14 items-center">
+
+      <div class="rounded-2xl overflow-hidden shadow-lg">
+        <img src="Images/about/dymondb.jpg" class="w-full h-96 object-cover" />
+      </div>
+
+      <div class="space-y-6 md:space-y-7">
+        <p class="text-dark/70 dark:text-white/70 leading-relaxed">
+          Our mission is to redefine home discovery through support, transparency, and expert guidance.
+        </p>
+
+        <p class="text-dark/70 dark:text-white/70 leading-relaxed">
+          We empower families to make confident housing decisions using clear information and modern tools.
+        </p>
+
+        <p class="text-dark/70 dark:text-white/70 leading-relaxed">
+          We build sustainable communities that encourage long-term comfort and prosperity.
+        </p>
+
+        <!-- <a href="#" class="btn-primary">Read More →</a> -->
+      </div>
+
+    </div>
 
   </div>
 </section>
 
+<!-- ================= TEAM ================= -->
+<section class=" bg-white dark:bg-dark" >
+  <div class="container mx-auto px-4 text-center bg-light/40 dark:bg-gray-800/40" style="padding-top: 2rem; padding-bottom: 2rem;">
 
-  <!-- =============== TEAM SECTION =============== -->
-  <section class="w-full py-14">
-    <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-bold mb-12">Meet The Team</h2>
 
-      <h3 class="text-3xl font-bold mb-10">Meet The Team</h3>
+    <div class="grid md:grid-cols-3 gap-14">
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="bg-white dark:bg-dark rounded-xl shadow-md p-8 md:p-10">
+        <img src="Images/about/abouthuman.jpg" class="rounded-xl h-64 w-full object-cover mb-4" />
+        <h4 class="text-lg font-semibold">Jonathan Doe</h4>
+        <p class="text-dark/60 dark:text-white/60 text-sm">Consultant</p>
+      </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
-          <img src="Images/about/abouthuman.jpg"
-            class="rounded-lg mb-4 w-full h-64 object-cover" />
-          <h4 class="text-lg font-semibold">Jonathan Doe</h4>
-          <p class="text-gray-500 dark:text-gray-400">Consultant</p>
-        </div>
+      <div class="bg-white dark:bg-dark rounded-xl shadow-md p-8 md:p-10">
+        <img src="Images/home1/team2.png" class="rounded-xl h-64 w-full object-cover mb-4" />
+        <h4 class="text-lg font-semibold">Rachel Dave</h4>
+        <p class="text-dark/60 dark:text-white/60 text-sm">Senior Advisor</p>
+      </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
-          <img src="Images/home1/team2.png"
-            class="rounded-lg mb-4 w-full h-64 object-cover" />
-          <h4 class="text-lg font-semibold">Rachel Dave</h4>
-          <p class="text-gray-500 dark:text-gray-400">Senior Advisor</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md p-4">
-          <img src="Images/home1/team3.png"
-            class="rounded-lg mb-4 w-full h-64 object-cover" />
-          <h4 class="text-lg font-semibold">Steven Wilson</h4>
-          <p class="text-gray-500 dark:text-gray-400">Market Expert</p>
-        </div>
-
+      <div class="bg-white dark:bg-dark rounded-xl shadow-md p-8 md:p-10">
+        <img src="Images/home1/team3.png" class="rounded-xl h-64 w-full object-cover mb-4" />
+        <h4 class="text-lg font-semibold">Steven Wilson</h4>
+        <p class="text-dark/60 dark:text-white/60 text-sm">Market Expert</p>
       </div>
 
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <div id="site-footer" class="px-4 md:px-8"></div>
-  <script type="module" src="footer.js"></script>
+  </div>
+</section>
 
-  <script>
-    // Theme toggle logic
-    const toggle = document.getElementById("themeToggle");
-    toggle.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-    });
-  </script>
+<!-- FOOTER -->
+<div id="site-footer"></div>
+<script type="module" src="footer.js"></script>
+
+<!-- THEME -->
+<script>
+  document.getElementById("themeToggle").onclick = () => {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+  };
+</script>
+
 </body>
-
 </html>

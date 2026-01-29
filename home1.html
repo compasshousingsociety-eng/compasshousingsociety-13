@@ -1,1007 +1,369 @@
 <!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Premium multipurpose business template" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Compass Housing – Home 2</title>
 
-  <!-- Tailwind CDN -->
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Tailwind Config -->
   <script>
     tailwind.config = {
-      darkMode: 'class',
+      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            primary: '#1A56DB',
-            secondary: '#0F172A',
-            accent: '#F59E0B'
+            primary: "#1A56DB",
+            dark: "#0F172A",
+            light: "#F5F7FA"
           },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            sans: ["Inter", "sans-serif"]
           }
         }
       }
     }
   </script>
-  <script>
-  const testimonials = [
-    {
-      text: `“I relocated for work and needed to sell my house quickly. Your Real Estate Agency delivered!
-              They handled everything smoothly, and I could focus on my move without worry. Highly recommended!”`,
-      name: "Alex Garcia",
-      role: "Shop Store Owner",
-      img: "https://placehold.co/60x60?text=AG"
-    },
-    {
-      text: `“Amazing service! They found my dream home within a week. The entire experience was stress-free
-              and very smooth.”`,
-      name: "Maria Lopez",
-      role: "Business Analyst",
-      img: "https://placehold.co/60x60?text=ML"
-    },
-    {
-      text: `“Their market expertise is unmatched. I was able to sell above my expected price in less than 10 days.
-              Fantastic team!”`,
-      name: "John Carter",
-      role: "Investor",
-      img: "https://placehold.co/60x60?text=JC"
-    }
-  ];
 
-  let testiIndex = 0;
-
-  function updateTestimonial() {
-    const t = testimonials[testiIndex];
-    document.getElementById("testimonialText").innerText = t.text;
-    document.getElementById("testimonialName").innerText = t.name;
-    document.getElementById("testimonialRole").innerText = t.role;
-    document.getElementById("testimonialImage").src = t.img;
-  }
-
-  document.getElementById("testiPrev").addEventListener("click", () => {
-    testiIndex = (testiIndex - 1 + testimonials.length) % testimonials.length;
-    updateTestimonial();
-  });
-
-  document.getElementById("testiNext").addEventListener("click", () => {
-    testiIndex = (testiIndex + 1) % testimonials.length;
-    updateTestimonial();
-  });
-
-  updateTestimonial();
-</script>
-
+  <!-- Watermark -->
   <style>
-      body::before {
+    html::before {
       content: "";
       position: fixed;
       inset: 0;
-      margin: auto;
       background-image: url("Images/transparent-logo-1.png");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 600px auto;
+      background-size: 480px;
       opacity: 0.10;
       pointer-events: none;
       z-index: -1;
     }
   </style>
-  <title>Home 4 – Compass Housing</title>
+
 </head>
 
-<body data-page="home2" class=" px-4 md:px-8 bg-white text-secondary dark:bg-secondary dark:text-white font-sans"
->
+<body data-page="home2" class="bg-white dark:bg-dark text-dark dark:text-white font-sans">
 
-  <!-- ================= THEME TOGGLE BUTTON ================= -->
-  <button id="themeToggle"
-    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
-    🌓
-  </button>
+<!-- Theme Toggle -->
+<button id="themeToggle"
+  class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:opacity-80">
+  🌓
+</button>
 
-
-  <!-- =========================== PAGE CONTENT START =========================== -->
-  <div id="page-content">
-
-<!-- ================= GLOBAL HEADER ================= -->
-
+<!-- HEADER -->
 <div id="site-header"></div>
 <script src="header.js"></script>
 
+<main class="pt-28">
 
+<!-- ===================================================
+   HERO SECTION (Kept)
+=================================================== -->
+<section class="relative bg-gradient-to-b from-light/80 to-white/80 dark:from-dark/90 dark:to-dark/90 py-24 rounded-xl">
 
+  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
-<!-- ===================== SECTION 2: HERO ===================== -->
-<section 
-
-  class="mt-[130px] w-full rounded-3xl overflow-hidden mx-auto bg-cover bg-center relative"
-  style="background-image: url('Images/home1/hero1.png');">
-
-  <!-- Dark Overlay -->
-  <div class="absolute inset-0 bg-black/40"></div>
-
-  <!-- HERO CONTENT -->
-  <div class="relative z-10 px-6 lg:px-12 py-20">
-
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
-      <!-- LEFT TEXT -->
-      <div class="text-white space-y-6 max-w-xl">
-
-        <p class="uppercase tracking-wider text-sm opacity-90">
-          Discover Your Ideal Property Today!
-        </p>
-
-        <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-          Turning Real Estate<br>
-          Dreams Into Reality
-        </h1>
-
-        <a href="#"
-           class="inline-block bg-primary text-white px-6 py-3 rounded-md font-medium shadow hover:bg-primary/80 transition">
-          Find Your Dream Home Now →
-        </a>
-
-      </div>
-
-      <!-- RIGHT SEARCH CARD -->
-      <div class="flex justify-center lg:justify-end w-full">
-        <div class="bg-white dark:bg-gray-900 rounded-xl shadow-xl p-6 w-full max-w-sm space-y-4">
-
-          <!-- Tabs -->
-          <div class="flex items-center justify-between border-b border-gray-200 dark:border-gray-600 pb-2">
-            <button class="text-primary font-semibold border-b-2 border-primary pb-1">Buy</button>
-            <button class="text-gray-600 dark:text-gray-300">Rent</button>
-          </div>
-
-          <!-- Form Fields -->
-          <div class="space-y-3">
-
-            <select class="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-700">
-              <option>All Status</option>
-            </select>
-
-            <select class="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-700">
-              <option>All Labels</option>
-            </select>
-
-            <select class="w-full px-4 py-2 border rounded-md bg-gray-50 dark:bg-gray-800 border-gray-300 dark:border-gray-700">
-              <option>All Types</option>
-            </select>
-
-          </div>
-
-          <!-- Buttons -->
-          <div class="flex items-center justify-between gap-3">
-
-            <button class="border border-gray-400 dark:border-gray-600 px-4 py-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-800 transition">
-              Filters
-            </button>
-
-            <button class="bg-primary text-white px-6 py-2 rounded-md hover:bg-primary/90 transition flex items-center gap-2">
-              Search 🔍
-            </button>
-
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ===================== SECTION 3: CITY IMAGE GALLERY ===================== -->
-<section class="w-full py-12">
-  <div class="container mx-auto px-4">
-
-    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-
-      <!-- Image 1 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-        <img src="Images/home1/ga1.png"
-             class="w-full h-44 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-      <!-- Image 2 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-        <img src="Images/home1/ga2.png"
-             class="w-full h-44 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-      <!-- Image 3 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-        <img src="Images/home1/ga3.png"
-             class="w-full h-44 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-      <!-- Image 4 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-        <img src="Images/home1/ga4.png"
-             class="w-full h-44 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-      <!-- Image 5 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-lg transition">
-        <img src="Images/home1/ga6.png"
-             class="w-full h-44 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ===================== SECTION 4: ABOUT + CIRCULAR IMAGES ===================== -->
-<section class="w-full py-20">
-  <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-    <!-- LEFT SIDE – PREMIUM IMAGE DESIGN -->
-    <div class="relative flex justify-center">
-
-      <!-- Main Oval Image -->
-      <div class="w-72 h-96 rounded-[40px] overflow-hidden shadow-xl">
-        <img 
-          src="https://images.unsplash.com/photo-1527030280862-64139fba04ca?auto=format&fit=crop&w=800&q=80"
-          class="w-full h-full object-cover">
-      </div>
-
-      <!-- Floating Smaller Image -->
-      <div class="absolute -bottom-6 -left-6 w-40 h-40 rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-gray-900 hidden md:block">
-        <img 
-          src="https://images.unsplash.com/photo-1501183638710-841dd1904471?auto=format&fit=crop&w=600&q=80"
-          class="w-full h-full object-cover">
-      </div>
-
-    </div>
-
-    <!-- RIGHT SIDE – TEXT CONTENT -->
+    <!-- LEFT -->
     <div class="space-y-6">
-
-      <p class="text-primary text-3xl md:text-4xl font-semibold tracking-wide">
-        ABOUT HOUSEBOX
+      <p class="text-lg text-dark/70 dark:text-white/70">
+        Trusted by <span class="text-primary font-semibold">10,000+</span> families
       </p>
 
-      <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white leading-snug">
-        Embrace the Elegance of Our<br>
-        Exclusive Property Collections
-      </h2>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+        Discover Your <span class="text-primary">Next Home</span>
+      </h1>
 
-      <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-        At HouseBox, we redefine the real estate experience by offering 
-        personalized guidance, innovative technology, and hand-picked properties 
-        that match your lifestyle. Our mission is to make property buying and 
-        investing simple, transparent, and empowering.
+      <p class="text-dark/70 dark:text-white/70">
+        We help you find, buy, and manage properties with ease and confidence.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+        Esse iste, cum expedita eaque asperiores reprehenderit facilis, architecto ut aliquam animi mollitia hic praesentium, quibusdam pariatur provident autem! Non, sapiente nisi.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis temporibus modi consequuntur recusandae, ullam unde ratione placeat ea amet itaque, aspernatur dolorum non accusamus excepturi dignissimos et dicta sapiente labore!
       </p>
 
-      <!-- Stats -->
-      <div class="grid grid-cols-3 gap-6 pt-4">
-
-        <div class="text-center">
-          <h3 class="text-3xl font-bold text-secondary dark:text-white">
-            12<span class="text-primary">K+</span>
-          </h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm">Homes Listed</p>
-        </div>
-
-        <div class="text-center">
-          <h3 class="text-3xl font-bold text-secondary dark:text-white">
-            9<span class="text-primary">K+</span>
-          </h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm">Happy Clients</p>
-        </div>
-
-        <div class="text-center">
-          <h3 class="text-3xl font-bold text-secondary dark:text-white">
-            98%
-          </h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm">Satisfaction</p>
-        </div>
-
-      </div>
-
-      <!-- CTA Button -->
-      <a href="#"
-        class="inline-block bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90 transition">
-        See All Properties →
-      </a>
-
+    
     </div>
 
-  </div>
-</section>
-
-
-
-<!-- edit -->
-
-
-
-
-<!-- ===================== SECTION 5: OUR FEATURED PROPERTIES ===================== -->
-<section class="w-full py-20 bg-gray-50 dark:bg-gray-800">
-  <div class="container mx-auto px-4">
-
-    <!-- HEADER -->
-    <div class="flex items-center justify-between mb-6">
-
-      <div>
-        <p class="text-sm text-3xl md:text-4xl text-primary font-medium">Our Top Property</p>
-        <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white">
-          Our Featured Properties
-        </h2>
-      </div>
-
-      <a href="#"
-         class="px-5 py-2 bg-primary hover:bg-primary/90 text-white rounded-md text-sm transition">
-        See All Properties →
-      </a>
-    </div>
-
-    <!-- CATEGORIES -->
-    <div class="flex flex-wrap gap-3 mb-10">
-
-      <span class="px-4 py-2 bg-primary text-white rounded-md text-sm cursor-pointer">For Sale</span>
-      <span class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-secondary dark:text-white rounded-md text-sm cursor-pointer">Villas</span>
-      <span class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-secondary dark:text-white rounded-md text-sm cursor-pointer">Apartments</span>
-      <span class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-secondary dark:text-white rounded-md text-sm cursor-pointer">Houses</span>
-      <span class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-secondary dark:text-white rounded-md text-sm cursor-pointer">Condos</span>
-      <span class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-secondary dark:text-white rounded-md text-sm cursor-pointer">Retail</span>
-
-    </div>
-
-    <!-- GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- PROPERTY CARD (REUSABLE TEMPLATE) -->
-      <!-- CARD 1 -->
-      <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-
-          <img src="Images/home1/himg4.png"
-               class="w-full h-56 object-cover">
-
-          <!-- Badges -->
-          <div class="absolute top-3 left-3 flex gap-2">
-            <span class="bg-primary text-white text-xs px-3 py-1 rounded-md">Featured</span>
-            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-md">For Rent</span>
-          </div>
-
-          <!-- Price -->
-          <span class="absolute bottom-3 left-3 bg-primary text-white px-4 py-1 rounded-md text-sm shadow">
-            $820,000
-          </span>
-
-          <!-- Icons -->
-          <div class="absolute bottom-3 right-3 flex gap-3">
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow cursor-pointer">🤍</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow cursor-pointer">🔁</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow cursor-pointer">🔗</span>
-          </div>
-
-        </div>
-
-        <div class="p-5">
-          <h3 class="text-lg font-semibold dark:text-white">The Parkview Residence</h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">Los Angeles City, CA, USA</p>
-
-          <!-- Property Icons Row -->
-          <div class="flex items-center justify-between text-gray-600 dark:text-gray-300 text-sm">
-
-            <div class="flex items-center gap-1">
-              🛏 12
-            </div>
-
-            <div class="flex items-center gap-1">
-              🚿 08
-            </div>
-
-            <div class="flex items-center gap-1">
-              📐 1200 SQ
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-          <img src="Images/home1/himg2.png" class="w-full h-56 object-cover">
-          <div class="absolute top-3 left-3 flex gap-2">
-            <span class="bg-primary text-white text-xs px-3 py-1 rounded-md">Featured</span>
-            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-md">For Rent</span>
-          </div>
-          <span class="absolute bottom-3 left-3 bg-primary text-white px-4 py-1 rounded-md text-sm shadow">$820,000</span>
-          <div class="absolute bottom-3 right-3 flex gap-3">
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🤍</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🔁</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🔗</span>
-          </div>
-        </div>
-        <div class="p-5">
-          <h3 class="text-lg font-semibold dark:text-white">Golden Valley Estates</h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">Los Angeles City, CA, USA</p>
-          <div class="flex items-center justify-between text-gray-600 dark:text-gray-300 text-sm">
-            <span>🛏 12</span>
-            <span>🚿 08</span>
-            <span>📐 1200 SQ</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-          <img src="Images/home1/himg3.png" class="w-full h-56 object-cover">
-          <div class="absolute top-3 left-3 flex gap-2">
-            <span class="bg-primary text-white text-xs px-3 py-1 rounded-md">Featured</span>
-            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-md">For Rent</span>
-          </div>
-          <span class="absolute bottom-3 left-3 bg-primary text-white px-4 py-1 rounded-md text-sm shadow">$820,000</span>
-          <div class="absolute bottom-3 right-3 flex gap-3">
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🤍</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🔁</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🔗</span>
-          </div>
-        </div>
-        <div class="p-5">
-          <h3 class="text-lg font-semibold dark:text-white">Silver Birch Residence</h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">Los Angeles City, CA, USA</p>
-          <div class="flex items-center justify-between text-gray-600 dark:text-gray-300 text-sm">
-            <span>🛏 12</span>
-            <span>🚿 08</span>
-            <span>📐 1200 SQ</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-          <img src="Images/home1/himg4.png" class="w-full h-56 object-cover">
-          <div class="absolute top-3 left-3 flex gap-2">
-            <span class="bg-primary text-white text-xs px-3 py-1 rounded-md">Featured</span>
-            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-md">For Rent</span>
-          </div>
-          <span class="absolute bottom-3 left-3 bg-primary text-white px-4 py-1 rounded-md text-sm shadow">$820,000</span>
-          <div class="absolute bottom-3 right-3 flex gap-3">
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🤍</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🔁</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🔗</span>
-          </div>
-        </div>
-        <div class="p-5">
-          <h3 class="text-lg font-semibold dark:text-white">Oakwood Manor</h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">Los Angeles City, CA, USA</p>
-          <div class="flex items-center justify-between text-gray-600 dark:text-gray-300 text-sm">
-            <span>🛏 12</span>
-            <span>🚿 08</span>
-            <span>📐 1200 SQ</span>
-          </div>
-        </div>
-      </div>
-  <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-
-          <img src="Images/home1/himg4.png"
-               class="w-full h-56 object-cover">
-
-          <!-- Badges -->
-          <div class="absolute top-3 left-3 flex gap-2">
-            <span class="bg-primary text-white text-xs px-3 py-1 rounded-md">Featured</span>
-            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-md">For Rent</span>
-          </div>
-
-          <!-- Price -->
-          <span class="absolute bottom-3 left-3 bg-primary text-white px-4 py-1 rounded-md text-sm shadow">
-            $820,000
-          </span>
-
-          <!-- Icons -->
-          <div class="absolute bottom-3 right-3 flex gap-3">
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow cursor-pointer">🤍</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow cursor-pointer">🔁</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow cursor-pointer">🔗</span>
-          </div>
-
-        </div>
-
-        <div class="p-5">
-          <h3 class="text-lg font-semibold dark:text-white">The Parkview Residence</h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">Los Angeles City, CA, USA</p>
-
-          <!-- Property Icons Row -->
-          <div class="flex items-center justify-between text-gray-600 dark:text-gray-300 text-sm">
-
-            <div class="flex items-center gap-1">
-              🛏 12
-            </div>
-
-            <div class="flex items-center gap-1">
-              🚿 08
-            </div>
-
-            <div class="flex items-center gap-1">
-              📐 1200 SQ
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-          <img src="Images/home1/himg2.png" class="w-full h-56 object-cover">
-          <div class="absolute top-3 left-3 flex gap-2">
-            <span class="bg-primary text-white text-xs px-3 py-1 rounded-md">Featured</span>
-            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-md">For Rent</span>
-          </div>
-          <span class="absolute bottom-3 left-3 bg-primary text-white px-4 py-1 rounded-md text-sm shadow">$820,000</span>
-          <div class="absolute bottom-3 right-3 flex gap-3">
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🤍</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🔁</span>
-            <span class="bg-white/90 dark:bg-gray-700 rounded-full p-2 shadow">🔗</span>
-          </div>
-        </div>
-        <div class="p-5">
-          <h3 class="text-lg font-semibold dark:text-white">Golden Valley Estates</h3>
-          <p class="text-gray-500 dark:text-gray-300 text-sm mb-4">Los Angeles City, CA, USA</p>
-          <div class="flex items-center justify-between text-gray-600 dark:text-gray-300 text-sm">
-            <span>🛏 12</span>
-            <span>🚿 08</span>
-            <span>📐 1200 SQ</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===================== SECTION 6: PROPERTY SHOWCASE ===================== -->
-<section class="w-full py-20">
-  <div class="container mx-auto px-4 text-center">
-
-    <!-- SECTION TITLE -->
-    <p class="text-primary text-3xl md:text-4xl font-medium text-sm mb-2">Our Gallery</p>
-
-    <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-12">
-      Our Property Showcase
-    </h2>
-
-    <!-- IMAGE GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-
-      <!-- IMAGE 1 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="Images/home1/ga1.png"
-             class="w-full h-56 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-      <!-- IMAGE 2 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="Images/home1/ga2.png"
-             class="w-full h-56 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-      <!-- IMAGE 3 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="Images/home1/3r1.png"
-             class="w-full h-56 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-    </div>
-
-    <!-- SECOND ROW (2 LARGE IMAGES) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-      <!-- IMAGE 4 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="Images/home1/ga6.png"
-             class="w-full h-64 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-      <!-- IMAGE 5 -->
-      <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
-        <img src="Images/home1/ga7.png"
-             class="w-full h-64 object-cover hover:scale-105 transition duration-500" />
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ===================== SECTION 7: OUR FEATURED ITEMS (SLIDER ENABLED) ===================== -->
-<section class="w-full py-20 bg-gray-100 dark:bg-gray-800">
-  <div class="container mx-auto px-4">
-
-    <!-- Title Block -->
-    <div class="text-center mb-10">
-      <p class=" text-3xl md:text-4xl text-primary font-medium">Our Best Featured Item</p>
-      <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white">
-        Our Featured Items
-      </h2>
-    </div>
-
-    <!-- Slider Wrapper -->
-    <div class="relative">
-
-      <!-- SLIDER CONTENT -->
-      <div id="featuredSlider"
-           class="bg-white dark:bg-gray-900 rounded-2xl shadow-lg p-6 flex flex-col lg:flex-row gap-8 transition-all duration-500">
-
-        <!-- LEFT IMAGE -->
-        <div class="w-full lg:w-1/2 rounded-xl overflow-hidden shadow-md">
-          <img id="sliderImage"
-               src=""
-               class="w-full h-72 md:h-80 object-cover transition-all duration-500">
-        </div>
-
-        <!-- RIGHT CONTENT -->
-        <div class="flex-1 space-y-6">
-
-          <!-- Badges -->
-          <div class="flex gap-2">
-            <span class="bg-primary text-white text-xs px-3 py-1 rounded-md">Featured</span>
-            <span class="bg-secondary text-white text-xs px-3 py-1 rounded-md">For Rent</span>
-          </div>
-
-          <!-- Title -->
-          <h3 id="sliderTitle" class="text-xl font-semibold text-secondary dark:text-white"></h3>
-
-          <!-- Address -->
-          <p id="sliderAddress"
-             class="text-gray-500 dark:text-gray-300 text-sm">
-          </p>
-
-          <!-- Icons Row -->
-          <div class="flex flex-wrap gap-3 text-gray-700 dark:text-gray-300 text-sm">
-
-            <div class="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded-md">
-              <span id="sliderBeds"></span>
-            </div>
-
-            <div class="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded-md">
-              <span id="sliderBaths"></span>
-            </div>
-
-            <div class="flex items-center gap-1 bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded-md">
-              <span id="sliderArea"></span>
-            </div>
-
-          </div>
-
-          <!-- Agent + Price Row -->
-          <div class="flex items-center justify-between">
-
-            <!-- Agent -->
-            <div class="flex items-center gap-3">
-              <img id="sliderAgentImage" src=""
-                   class="w-10 h-10 rounded-full object-cover">
-              <div>
-                <p id="sliderAgent" class="text-sm font-semibold text-secondary dark:text-white"></p>
-              </div>
-            </div>
-
-            <!-- Price -->
-            <button id="sliderPriceBtn"
-                    class="px-6 py-2 bg-primary text-white rounded-lg shadow hover:bg-primary/90 transition">
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- LEFT ARROW -->
-      <button id="sliderPrev"
-              class="absolute left-[-20px] top-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 shadow-lg w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
-        ←
+    <!-- RIGHT SEARCH CARD -->
+  <!-- PROPERTY SEARCH CARD (Functional Version) -->
+<div class="flex justify-center">
+  <div class="bg-white dark:bg-dark rounded-xl shadow-xl p-6 w-full max-w-sm space-y-5">
+
+    <!-- Tabs -->
+    <div class="flex items-center gap-6 border-b border-light/50 dark:border-white/20 pb-3">
+      <button id="tabBuy" 
+        class="tab-btn text-primary font-semibold border-b-2 border-primary pb-1">
+        Buy
       </button>
 
-      <!-- RIGHT ARROW -->
-      <button id="sliderNext"
-              class="absolute right-[-20px] top-1/2 -translate-y-1/2 bg-white dark:bg-gray-900 shadow-lg w-10 h-10 rounded-full flex items-center justify-center hover:bg-primary hover:text-white transition">
-        →
+      <button id="tabRent" 
+        class="tab-btn text-dark/50 dark:text-white/50 hover:text-primary transition">
+        Rent
       </button>
-
     </div>
+
+    <!-- Property Type -->
+    <select id="propertyType"
+      class="w-full px-4 py-3 rounded-md bg-light dark:bg-dark border border-light/40 dark:border-white/20">
+      <option value="">Select Property Type</option>
+      <option>Apartment</option>
+      <option>Villa</option>
+      <option>Townhouse</option>
+      <option>Commercial Space</option>
+    </select>
+
+    <!-- Location -->
+    <select id="location"
+      class="w-full px-4 py-3 rounded-md bg-light dark:bg-dark border border-light/40 dark:border-white/20">
+      <option value="">Select Location</option>
+      <option>Toronto</option>
+      <option>Ontario</option>
+      <option>British Columbia</option>
+      <option>Vancouver</option>
+    </select>
+
+    <!-- Budget (Dynamic) -->
+    <select id="budget"
+      class="w-full px-4 py-3 rounded-md bg-light dark:bg-dark border border-light/40 dark:border-white/20">
+      <option value="">Select Budget</option>
+      <!-- dynamically updated -->
+    </select>
+
+    <!-- Search Button -->
+    <button id="searchBtn"
+      class="w-full py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition flex items-center justify-center gap-2">
+      <span>Search</span> 🔍
+    </button>
 
   </div>
-</section>
+</div>
 
-
-<!-- ===================== SECTION 8: TESTIMONIAL (Exact Layout) ===================== -->
-<section class="w-full py-20 bg-[#F7F7FB] dark:bg-gray-800">
-
-  <div class="container mx-auto px-4 text-center">
-
-    <!-- Section Heading -->
-    <p class="text-primary  font-medium text-3xl md:text-4xl mb-2">Our Testimonials</p>
-    <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-14">
-      Feedback Our Investor
-    </h2>
-
-    <!-- FLEX WRAPPER (MAP LEFT + TESTIMONIAL RIGHT) -->
-    <div class="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-16">
-
-      <!-- LEFT SIDE: WORLD MAP -->
-      <div class="relative w-full lg:w-[55%] flex justify-center">
-        <img src="Images/home1/worldmap.png"
-             class="w-full max-w-2xl opacity-90 dark:opacity-40 select-none pointer-events-none">
-      </div>
-
-      <!-- RIGHT SIDE: TESTIMONIAL CARD -->
-      <div class="relative bg-[#1D4ED8] text-white max-w-lg p-8 rounded-xl shadow-xl">
-
-        <!-- Stars -->
-        <div class="flex items-center gap-1 mb-4 text-white">
-          ⭐ ⭐ ⭐ ⭐ ⭐
-        </div>
-
-        <!-- Text -->
-        <p class="leading-relaxed text-base mb-5">
-          "I relocated for work and needed to sell my house quickly. 
-          Your Real Estate Agency delivered! They handled everything smoothly, 
-          and I could focus on my move without worry. I highly recommend their services."
-        </p>
-
-        <!-- Arrow pointer triangle -->
-        <div class="absolute left-6 -bottom-3 w-3 h-3 bg-[#1D4ED8] rotate-45"></div>
-
-        <!-- Reviewer -->
-        <div class="flex items-center gap-3 mt-6">
-          <img src="https://placehold.co/60x60?text=AG"
-               class="w-12 h-12 rounded-full object-cover border-2 border-white shadow-md">
-          <div class="text-left">
-            <h4 class="text-lg font-semibold">Alex Garcia</h4>
-            <p class="text-sm opacity-80">Shop Store Owner</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-
-    <!-- NAVIGATION ARROWS -->
-    <div class="flex justify-end w-full max-w-5xl mx-auto mt-6 pr-4">
-      <div class="flex gap-3">
-        <button
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 shadow hover:bg-primary hover:text-white transition">
-          ←
-        </button>
-        <button
-          class="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-700 shadow hover:bg-primary hover:text-white transition">
-          →
-        </button>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ===================== SECTION 9: OUR TEAM ===================== -->
-<section class="w-full py-20 bg-white dark:bg-gray-900">
-  <div class="container mx-auto px-4 text-center">
-
-    <!-- SECTION HEADING -->
-    <p class="text-primary font-medium text-3xl md:text-4xl mb-2">Our Team</p>
-
-    <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-14">
-      Experts Behind HouseBox
-    </h2>
-
-    <!-- TEAM GRID -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-
-      <!-- TEAM CARD 1 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
-         <img src="Images/home1/team3.png"
-             class="w-full h-72 object-cover">
-
-        <div class="p-5 text-left">
-          <h3 class="text-lg font-semibold text-secondary dark:text-white">Adman Michel</h3>
-          <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Consultant</p>
-        </div>
-      </div>
-
-      <!-- TEAM CARD 2 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
-       <img src="Images/home1/team1.png"
-             class="w-full h-72 object-cover">
-
-        <div class="p-5 text-left">
-          <h3 class="text-lg font-semibold text-secondary dark:text-white">Miss Rafael Daniel</h3>
-          <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Consultant</p>
-        </div>
-      </div>
-
-      <!-- TEAM CARD 3 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
-        <img src="Images/home1/team2.png"
-             class="w-full h-72 object-cover">
-
-        <div class="p-5 text-left">
-          <h3 class="text-lg font-semibold text-secondary dark:text-white">Patty Lindgrenl</h3>
-          <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Consultant</p>
-        </div>
-      </div>
-
-      <!-- TEAM CARD 4 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
-        <img src="Images/home1/team1.png"
-             class="w-full h-72 object-cover">
-
-        <div class="p-5 text-left">
-          <h3 class="text-lg font-semibold text-secondary dark:text-white">Kathy Wilkinson Sr.</h3>
-          <p class="text-gray-500 dark:text-gray-400 text-sm mb-4">Consultant</p>
-
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- ===================== SECTION 10: BLUE CTA BANNER ===================== -->
-<section class="w-full bg-primary dark:bg-primary py-14 rounded-t-3xl">
-
-  <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-10">
-
-    <!-- LEFT TEXT -->
-    <div class="text-white space-y-4 text-left">
-      <h2 class="text-3xl md:text-4xl font-bold leading-snug">
-        Experience Real <br>
-        Estate The Ways It <br>
-        Should Be
-      </h2>
-
-      <p class="text-gray-200 text-sm">
-        Take one step toward finding your dream home with ease and <br>
-        confidence. At HouseBox, we’re dedicated.
-      </p>
-    </div>
-
-    <!-- RIGHT EMAIL FORM -->
-    <div class="flex justify-start md:justify-end">
-      <div class="flex bg-white rounded-md overflow-hidden shadow-md w-full md:w-auto">
-
-        <input type="email"
-               placeholder="Email Address"
-               class="px-4 py-3 w-full md:w-64 text-secondary dark:text-gray-800 outline-none">
-
-        <button class="bg-primary hover:bg-primary/90 text-white px-5 py-3 font-medium transition">
-          Subscribe →
-        </button>
-
-      </div>
-    </div>
-
-  </div>
-
-</section>
-  <div id="site-footer" ></div>
-  <script type="module" src="footer.js"></script>
-
+<!-- FUNCTIONALITY SCRIPT -->
 <script>
-  const featuredItems = [
-    {
-      image: "Images/home1/slider1.png",
-      title: "Rancho Vista Verde, Santos Barba",
-      address: "742 Terrace, Springfield, IL 62704, USA",
-      beds: "🛏 12 Beds",
-      baths: "🚿 18 Baths",
-      area: "📐 1200 sq",
-      agent: "Alex Roberts",
-      agentImg: "https://placehold.co/60x60?text=A",
-      price: "$820,000"
-    },
-    {
-      image: "Images/home1/slider1.png",
-      title: "Golden Valley Heights",
-      address: "25 Lake View, Miami, FL 33101, USA",
-      beds: "🛏 10 Beds",
-      baths: "🚿 12 Baths",
-      area: "📐 1500 sq",
-      agent: "Maria Johnson",
-      agentImg: "https://placehold.co/60x60?text=M",
-      price: "$920,000"
-    },
-    {
-      image: "https://placehold.co/700x450?text=House+3",
-      title: "Parkview Elite Residency",
-      address: "89 Sunset Blvd, Austin, TX 73301, USA",
-      beds: "🛏 09 Beds",
-      baths: "🚿 10 Baths",
-      area: "📐 1350 sq",
-      agent: "David Smith",
-      agentImg: "https://placehold.co/60x60?text=D",
-      price: "$780,000"
-    }
+  const tabBuy = document.getElementById("tabBuy");
+  const tabRent = document.getElementById("tabRent");
+  const budgetSelect = document.getElementById("budget");
+
+  // Budget options for Buy / Rent
+  const buyBudgets = [
+    "Up to $100,000",
+    "$100,000 – $300,000",
+    "$300,000 – $700,000",
+    "$700,000 – $1,500,000",
+    "$1,500,000+"
   ];
 
-  let currentIndex = 0;
+  const rentBudgets = [
+    "Up to $500/month",
+    "$500 – $1,000/month",
+    "$1,000 – $2,000/month",
+    "$2,000 – $3,500/month",
+    "$3,500+"
+  ];
 
-  const updateSlider = () => {
-    const item = featuredItems[currentIndex];
-    document.getElementById("sliderImage").src = item.image;
-    document.getElementById("sliderTitle").textContent = item.title;
-    document.getElementById("sliderAddress").textContent = item.address;
-    document.getElementById("sliderBeds").textContent = item.beds;
-    document.getElementById("sliderBaths").textContent = item.baths;
-    document.getElementById("sliderArea").textContent = item.area;
-    document.getElementById("sliderAgent").textContent = item.agent;
-    document.getElementById("sliderAgentImage").src = item.agentImg;
-    document.getElementById("sliderPriceBtn").textContent = item.price;
+  // Load Default (BUY)
+  function loadBudget(options) {
+    budgetSelect.innerHTML = '<option value="">Select Budget</option>';
+    options.forEach(b => {
+      const opt = document.createElement("option");
+      opt.textContent = b;
+      budgetSelect.appendChild(opt);
+    });
+  }
+
+  // Activate Buy Tab by default
+  loadBudget(buyBudgets);
+
+  // Tab switching logic
+  tabBuy.onclick = () => {
+    tabBuy.classList.add("text-primary", "font-semibold", "border-primary", "border-b-2");
+    tabRent.classList.remove("text-primary", "font-semibold", "border-primary", "border-b-2");
+    tabRent.classList.add("text-dark/50", "dark:text-white/50");
+
+    loadBudget(buyBudgets);
   };
 
-  document.getElementById("sliderPrev").addEventListener("click", () => {
-    currentIndex = (currentIndex - 1 + featuredItems.length) % featuredItems.length;
-    updateSlider();
-  });
+  tabRent.onclick = () => {
+    tabRent.classList.add("text-primary", "font-semibold", "border-primary", "border-b-2");
+    tabBuy.classList.remove("text-primary", "font-semibold", "border-primary", "border-b-2");
+    tabBuy.classList.add("text-dark/50", "dark:text-white/50");
 
-  document.getElementById("sliderNext").addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % featuredItems.length;
-    updateSlider();
-  });
+    loadBudget(rentBudgets);
+  };
 
-  // Initial Load
-  updateSlider();
+  // Search Button – UX feedback only
+  document.getElementById("searchBtn").onclick = () => {
+    alert("Search initiated! (You can connect backend later)");
+  };
 </script>
-  <!-- ================= SCRIPTS ================= -->
-  <script>
-    // Theme toggle logic
-    const toggle = document.getElementById("themeToggle");
-    toggle.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-      document.documentElement.classList.toggle("light");
-    });
-  </script>
+
+
+  </div>
+
+</section>
+
+<!-- ===================================================
+   ABOUT SECTION (Kept)
+=================================================== -->
+<section class="py-20 bg-light dark:bg-dark/40">
+  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- IMAGE -->
+    <div class="rounded-2xl overflow-hidden shadow-xl w-full max-w-sm mx-auto">
+      <img src="Images/home1/ga1.png" class="w-full h-full object-cover">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="space-y-6">
+      <h2 class="text-3xl font-semibold text-primary">About Us</h2>
+      <p class="text-xl font-bold">A trusted partner in real estate services</p>
+
+      <p class="text-dark/70 dark:text-white/70">
+        Compass Housing Society brings years of expertise in helping individuals and businesses 
+        find the perfect property tailored to their needs.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Quae fuga delectus inventore consectetur neque voluptates ex assumenda fugit, natus laudantium ipsum omnis reiciendis debitis possimus repudiandae maxime adipisci a expedita.
+      </p>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+          <p class="text-primary text-3xl font-bold">10K+</p>
+          <p class="text-dark/60 dark:text-white/60">Happy Clients</p>
+        </div>
+        <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+          <p class="text-primary text-3xl font-bold">8+</p>
+          <p class="text-dark/60 dark:text-white/60">Years Experience</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-6">
+        <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+          <p class="text-primary text-3xl font-bold">100+</p>
+          <p class="text-dark/60 dark:text-white/60">Citys</p>
+        </div>
+        <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+          <p class="text-primary text-3xl font-bold">8+</p>
+          <p class="text-dark/60 dark:text-white/60">Years Experience</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================================================
+   FEATURED PROPERTIES (Kept)
+=================================================== -->
+<section class="py-20 bg-light/50 dark:bg-dark/40">
+  <div class="container mx-auto px-4 text-center">
+
+    <h2 class="text-primary text-3xl font-semibold">Featured Properties</h2>
+    <p class="text-dark/70 dark:text-white/70 mt-2">
+      Explore our curated premium listings.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-10 mt-12">
+
+      <div class="bg-white dark:bg-dark shadow rounded-xl overflow-hidden">
+        <img src="Images/home1/himg1.png" class="w-full h-56 object-cover">
+        <div class="p-5 text-left">
+          <h3 class="text-lg font-semibold">Modern Apartment</h3>
+          <p class="text-dark/60 dark:text-white/60">LA, California</p>
+          <p class="text-primary text-2xl font-bold mt-4">$1,240</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-dark shadow rounded-xl overflow-hidden">
+        <img src="Images/home1/himg2.png" class="w-full h-56 object-cover">
+        <div class="p-5 text-left">
+          <h3 class="text-lg font-semibold">Family House</h3>
+          <p class="text-dark/60 dark:text-white/60">Miami, Florida</p>
+          <p class="text-primary text-2xl font-bold mt-4">$2,540</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-dark shadow rounded-xl overflow-hidden">
+        <img src="Images/home1/himg3.png" class="w-full h-56 object-cover">
+        <div class="p-5 text-left">
+          <h3 class="text-lg font-semibold">Luxury Villa</h3>
+          <p class="text-dark/60 dark:text-white/60">Austin, Texas</p>
+          <p class="text-primary text-2xl font-bold mt-4">$4,920</p>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="#" class="mt-10 inline-block px-10 py-3 bg-primary text-white rounded-md hover:bg-primary/90">
+      View All
+    </a>
+
+  </div>
+</section>
+
+<!-- ===================================================
+   TESTIMONIAL (Kept)
+=================================================== -->
+<section class="py-20 bg-light dark:bg-dark/40">
+  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
+    <div>
+      <img src="Images/home1/worldmap.png" class="opacity-80 w-full">
+    </div>
+
+    <div class="bg-primary text-white rounded-xl p-8 space-y-6 shadow-lg">
+      <p>
+        “Compass Housing helped me find the perfect home in less than a week. 
+        Their guidance, expertise, and support were exceptional.”
+      </p>
+
+      <div class="flex items-center gap-3">
+        <img src="https://placehold.co/60x60?text=AG" class="w-12 h-12 rounded-full">
+        <div>
+          <h4 class="text-lg font-semibold">Alex Garcia</h4>
+          <p class="text-sm opacity-80">Investor</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================================================
+   CTA (Kept)
+=================================================== -->
+<section class="py-16 bg-primary text-white">
+  <div class="container mx-auto px-4 text-center">
+
+    <h2 class="text-3xl md:text-4xl font-bold">Ready to Start Your Property Journey?</h2>
+    <p class="text-white/80 mt-2">Get expert guidance tailored to your needs.</p>
+
+    <a href="contact.html"
+          class="w-full py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition flex items-center justify-center gap-2"
+
+      >
+      Contact Us Today →
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+<script src="footer.js" type="module"></script>
 
 <script>
-   // Auto-highlight active page
-   const page = document.body.getAttribute("data-page"); 
-   document.querySelectorAll(".nav-link").forEach(link => {
-      if (link.dataset.page === page) {
-         link.classList.add("text-primary", "font-semibold");
-      }
-   });
-
-   // Set breadcrumb from data-page
-   const bread = {
-      home: "Home",
-      listing: "Listing",
-      contact: "Contact",
-      about: "About",
-      blog: "Blog"
-   };
-   if (bread[page]) {
-      document.getElementById("breadcrumbPage").innerText = bread[page];
-   }
-
-   // Mobile menu toggle
-   const btn = document.getElementById("mobileMenuBtn");
-   const menu = document.getElementById("mobileMenu");
-
-   btn.addEventListener("click", () => {
-     menu.classList.toggle("hidden");
-   });
+  document.getElementById("themeToggle").onclick = () => {
+    document.documentElement.classList.toggle("dark");
+    document.documentElement.classList.toggle("light");
+  };
 </script>
 
 </body>
-
 </html>
