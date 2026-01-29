@@ -48,6 +48,16 @@
       opacity: 0.10;
       filter: brightness(0.4);
     }
+
+    /* Form field error styling */
+    .error-border {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 1px #ef4444;
+    }
+      section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
   </style>
 
 </head>
@@ -90,64 +100,74 @@
         </p>
 
         <!-- FORM -->
-     <!-- FORM -->
-<form id="contactForm" class="space-y-4">
+        <form id="contactForm" class="space-y-4" novalidate>
 
-  <!-- NAME FIELD -->
-  <div>
-    <label class="block text-sm font-semibold mb-1">
-      Name <span class="text-red-500">*</span>
-    </label>
+          <!-- NAME FIELD -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              Name <span class="text-red-500">*</span>
+            </label>
 
-    <input 
-      id="name"
-      type="text"
-      placeholder="Enter your name"
-      class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
-             border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary" />
+            <input 
+              id="name"
+              type="text"
+              placeholder="Enter your name"
+              class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
+                     border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary"
+              data-validate="true"
+              data-validation-type="alphabet" />
 
-    <p id="nameError" class="text-red-500 text-xs mt-1 hidden"></p>
-  </div>
+            <p id="nameError" class="text-red-500 text-xs mt-1 hidden">
+              Please enter a valid name (letters only, no numbers or special characters).
+            </p>
+          </div>
 
-  <!-- EMAIL FIELD -->
-  <div>
-    <label class="block text-sm font-semibold mb-1">
-      Email <span class="text-red-500">*</span>
-    </label>
+          <!-- EMAIL FIELD -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              Email <span class="text-red-500">*</span>
+            </label>
 
-    <input 
-      id="email"
-      type="email"
-      placeholder="Enter your email"
-      class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
-             border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary" />
+            <input 
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
+                     border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary"
+              data-validate="true"
+              data-validation-type="email" />
 
-    <p id="emailError" class="text-red-500 text-xs mt-1 hidden"></p>
-  </div>
+            <p id="emailError" class="text-red-500 text-xs mt-1 hidden">
+              Please enter a valid email address.
+            </p>
+          </div>
 
-  <!-- MESSAGE FIELD -->
-  <div>
-    <label class="block text-sm font-semibold mb-1">
-      Message <span class="text-red-500">*</span>
-    </label>
+          <!-- MESSAGE FIELD -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              Message <span class="text-red-500">*</span>
+            </label>
 
-    <textarea 
-      id="message"
-      rows="4"
-      placeholder="Tell us a little bit about your destination dream"
-      class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
-             border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary"></textarea>
+            <textarea 
+              id="message"
+              rows="4"
+              placeholder="Tell us a little bit about your destination dream"
+              class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
+                     border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary"
+              data-validate="true"
+              data-validation-type="text"></textarea>
 
-    <p id="messageError" class="text-red-500 text-xs mt-1 hidden"></p>
-  </div>
+            <p id="messageError" class="text-red-500 text-xs mt-1 hidden">
+              Please enter your message.
+            </p>
+          </div>
 
-  <button
-    type="submit"
-    class="w-full py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition">
-    Submit Now
-  </button>
-</form>
-
+          <button
+            type="submit"
+            class="w-full py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition">
+            Submit Now
+          </button>
+        </form>
 
       </div>
     </div>
@@ -189,7 +209,7 @@
   </section>
 
   <!-- ===================== FOOTER ===================== -->
- <div id="site-footer" class="px-4 md:px-8"></div>
+  <div id="site-footer"></div>
   <script type="module" src="footer.js"></script>
 
   <!-- ================= LEAFLET MAP ================= -->
@@ -219,67 +239,189 @@
       document.documentElement.classList.toggle("dark");
     });
   </script>
-  <script>
-  const form = document.getElementById("contactForm");
 
+ <script>
+  // DOM Elements
+  const form = document.getElementById("contactForm");
   const nameInput = document.getElementById("name");
   const emailInput = document.getElementById("email");
-  const msgInput = document.getElementById("message");
+  const messageInput = document.getElementById("message");
 
   const nameError = document.getElementById("nameError");
   const emailError = document.getElementById("emailError");
   const messageError = document.getElementById("messageError");
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+  // Track if form has been submitted (to show errors)
+  let formSubmitted = false;
 
-    let valid = true;
+  // Validation Functions
+  function validateName(name) {
+    const trimmed = name.trim();
+    if (!trimmed) {
+      return { isValid: false, message: "Name is required." };
+    }
+    if (!/^[A-Za-z\s]+$/.test(trimmed)) {
+      return { isValid: false, message: "Only letters and spaces allowed. No numbers or special characters." };
+    }
+    return { isValid: true };
+  }
 
-    // NAME VALIDATION
-    const nameValue = nameInput.value.trim();
+  function validateEmail(email) {
+    const trimmed = email.trim();
+    if (!trimmed) {
+      return { isValid: false, message: "Email is required." };
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmed)) {
+      return { isValid: false, message: "Please enter a valid email address." };
+    }
+    return { isValid: true };
+  }
 
-    if (!nameValue) {
-      nameError.textContent = "Name is required.";
-      nameError.classList.remove("hidden");
-      valid = false;
-    } else if (!/^[A-Za-z ]+$/.test(nameValue)) {
-      nameError.textContent = "Only alphabets allowed. No numbers or special characters.";
-      nameError.classList.remove("hidden");
-      valid = false;
-    } else {
-      nameError.classList.add("hidden");
+  function validateMessage(message) {
+    const trimmed = message.trim();
+    if (!trimmed) {
+      return { isValid: false, message: "Message is required." };
+    }
+    return { isValid: true };
+  }
+
+  // Show error function
+  function showError(inputElement, errorElement, message) {
+    errorElement.textContent = message;
+    errorElement.classList.remove("hidden");
+    inputElement.classList.add("error-border");
+  }
+
+  // Hide error function
+  function hideError(inputElement, errorElement) {
+    errorElement.classList.add("hidden");
+    inputElement.classList.remove("error-border");
+  }
+
+  // Setup input listeners to hide errors when user starts typing
+  function setupInputListeners() {
+    // Name field - hide error on input and prevent numbers/special chars
+    nameInput.addEventListener("input", function() {
+      // Remove any numbers or special characters (keep only letters and spaces)
+      this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+      
+      // Hide error if it was showing
+      if (formSubmitted) {
+        const result = validateName(this.value);
+        if (result.isValid) {
+          hideError(nameInput, nameError);
+        }
+      }
+    });
+
+    // Email field - hide error on input
+    emailInput.addEventListener("input", function() {
+      // Remove leading spaces
+      this.value = this.value.replace(/^\s+/g, '');
+      
+      // Hide error if it was showing
+      if (formSubmitted) {
+        const result = validateEmail(this.value);
+        if (result.isValid) {
+          hideError(emailInput, emailError);
+        }
+      }
+    });
+
+    // Message field - hide error on input
+    messageInput.addEventListener("input", function() {
+      // Remove leading spaces
+      this.value = this.value.replace(/^\s+/g, '');
+      
+      // Hide error if it was showing
+      if (formSubmitted) {
+        const result = validateMessage(this.value);
+        if (result.isValid) {
+          hideError(messageInput, messageError);
+        }
+      }
+    });
+
+    // Prevent space as first character in all fields
+    [nameInput, emailInput, messageInput].forEach(input => {
+      input.addEventListener("keydown", (e) => {
+        if (e.key === ' ' && input.value.length === 0) {
+          e.preventDefault();
+        }
+      });
+    });
+  }
+
+  // Initialize
+  document.addEventListener("DOMContentLoaded", () => {
+    // Setup input listeners
+    setupInputListeners();
+
+    // Reset form function
+    function resetForm() {
+      nameInput.value = '';
+      emailInput.value = '';
+      messageInput.value = '';
+      
+      // Hide all errors
+      hideError(nameInput, nameError);
+      hideError(emailInput, emailError);
+      hideError(messageInput, messageError);
+      
+      // Reset form submitted flag
+      formSubmitted = false;
     }
 
-    // EMAIL VALIDATION
-    const emailValue = emailInput.value.trim();
-    if (!emailValue) {
-      emailError.textContent = "Email is required.";
-      emailError.classList.remove("hidden");
-      valid = false;
-    } else {
-      emailError.classList.add("hidden");
-    }
+    // Form submission
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      // Set flag that form has been submitted (so errors can show)
+      formSubmitted = true;
+      
+      let isValid = true;
 
-    // MESSAGE VALIDATION
-    if (!msgInput.value.trim()) {
-      messageError.textContent = "Message is required.";
-      messageError.classList.remove("hidden");
-      valid = false;
-    } else {
-      messageError.classList.add("hidden");
-    }
+      // Validate all fields
+      const nameResult = validateName(nameInput.value);
+      const emailResult = validateEmail(emailInput.value);
+      const messageResult = validateMessage(messageInput.value);
 
-    if (!valid) return;
+      // Show/hide errors
+      if (!nameResult.isValid) {
+        showError(nameInput, nameError, nameResult.message);
+        isValid = false;
+      } else {
+        hideError(nameInput, nameError);
+      }
 
-    alert("Form submitted successfully!");
-  });
+      if (!emailResult.isValid) {
+        showError(emailInput, emailError, emailResult.message);
+        isValid = false;
+      } else {
+        hideError(emailInput, emailError);
+      }
 
-  // REMOVE LEADING SPACES LIVE
-  nameInput.addEventListener("input", () => {
-    nameInput.value = nameInput.value.replace(/^\s+/g, "");
+      if (!messageResult.isValid) {
+        showError(messageInput, messageError, messageResult.message);
+        isValid = false;
+      } else {
+        hideError(messageInput, messageError);
+      }
+
+      // If all validations pass
+      if (isValid) {
+        // Show success message
+        alert("Form submitted successfully!");
+        
+        // Reset form after OK is clicked
+        setTimeout(() => {
+          resetForm();
+        }, 100);
+      }
+    });
   });
 </script>
-
 
 </body>
 

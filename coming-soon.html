@@ -22,6 +22,11 @@
   </script>
 
   <style>
+    section {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
+    }
+
     body::before {
       content: "";
       position: fixed;
@@ -42,10 +47,16 @@
     .btn-primary {
       @apply px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition;
     }
+
+    /* Validation styles */
+    .error-border {
+      @apply border-red-500;
+    }
   </style>
 </head>
 
-<body data-page="comingsoon" class="bg-white dark:bg-gray-900 text-secondary dark:text-white" style="padding-top: 1rem;">
+<body data-page="comingsoon" class="bg-white dark:bg-gray-900 text-secondary dark:text-white"
+  style="padding-top: 1rem;">
 
   <!-- Theme Toggle -->
   <button id="themeToggle"
@@ -70,7 +81,7 @@
     <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Coming Soon</h1>
 
     <p class="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-xl mb-10">
-      We’re working hard to bring you something amazing. Stay tuned!
+      We're working hard to bring you something amazing. Stay tuned!
     </p>
 
     <!-- COUNTDOWN -->
@@ -100,29 +111,17 @@
 
     <!-- EMAIL SUBSCRIBE -->
     <div class="flex flex-col sm:flex-row items-center gap-2 w-full max-w-md">
-      <!-- <input id="notifyEmail" type="email" placeholder="Enter your email"
-        class="px-4 py-3 w-full rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 outline-none border border-gray-300 dark:border-gray-700" /> -->
-
-  <input
-          type="email"
-          placeholder="Your Email"
-          class="px-4 py-3 w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none"
-        />
- <button
-  id="notifyBtn"
-  class="px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 whitespace-nowrap"
->
-  Notify Me
-</button>
+      <input id="notifyEmail" type="email" placeholder="Enter your email"
+        class="px-4 py-3 w-full rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 outline-none border border-gray-300 dark:border-gray-700" />
+      <button id="notifyBtn" class="px-4 py-3 bg-primary text-white font-semibold rounded-lg whitespace-nowrap">
+        Notify Me
+      </button>
     </div>
-
-    <p id="notifyError" class="text-red-500 text-sm mt-2 hidden">Please enter a valid email.</p>
-    <p id="notifySuccess" class="text-green-500 text-sm mt-2 hidden">You will be notified!</p>
 
   </div>
 
   <!-- FOOTER -->
- <div id="site-footer" class="px-4 md:px-8"></div>
+  <div id="site-footer" ></div>
   <script type="module" src="footer.js"></script>
 
   <!-- COUNTDOWN SCRIPT -->
@@ -153,27 +152,49 @@
 
   <!-- NOTIFY ME VALIDATION -->
   <script>
-    const emailInput = document.getElementById("notifyEmail");
-    const btn = document.getElementById("notifyBtn");
-    const errorMsg = document.getElementById("notifyError");
-    const successMsg = document.getElementById("notifySuccess");
+    document.addEventListener('DOMContentLoaded', function () {
+      const emailInput = document.getElementById("notifyEmail");
+      const btn = document.getElementById("notifyBtn");
 
-    btn.addEventListener("click", () => {
-      errorMsg.classList.add("hidden");
-      successMsg.classList.add("hidden");
+      // Real-time validation to remove error border when user starts typing
+      emailInput.addEventListener('input', function () {
+        this.classList.remove('error-border', 'border-red-500');
+      });
 
-      const email = emailInput.value.trim();
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      btn.addEventListener("click", () => {
+        // Remove any previous error border
+        emailInput.classList.remove('error-border', 'border-red-500');
 
-      if (!emailRegex.test(email)) {
-        errorMsg.classList.remove("hidden");
-        emailInput.classList.add("border-red-500");
-        return;
-      }
+        const email = emailInput.value.trim();
 
-      emailInput.classList.remove("border-red-500");
-      successMsg.classList.remove("hidden");
-      emailInput.value = "";
+        // Check if empty
+        if (email === '') {
+          emailInput.classList.add('error-border', 'border-red-500');
+          alert("Please enter your email address.");
+          return;
+        }
+
+        // Check email format - strict validation
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+        if (!emailRegex.test(email)) {
+          emailInput.classList.add('error-border', 'border-red-500');
+          alert("Please enter a valid email address.");
+          return;
+        }
+
+        // Check for spaces (should not contain spaces)
+        if (/\s/.test(email)) {
+          emailInput.classList.add('error-border', 'border-red-500');
+          alert("Email address cannot contain spaces.");
+          return;
+        }
+
+        // Success - show alert and reset field
+        alert("Successfully done! We will notify you when we launch.");
+        emailInput.value = "";
+        emailInput.classList.remove('error-border', 'border-red-500');
+      });
     });
   </script>
 

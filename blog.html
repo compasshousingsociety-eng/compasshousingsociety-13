@@ -48,6 +48,10 @@
     .btn-primary {
       @apply bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition;
     }
+      section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
   </style>
 </head>
 
@@ -128,53 +132,6 @@
 
     <!-- ========== SEARCH + SORT ========== -->
     <div class="flex flex-wrap justify-between items-center gap-4 my-10">
-
-      <!-- SEARCH -->
- <div class="flex flex-col sm:flex-row items-center gap-2 w-full max-w-md">
-  
-  <!-- <input 
-    type="text" 
-    placeholder="Type to search..." 
-    class="flex-1 px-4 py-2 bg-transparent outline-none text-gray-700 dark:text-gray-200"
-  />
-
-  <button 
-    class="px-4 py-2 bg-primary text-white text-sm font-medium hover:bg-primary/90 transition">
-    Search
-  </button> -->
-
-  
-  <input
-         type="text" 
-     placeholder="Type to search..." 
-          class="px-4 py-3 w-full rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none"
-        />
- <button
-  id="notifyBtn"
-  class="px-4 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 whitespace-nowrap"
->
-    Search
-</div>
-
-
-      <!-- SORT DROPDOWN -->
-      <div class="relative">
-        <button id="sortToggle"
-          class="flex items-center gap-2 border px-4 py-2 rounded-md text-sm text-gray-700 dark:text-gray-300">
-          Most Popular ⌄
-        </button>
-
-        <div id="sortMenu"
-          class="hidden absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 border rounded-md shadow-md z-20 text-sm">
-
-          <p class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Most Popular</p>
-          <p class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Latest</p>
-          <p class="px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Oldest</p>
-
-        </div>
-      </div>
-
-    </div>
 
     <!-- ========== BLOG GRID ========== -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
@@ -275,20 +232,11 @@
 
     </div>
 
-    <!-- ========== PAGINATION ========== -->
-    <div class="text-center">
-      <div class="inline-flex items-center gap-2">
-        <button class="w-8 h-8 border rounded-md">1</button>
-        <button class="w-8 h-8 border rounded-md bg-primary text-white">2</button>
-        <button class="w-8 h-8 border rounded-md">3</button>
-        <button class="w-8 h-8 border rounded-md">></button>
-      </div>
-    </div>
-
+</div>
   </div>
 
   <!-- FOOTER -->
-  <div id="site-footer" class="px-4 md:px-8"></div>
+  <div id="site-footer" ></div>
   <script type="module" src="footer.js"></script>
 
   <!-- DROPDOWN SCRIPT -->

@@ -10,7 +10,7 @@ export function loadFooter(selector = "site-footer") {
 
   container.innerHTML = `
 <footer class="w-full bg-gray-100 dark:bg-gray-900 py-10 border-t border-gray-300 dark:border-gray-700">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-6">
+  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-6">
 
     <!-- LEFT COLUMN -->
     <div class="space-y-4">
@@ -98,6 +98,23 @@ export function loadFooter(selector = "site-footer") {
         <li><a href="404.html" class="hover:text-primary">Real Estate</a></li>
       </ul>
     </div>
+<!-- EXTRA MAP / ADDRESS BLOCK -->
+<div class="space-y-3">
+  <h4 class="text-lg font-semibold text-secondary dark:text-white">Our Location</h4>
+
+  <p class="text-gray-600 dark:text-gray-300 text-sm">
+    Visit our nearest branch or reach us directly through our map.
+  </p>
+
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508612!2d144.9556513156896!3d-37.81732397975161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ5JzAyLjQiUyAxNDTCsDU3JzIyLjQiRQ!5e0!3m2!1sen!2sin!4v1700000000000" 
+    width="100%" 
+    height="120" 
+    style="border:0; border-radius:8px;" 
+    allowfullscreen="" 
+    loading="lazy">
+  </iframe>
+</div>
 
     <!-- T&C + SUBSCRIBE -->
     <div class="space-y-3">
@@ -129,21 +146,32 @@ export function loadFooter(selector = "site-footer") {
   `;
 
   // Subscribe functionality
-  const btn = document.getElementById("subscribe-btn");
-  if (btn) {
-    btn.addEventListener("click", () => {
-      const input = btn.previousElementSibling;
-      const email = input.value.trim();
+ const btn = document.getElementById("subscribe-btn");
 
-      if (!email) {
-        alert("Please enter a valid email.");
-        return;
-      }
+if (btn) {
+  btn.addEventListener("click", () => {
+    const input = btn.previousElementSibling;
+    const email = input.value.trim();
 
-      alert("Subscribed successfully with: " + email);
-      input.value = "";
-    });
-  }
+    // Empty check
+    if (email === "") {
+      alert("Please enter your email address.");
+      return;
+    }
+
+    // Email format validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    // Success
+    alert("✅ Subscribed successfully with: " + email);
+    input.value = "";
+  });
+}
+
 }
 
 document.addEventListener("DOMContentLoaded", () => loadFooter());

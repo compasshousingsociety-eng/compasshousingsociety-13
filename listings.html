@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Listing - Compass Housing</title>
+  <title>Property Listings – Compass Housing Society</title>
 
-  <!-- Tailwind -->
+  <!-- FONT -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Config -->
+  <!-- CONFIG -->
   <script>
     tailwind.config = {
       darkMode: "class",
@@ -16,639 +23,348 @@
         extend: {
           colors: {
             primary: "#1A56DB",
-            secondary: "#0F172A",
+            dark: "#0F172A",
+            light: "#F5F7FA",
+             secondary: "#0F172A" 
           },
-          fontFamily: { sans: ["Inter", "sans-serif"] },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
         },
       },
     };
   </script>
-    <style>
-      body::before {
+<style>
+  .btn {
+    @apply px-6 py-3 rounded-md font-medium text-sm 
+           transition duration-200 ease-in-out 
+           inline-flex items-center justify-center;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  .btn-light {
+    @apply bg-light text-dark dark:bg-dark/40 dark:text-white 
+           hover:bg-light/80 dark:hover:bg-dark/60;
+  }
+</style>
+
+  <!-- WATERMARK -->
+  <style>
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
-      margin: auto;
       background-image: url("Images/transparent-logo-1.png");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 600px auto;
-      opacity: 0.10;
-      pointer-events: none;
+      background-size: 500px;
+      opacity: 0.06;
       z-index: -1;
+      pointer-events: none;
     }
-  </style>
 
-  <style>
-
-  /* ===============================
-     GLOBAL BUTTON (PRIMARY)
-     =============================== */
-  .btn-primary,
-  button:not(.no-global):not([class*="border"]):not([class*="bg-transparent"]) {
-    @apply bg-primary text-white px-6 py-3 rounded-md font-medium 
-           hover:bg-primary/90 transition;
-  }
-
-  /* ===============================
-     GLOBAL OUTLINE BUTTON
-     =============================== */
-  .btn-outline,
-  a.border,
-  button[class*="border"]:not(.no-global) {
-    @apply border border-primary text-primary px-5 py-2 rounded-md 
-           hover:bg-primary hover:text-white transition;
-  }
-
-  /* ===============================
-     GLOBAL LINK STYLE
-     =============================== */
-  a:not(.no-global):not(.nav-link):not(.subscribe-btn) {
-    @apply text-primary hover:text-primary/80 transition;
-  }
-
-  /* ===============================
-     GLOBAL INPUTS + SELECTS
-     =============================== */
-  input,
-  select,
-  textarea {
-    @apply px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 
-           bg-white dark:bg-gray-900 text-secondary dark:text-white 
-           focus:ring-2 focus:ring-primary outline-none text-sm;
-  }
-
-  /* ===============================
-     GLOBAL PAGE PADDING
-     =============================== */
-  body {
-    @apply px-4 md:px-8;
-  }
-
-  /* ===============================
-     GLOBAL SECTION SPACING
-     =============================== */
   section {
-    @apply py-10;
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
   }
 
-  /* ===============================
-     GLOBAL CARD STYLE
-     =============================== */
-  .card {
-    @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 
-           dark:border-gray-700 shadow-sm p-5;
-  }
-
-</style>
-
+  </style>
 </head>
 
-<body data-page="listing" class="px-4 md:px-8 bg-white dark:bg-gray-900 text-secondary dark:text-white font-sans">
-   <button
+<body
+  data-page="listing"
+  class="bg-white dark:bg-dark text-dark dark:text-white font-sans"
+>
+  <!-- ======================= THEME TOGGLE ======================= -->
+  <button
     id="themeToggle"
-    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    class="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 z-[999]"
+  >
     🌓
   </button>
-<div id="site-header"></div>
-<script src="header.js"></script>
-<!-- HEADER SPACER -->
 
+  <!-- ======================= HEADER ======================= -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
 
-<!-- ================= PROPERTY LISTING HEADER ================= -->
-<section class="w-full py-10  mt-[110px] pt-4">
-  <div class="container mx-auto px-4">
-    <div style="display: flex; justify-content: space-between;">
-          <h1 class="text-3xl font-semibold text-secondary dark:text-white">
-        Property Listing
-      </h1>
-<div class="flex items-center gap-6 text-gray-700 dark:text-gray-300">
+  <div class="pt-28"></div>
 
-  <div class="relative">
-  <div class="flex items-center gap-1 cursor-pointer select-none" id="sortToggle">
-    <span id="sortLabel">Most popular</span>
+  <!-- ======================= PAGE TITLE ======================= -->
+  <section class="py-10 bg-light/40 dark:bg-dark/30 border-b border-light/40 dark:border-white/10">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold">Explore Listings</h1>
+      <p class="text-dark/60 dark:text-white/60 mt-2 max-w-xl mx-auto">
+        Find homes, apartments, and rental properties across top locations.
+      </p>
+    </div>
+  </section>
 
-    <svg xmlns="http://www.w3.org/2000/svg"
-         class="w-5 h-5 transition-transform" id="sortArrow"
-         fill="none" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M6 9l6 6 6-6" />
-    </svg>
-  </div>
-
-  <!-- DROPDOWN MENU -->
-  <div id="sortMenu"
-       class="hidden absolute mt-10 bg-white dark:bg-gray-800 shadow-lg rounded-md p-3 text-sm border border-gray-200 dark:border-gray-700">
-    <p class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Most popular</p>
-    <p class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Lowest price</p>
-    <p class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Highest price</p>
-    <p class="px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">Newest</p>
-  </div>
-
-
+  <!-- ======================= CATEGORY FILTER ======================= -->
+  <section class="py-10">
+    <div class="container mx-auto px-4 text-center">
+    <div id="categoryTabs" class="flex flex-wrap justify-center gap-3">
+  <!-- JS will insert buttons here -->
 </div>
 
-  <!-- VIEW TOGGLE -->
-  <div class="flex items-center gap-3 text-xl">
-
-    <!-- LIST VIEW BUTTON (ACTIVE BY DEFAULT) -->
-    <button id="listBtn"
-            class="p-2 rounded border border-blue-500 text-blue-600 shadow-sm">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
-           fill="none" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-
-    <!-- GRID VIEW BUTTON -->
-    <button id="gridBtn"
-            class="p-2 rounded border border-transparent hover:border-gray-400 transition">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5"
-           fill="none" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>
-      </svg>
-    </button>
-
-  </div>
-
-</div>
     </div>
+  </section>
 
+  <!-- ======================= SEARCH BAR ======================= -->
+  <!-- <section class="py-4">
+    <div class="container mx-auto px-4">
+      <div
+        class="bg-light dark:bg-dark/40 border border-light/40 dark:border-white/20 rounded-xl p-6 shadow-lg"
+      >
+        <div class="grid md:grid-cols-5 gap-4">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search address..."
+            class="bg-white dark:bg-dark border border-light/40 dark:border-white/20 px-4 py-3 rounded-md w-full"
+          />
 
+          <select
+            id="typeFilter"
+            class="bg-white dark:bg-dark border border-light/40 dark:border-white/20 px-4 py-3 rounded-md"
+          >
+            <option value="">Property Type</option>
+          </select>
 
+          <select
+            id="statusFilter"
+            class="bg-white dark:bg-dark border border-light/40 dark:border-white/20 px-4 py-3 rounded-md"
+          >
+            <option value="">Status</option>
+          </select>
 
+          <select
+            id="bedsFilter"
+            class="bg-white dark:bg-dark border border-light/40 dark:border-white/20 px-4 py-3 rounded-md"
+          >
+            <option value="">Beds</option>
+          </select>
 
-    <!-- TOP SEARCH BAR -->
-<div class="flex flex-col md:flex-row flex-wrap items-start md:items-center justify-between gap-4 mb-6 mt-4">
-
-      <!-- Search Input -->
-      <input
-        type="text"
-        placeholder="What are looking for"
-        class="px-4 py-3 w-full md:w-72 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm" />
-
-      <!-- STATUS -->
-      <select class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-        <option>Status</option>
-      </select>
-
-      <!-- TYPE -->
-      <select class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-        <option>Type</option>
-      </select>
-
-      <!-- BEDS -->
-      <select class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-        <option>Beds</option>
-      </select>
-
-      <!-- BATHS -->
-      <select class="px-4 py-3 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-        <option>Baths</option>
-      </select>
-
-      <!-- RESET -->
-      <button class="p-3 border rounded-md border-gray-300 dark:border-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4.5 9.5a7 7 0 1112.5 4.2"/>
-        </svg>
-      </button>
-
-      <!-- FILTER ICON -->
-      <button class="p-3 rounded-md border border-gray-300 dark:border-gray-700">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M7 12h10M10 18h4"/>
-        </svg>
-      </button>
-
-      <!-- SEARCH BUTTON -->
-      <button class="px-8 py-3 bg-[#0A3C8C] text-white rounded-md hover:bg-blue-800 transition">
-        Search
-      </button>
-    </div>
-
-    <!-- FILTER PANEL -->
-    <div class="w-full bg-gray-100 dark:bg-gray-800 rounded-xl p-6">
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <!-- PRICE -->
-        <div>
-          <h4 class="text-sm text-gray-500 mb-2">Price</h4>
-          <div class="flex items-center gap-3">
-            <input type="text" placeholder="Max Price"
-                   class="px-4 py-3 rounded-md w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-            <span class="text-gray-500">↔</span>
-            <input type="text" placeholder="Min Price"
-                   class="px-4 py-3 rounded-md w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-          </div>
+          <button
+            id="searchBtn"
+            class="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90"
+          >
+            Search 🔍
+          </button>
         </div>
-
-        <!-- AREA -->
-        <div>
-          <h4 class="text-sm text-gray-500 mb-2">Area</h4>
-          <div class="flex items-center gap-3">
-            <input type="text" placeholder="Max Area"
-                   class="px-4 py-3 rounded-md w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-            <span class="text-gray-500">↔</span>
-            <input type="text" placeholder="Min Area"
-                   class="px-4 py-3 rounded-md w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-          </div>
-        </div>
-
-        <!-- YEAR BUILT -->
-        <div>
-          <h4 class="text-sm text-gray-500 mb-2">Year Built</h4>
-          <div class="flex items-center gap-3">
-            <input type="text" placeholder="Min Year"
-                   class="px-4 py-3 rounded-md w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-            <span class="text-gray-500">↔</span>
-            <input type="text" placeholder="Max Year"
-                   class="px-4 py-3 rounded-md w-full border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-sm">
-          </div>
-        </div>
-
       </div>
-
     </div>
+  </section> -->
 
-  </div>
-</section>
+  <!-- ======================= PROPERTIES GRID ======================= -->
+  <section class="py-14">
+    <div class="container mx-auto px-4">
+      <div
+        id="propertyGrid"
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
+      ></div>
 
-
-
-<!-- ===================== PROPERTY LIST ===================== -->
-<section class="container mx-auto px-4 py-10">
-
-  <!-- REPEAT THIS CARD -->
-<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-5 flex flex-col md:flex-row gap-6">
-
-  <!-- LEFT IMAGE -->
-  <div class="relative w-full md:w-64">
-    <img src="Images/listings/litings1.jpg" 
-         class="w-full h-40 md:h-44 object-cover rounded-lg" />
-
-    <!-- For Rent TAG -->
-    <span class="absolute top-3 left-3 bg-gray-900 text-white text-xs px-2 py-1 rounded">
-      For Rent
-    </span>
-  </div>
-
-  <!-- RIGHT CONTENT -->
-  <div class="flex-1">
-
-    <!-- TITLE -->
-    <h3 class="text-lg font-semibold text-secondary dark:text-white mb-1">
-      High-Rise Townhouse
-    </h3>
-
-    <!-- LOCATION -->
-    <p class="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 21c4.5-5.5 7-9.5 7-12.5a7 7 0 10-14 0c0 3 2.5 7 7 12.5z" />
-      </svg>
-      Southwestern Ontario, Ontario, Canada
-    </p>
-
-    <!-- ICON ROW -->
-    <div class="flex items-center gap-6 my-4 text-gray-600 dark:text-gray-300 text-sm">
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/home.png" class="w-4 h-4"> 4 Beds
-      </span>
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/bath.png" class="w-4 h-4"> 2 Baths
-      </span>
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/area.png" class="w-4 h-4"> 122,200 sqft
-      </span>
-
+      <div class="text-center mt-10">
+        <a href="listing-details.html"
+          id="loadMoreBtn"
+          class="px-10 py-3 bg-primary text-white rounded-md hover:bg-primary/90"
+        >
+          Load More
+      </a>
+      </div>
     </div>
+  </section>
 
-    <!-- DIVIDER LINE -->
-    <div class="w-full h-px bg-gray-200 dark:bg-gray-700 mb-4"></div>
-
-    <!-- PRICE + BUTTON -->
-    <div class="flex items-center justify-between">
-
-      <p class="text-primary text-2xl font-bold">
-        $1,239 <span class="text-gray-500 text-sm font-medium">/Month</span>
-      </p>
-
- <a href="listing-details.html"
-   class="border border-primary text-primary px-5 py-2 rounded-md hover:bg-primary hover:text-white transition">
-  View Detail
-</a>
-
-    </div>
-
-  </div>
-</div>
- <div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-5 flex flex-col md:flex-row gap-6">
-
-  <!-- LEFT IMAGE -->
-  <div class="relative w-full md:w-64">
-    <img src="Images/listings/litings1.jpg" 
-         class="w-full h-40 md:h-44 object-cover rounded-lg" />
-
-    <!-- For Rent TAG -->
-    <span class="absolute top-3 left-3 bg-gray-900 text-white text-xs px-2 py-1 rounded">
-      For Rent
-    </span>
-  </div>
-
-  <!-- RIGHT CONTENT -->
-  <div class="flex-1">
-
-    <!-- TITLE -->
-    <h3 class="text-lg font-semibold text-secondary dark:text-white mb-1">
-      High-Rise Townhouse
-    </h3>
-
-    <!-- LOCATION -->
-    <p class="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 21c4.5-5.5 7-9.5 7-12.5a7 7 0 10-14 0c0 3 2.5 7 7 12.5z" />
-      </svg>
-      Southwestern Ontario, Ontario, Canada
-    </p>
-
-    <!-- ICON ROW -->
-    <div class="flex items-center gap-6 my-4 text-gray-600 dark:text-gray-300 text-sm">
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/home.png" class="w-4 h-4"> 4 Beds
-      </span>
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/bath.png" class="w-4 h-4"> 2 Baths
-      </span>
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/area.png" class="w-4 h-4"> 122,200 sqft
-      </span>
-
-    </div>
-
-    <!-- DIVIDER LINE -->
-    <div class="w-full h-px bg-gray-200 dark:bg-gray-700 mb-4"></div>
-
-    <!-- PRICE + BUTTON -->
-    <div class="flex items-center justify-between">
-
-      <p class="text-primary text-2xl font-bold">
-        $1,239 <span class="text-gray-500 text-sm font-medium">/Month</span>
-      </p>
-
-   <a href="listing-details.html"
-   class="border border-primary text-primary px-5 py-2 rounded-md hover:bg-primary hover:text-white transition">
-  View Detail
-</a>
-
-    </div>
-
-  </div>
-</div>
-<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-5 flex flex-col md:flex-row gap-6">
-
-  <!-- LEFT IMAGE -->
-  <div class="relative w-full md:w-64">
-    <img src="Images/listings/litings1.jpg" 
-         class="w-full h-40 md:h-44 object-cover rounded-lg" />
-
-    <!-- For Rent TAG -->
-    <span class="absolute top-3 left-3 bg-gray-900 text-white text-xs px-2 py-1 rounded">
-      For Rent
-    </span>
-  </div>
-
-  <!-- RIGHT CONTENT -->
-  <div class="flex-1">
-
-    <!-- TITLE -->
-    <h3 class="text-lg font-semibold text-secondary dark:text-white mb-1">
-      High-Rise Townhouse
-    </h3>
-
-    <!-- LOCATION -->
-    <p class="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 21c4.5-5.5 7-9.5 7-12.5a7 7 0 10-14 0c0 3 2.5 7 7 12.5z" />
-      </svg>
-      Southwestern Ontario, Ontario, Canada
-    </p>
-
-    <!-- ICON ROW -->
-    <div class="flex items-center gap-6 my-4 text-gray-600 dark:text-gray-300 text-sm">
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/home.png" class="w-4 h-4"> 4 Beds
-      </span>
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/bath.png" class="w-4 h-4"> 2 Baths
-      </span>
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/area.png" class="w-4 h-4"> 122,200 sqft
-      </span>
-
-    </div>
-
-    <!-- DIVIDER LINE -->
-    <div class="w-full h-px bg-gray-200 dark:bg-gray-700 mb-4"></div>
-
-    <!-- PRICE + BUTTON -->
-    <div class="flex items-center justify-between">
-
-      <p class="text-primary text-2xl font-bold">
-        $1,239 <span class="text-gray-500 text-sm font-medium">/Month</span>
-      </p>
-
-     <a href="listing-details.html"
-   class="border border-primary text-primary px-5 py-2 rounded-md hover:bg-primary hover:text-white transition">
-  View Detail
-</a>
-
-    </div>
-
-  </div>
-</div>
-  <!-- PROPERTY CARD -->
-<div class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-sm p-5 flex flex-col md:flex-row gap-6">
-
-  <!-- LEFT IMAGE -->
-  <div class="relative w-full md:w-64">
-    <img src="Images/listings/litings1.jpg" 
-         class="w-full h-40 md:h-44 object-cover rounded-lg" />
-
-    <!-- For Rent TAG -->
-    <span class="absolute top-3 left-3 bg-gray-900 text-white text-xs px-2 py-1 rounded">
-      For Rent
-    </span>
-  </div>
-
-  <!-- RIGHT CONTENT -->
-  <div class="flex-1">
-
-    <!-- TITLE -->
-    <h3 class="text-lg font-semibold text-secondary dark:text-white mb-1">
-      High-Rise Townhouse
-    </h3>
-
-    <!-- LOCATION -->
-    <p class="text-gray-500 dark:text-gray-400 text-sm flex items-center gap-1">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.5">
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" />
-        <path stroke-linecap="round" stroke-linejoin="round"
-              d="M12 21c4.5-5.5 7-9.5 7-12.5a7 7 0 10-14 0c0 3 2.5 7 7 12.5z" />
-      </svg>
-      Southwestern Ontario, Ontario, Canada
-    </p>
-
-    <!-- ICON ROW -->
-    <div class="flex items-center gap-6 my-4 text-gray-600 dark:text-gray-300 text-sm">
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/home.png" class="w-4 h-4"> 4 Beds
-      </span>
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/bath.png" class="w-4 h-4"> 2 Baths
-      </span>
-
-      <span class="flex items-center gap-1">
-        <img src="Images/icons/area.png" class="w-4 h-4"> 122,200 sqft
-      </span>
-
-    </div>
-
-    <!-- DIVIDER LINE -->
-    <div class="w-full h-px bg-gray-200 dark:bg-gray-700 mb-4"></div>
-
-    <!-- PRICE + BUTTON -->
-    <div class="flex items-center justify-between">
-
-      <p class="text-primary text-2xl font-bold">
-        $1,239 <span class="text-gray-500 text-sm font-medium">/Month</span>
-      </p>
-
-   <a href="listing-details.html"
-   class="border border-primary text-primary px-5 py-2 rounded-md hover:bg-primary hover:text-white transition">
-  View Detail
-</a>
-
-    </div>
-
-  </div>
-</div>
-
-  <!-- END CARD -->
+  <!-- ======================= FOOTER ======================= -->
+  <div id="site-footer"></div>
+  <script src="footer.js" type="module"></script>
 
 
-  <!-- You can duplicate the above card (4 times like screenshot) -->
-
-
-  <!-- View More -->
-  <div class="text-center mt-10">
-    <button class="bg-primary text-white px-8 py-3 rounded-md hover:bg-primary/90">
-      View More
-    </button>
-  </div>
-
-</section>
-<div id="site-footer"></div>
-<script type="module" src="footer.js"></script>
 <script>
-  // SORT DROPDOWN
-  const sortToggle = document.getElementById("sortToggle");
-  const sortMenu = document.getElementById("sortMenu");
-  const sortArrow = document.getElementById("sortArrow");
-  const sortLabel = document.getElementById("sortLabel");
+/* ============================================================
+   THEME TOGGLE
+============================================================ */
+document.getElementById("themeToggle").onclick = () => {
+  document.documentElement.classList.toggle("dark");
+  document.documentElement.classList.toggle("light");
+};
 
-  sortToggle.addEventListener("click", () => {
-    sortMenu.classList.toggle("hidden");
-    sortArrow.classList.toggle("rotate-180");
+
+/* ============================================================
+   DUMMY PROPERTY DATA PER CATEGORY
+============================================================ */
+const propertyData = {
+  All: [
+    { id: 1, title: "Luxury Family House", price: 1239, type: "House", status: "Rent",
+      beds: 4, baths: 2, area: "2000 sqft", location: "Toronto, Ontario",
+      img: "Images/listings/litings1.jpg" },
+    { id: 2, title: "Modern Apartment Suite", price: 980, type: "Apartment", status: "Rent",
+      beds: 2, baths: 1, area: "880 sqft", location: "Vancouver, BC",
+      img: "Images/listings/litings1.jpg" },
+    { id: 3, title: "Lake View Villa", price: 2150, type: "Villa", status: "Sale",
+      beds: 5, baths: 4, area: "3200 sqft", location: "Calgary, Alberta",
+      img: "Images/listings/litings1.jpg" },
+  ],
+
+  House: [
+    { id: 4, title: "Cozy 3-Bedroom House", price: 1100, type: "House", status: "Rent",
+      beds: 3, baths: 2, area: "1500 sqft", location: "Ottawa, Ontario",
+      img: "Images/listings/litings1.jpg" },
+    { id: 5, title: "Newly Renovated House", price: 1800, type: "House", status: "Sale",
+      beds: 4, baths: 3, area: "2100 sqft", location: "Edmonton, Alberta",
+      img: "Images/listings/litings1.jpg" }
+  ],
+
+  Apartment: [
+    { id: 6, title: "Downtown Apartment", price: 850, type: "Apartment", status: "Rent",
+      beds: 1, baths: 1, area: "560 sqft", location: "Montreal, Quebec",
+      img: "Images/listings/litings1.jpg" },
+    { id: 7, title: "Premium City Apartment", price: 1450, type: "Apartment", status: "Sale",
+      beds: 2, baths: 2, area: "940 sqft", location: "Toronto, Ontario",
+      img: "Images/listings/litings1.jpg" }
+  ],
+
+  Villa: [
+    { id: 8, title: "Seaside Luxury Villa", price: 3200, type: "Villa", status: "Sale",
+      beds: 6, baths: 5, area: "4500 sqft", location: "Halifax, Nova Scotia",
+      img: "Images/listings/litings1.jpg" },
+    { id: 9, title: "Mountain View Villa", price: 2700, type: "Villa", status: "Rent",
+      beds: 5, baths: 4, area: "3900 sqft", location: "Banff, Alberta",
+      img: "Images/listings/litings1.jpg" }
+  ]
+};
+
+
+/* ============================================================
+   CREATE CATEGORY BUTTONS (IMPORTANT!)
+============================================================ */
+const categories = ["All", "House", "Apartment", "Villa"];
+const categoryTabs = document.getElementById("categoryTabs");
+
+categories.forEach(cat => {
+  const btn = document.createElement("button");
+  btn.dataset.category = cat;
+
+  btn.className = "px-6 py-2 bg-primary text-white rounded-md shadow"
+    // cat === "All"
+    //   ? "px-6 py-2 bg-primary text-white rounded-md shadow"
+    //   : "px-6 py-2 bg-light dark:bg-dark/40 text-dark dark:text-white rounded-md border border-light/40 dark:border-white/10";
+
+  btn.innerText = cat;
+  categoryTabs.appendChild(btn);
+});
+
+
+/* ============================================================
+   RENDER PROPERTY CARD
+============================================================ */
+function renderCard(item) {
+  return `
+    <div class="rounded-xl bg-white dark:bg-dark shadow-md overflow-hidden hover:-translate-y-1 transition">
+      <img src="${item.img}" class="w-full h-56 object-cover">
+
+      <div class="p-5">
+        <p class="text-primary text-xl font-semibold">$${item.price}</p>
+
+        <h3 class="text-lg font-semibold mt-2">${item.title}</h3>
+
+        <p class="text-dark/60 dark:text-white/60 text-sm mt-1">📍 ${item.location}</p>
+
+        <div class="flex items-center gap-5 text-sm text-dark/60 dark:text-white/60 mt-4">
+          <span>🏠 ${item.beds} Beds</span>
+          <span>🛁 ${item.baths} Baths</span>
+          <span>📐 ${item.area}</span>
+        </div>
+
+  
+      </div>
+    </div>`;
+}
+
+
+/* ============================================================
+   RENDER GRID
+============================================================ */
+let activeCategory = "All";
+let visibleCount = 3;
+
+function renderGrid() {
+  const list = propertyData[activeCategory];
+  const grid = document.getElementById("propertyGrid");
+  grid.innerHTML = "";
+
+  list.slice(0, visibleCount).forEach(item => {
+    grid.innerHTML += renderCard(item);
   });
+}
 
-  // SELECT SORT OPTION
-  sortMenu.querySelectorAll("p").forEach(item => {
-    item.addEventListener("click", () => {
-      sortLabel.textContent = item.textContent;
-      sortMenu.classList.add("hidden");
-      sortArrow.classList.remove("rotate-180");
+// 👉 Initial Load
+renderGrid();
+
+
+/* ============================================================
+   CATEGORY CLICK HANDLER
+============================================================ */
+categoryTabs.querySelectorAll("button").forEach(btn => {
+  btn.onclick = () => {
+    // reset all buttons
+    categoryTabs.querySelectorAll("button").forEach(b =>
+      b.classList.remove("bg-primary", "text-white")
+    );
+
+    // highlight active
+    btn.classList.add("bg-primary", "text-white");
+
+    activeCategory = btn.dataset.category;
+    visibleCount = 3;
+
+    renderGrid();
+  };
+});
+
+
+/* ============================================================
+   LOAD MORE
+============================================================ */
+document.getElementById("loadMoreBtn").onclick = () => {
+  visibleCount += 3;
+  renderGrid();
+};
+</script>
+<script>
+  function applyButtonStyles() {
+    document.querySelectorAll("#categoryTabs button").forEach(b => {
+      b.classList.remove("btn-primary");
+      b.classList.add("btn-light");
     });
-  });
-
-  // LIST / GRID TOGGLE
-  const listBtn = document.getElementById("listBtn");
-  const gridBtn = document.getElementById("gridBtn");
-
-  function activateList() {
-    listBtn.className = "p-2 rounded border border-blue-500 text-blue-600 shadow-sm";
-    gridBtn.className = "p-2 rounded border border-transparent hover:border-gray-400 transition";
   }
 
-  function activateGrid() {
-    gridBtn.className = "p-2 rounded border border-blue-500 text-blue-600 shadow-sm";
-    listBtn.className = "p-2 rounded border border-transparent hover:border-gray-400 transition";
-  }
+  categoryTabs.querySelectorAll("button").forEach(btn => {
+    btn.onclick = () => {
+      applyButtonStyles();
+      btn.classList.remove("btn-light");
+      btn.classList.add("btn-primary");
 
-  listBtn.addEventListener("click", activateList);
-  gridBtn.addEventListener("click", activateGrid);
-</script>
-<script>
-   // Auto-highlight active page
-   const page = document.body.getAttribute("data-page"); 
-   document.querySelectorAll(".nav-link").forEach(link => {
-      if (link.dataset.page === page) {
-         link.classList.add("text-primary", "font-semibold");
-      }
-   });
+      activeCategory = btn.dataset.category;
+      visibleCount = 3;
 
-   // Set breadcrumb from data-page
-   const bread = {
-      home: "Home",
-      listing: "Listing",
-      contact: "Contact",
-      about: "About",
-      blog: "Blog"
-   };
-   if (bread[page]) {
-      document.getElementById("breadcrumbPage").innerText = bread[page];
-   }
-
-   // Mobile menu toggle
-   const btn = document.getElementById("mobileMenuBtn");
-   const menu = document.getElementById("mobileMenu");
-
-   btn.addEventListener("click", () => {
-     menu.classList.toggle("hidden");
-   });
-</script>
-<script>
-  // Theme toggle logic
-  const toggle = document.getElementById("themeToggle");
-  toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.toggle("light");
+      renderGrid();
+    };
   });
+
+  // Set "All" as default active
+  setTimeout(() => {
+    const first = document.querySelector('#categoryTabs button[data-category="All"]');
+    if (first) first.classList.replace("btn-light", "btn-primary");
+  }, 50);
 </script>
+
+
 </body>
 </html>

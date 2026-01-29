@@ -1,788 +1,393 @@
 <!DOCTYPE html>
 <html lang="en" class="light scroll-smooth">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Premium multipurpose business template" />
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Compass Housing Society – Premium Real Estate Services</title>
 
-  <!-- Tailwind CDN -->
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Tailwind Config -->
   <script>
     tailwind.config = {
-      darkMode: 'class',
+      darkMode: "class",
       theme: {
         extend: {
           colors: {
-            primary: '#1A56DB',
-            secondary: '#0F172A',
-            accent: '#F59E0B'
+            primary: "#1A56DB",
+            dark: "#0F172A",
+            light: "#F5F7FA",
+            secondary: "#0F172A" 
           },
           fontFamily: {
-            sans: ['Inter', 'sans-serif'],
+            sans: ["Inter", "sans-serif"]
           }
         }
       }
-    }
+    };
   </script>
 
-  <title>Compass Housing Template</title>
-    <style>
-      body::before {
+
+  <!-- Watermark -->
+  <style>
+    /* body::before {
       content: "";
       position: fixed;
       inset: 0;
-      margin: auto;
       background-image: url("Images/transparent-logo-1.png");
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 600px auto;
-      opacity: 0.10;
-      pointer-events: none;
+      background-size: 520px;
+      opacity: 0.05;
       z-index: -1;
+      pointer-events: none;
+    } */
+
+    html {
+      position: relative;
+    }
+
+    html::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("Images/transparent-logo-1.png") center/450px no-repeat;
+      opacity: 0.12;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    section {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
     }
   </style>
-  
+
 </head>
 
-<body data-page="home1" class=" px-4 md:px-8 bg-white text-secondary dark:bg-secondary dark:text-white font-sans">
 
-  <!-- Theme Toggle Button -->
-  <button
-    id="themeToggle"
-    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+<body class="bg-light dark:bg-dark text-dark dark:text-white">
+
+  <!-- THEME TOGGLE -->
+  <button id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/80 transition">
     🌓
   </button>
 
-  <!-- Content will come here -->
- 
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
+
+  <main class="pt-28">
 
 
-  <div id="page-content">
-<!-- ================= GLOBAL HEADER ================= -->
-<div id="site-header"></div>
-<script src="header.js"></script>
+    <!-- ================= HERO ================= -->
+    <section class="relative py-24 bg-gradient-to-b from-light/80 to-white/80 dark:from-dark/90 dark:to-dark/90">
+      <div class="container mx-auto px-4 grid md:grid-cols-2 gap-14 items-center">
 
-
-
-
-<!-- ================= HERO SECTION ================= -->
-<!-- ================= HERO SECTION (Wireframe Accurate) ================= -->
-<section class=" mt-[130px] w-full pb-20 relative overflow-hidden">
-
-  <!-- Light dotted background -->
-  <div class="absolute inset-0 bg-[url('assets/dot-pattern.png')] opacity-20 pointer-events-none"></div>
-
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative z-10">
-
-    <!-- LEFT CONTENT -->
-    <div class="space-y-6">
-      
-      <!-- Small Top Text -->
-      <p class="text-gray-600 dark:text-gray-300 text-lg">
-        More than <span class="text-primary font-semibold">10M+</span> houses available for sale & rent
-      </p>
-
-      <!-- Main Heading -->
-      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight text-secondary dark:text-white">
-        FIND YOUR NEXT<br />
-        PERFECT <span class="text-primary">PLACE</span>
-      </h1>
-
-      <!-- Button -->
-      <a href="#"
-         class="inline-block bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-accent transition">
-         Explore More
-      </a>
-
-    </div>
-
-    <!-- RIGHT SIDE IMAGE + OVERLAY BADGE -->
-    <div class="relative flex justify-center md:justify-end">
-
-      <!-- Main Image -->
-      <img src="Images/joethommas-1-1.jpg"
-           alt="Building"
-           class="w-full max-w-md md:max-w-lg rounded-xl shadow-xl">
-
-      <!-- Overlay Card -->
-      <div class="absolute bottom-4 right-4 bg-white dark:bg-secondary text-secondary dark:text-white
-                  px-4 py-3 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-        <p class="text-xl font-bold text-primary">10k+</p>
-        <p class="text-sm">Exclusive Agents</p>
-        <p class="text-xs text-gray-500 dark:text-gray-300">
-          +183,406 Valuation Appointment
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-<!-- ================= SECTION 4: SEARCH FILTER BAR ================= -->
-<section class="w-full py-10">
-  <div class="container mx-auto px-4">
-
-    <div class="bg-gray-100 dark:bg-gray-800 rounded-xl p-4 flex flex-col md:flex-row gap-4 items-center shadow">
-
-      <!-- Input Field -->
-      <input
-        type="text"
-        placeholder="Search properties..."
-
-        class="w-full md:flex-1 px-4 py-3 rounded-md bg-white dark:bg-secondary text-secondary dark:text-white border border-gray-300 dark:border-gray-700 focus:ring-2 focus:ring-primary focus:outline-none">
-
-      <!-- Dropdown -->
-      <div class="relative w-full md:w-40">
-        <select
-          class="w-full px-4 py-3 rounded-md bg-white dark:bg-secondary text-secondary dark:text-white border border-gray-300 dark:border-gray-700 appearance-none focus:ring-2 focus:ring-primary">
-          <option>All</option>
-          <option>Rent</option>
-          <option>Buy</option>
-          <option>Commercial</option>
-        </select>
-
-        <!-- Arrow Icon -->
-        <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-300 pointer-events-none">
-          ▼
-        </span>
-      </div>
-
-      <!-- Search Button -->
-      <button
-      class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-md font-medium transition"
->
-        Search
-      </button>
-
-    </div>
-
-  </div>
-</section>
-<!-- ================= SECTION 5: FEATURED LISTINGS ================= -->
-<section class="w-full py-16">
-  <div class="container mx-auto px-4 text-center">
-
-    <!-- Section Title -->
-    <h1 class="text-primary text-3xl font-semibold tracking-wide mb-2">DISCOVER OUR PROPERTIES</h1>
-    <h2 class="text-2xl md:text-4xl font-bold text-secondary dark:text-white mb-12">
-      Latest Property
-    </h2>
-
-    <!-- Property Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- CARD START -->
-      <!-- CARD 1 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-          <img src="Images/home1/himg1.png" class="w-full h-56 object-cover" alt="Property">
-          <span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-md text-sm">For Rent</span>
-        </div>
-
-        <div class="p-5 space-y-4 text-left">
-          <h3 class="text-lg font-semibold dark:text-white">High-Rise Townhouse</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
-            Southwestern Ontario, Ontario, Canada
+        <!-- Left -->
+        <div class="space-y-6">
+          <p class="text-dark/80 dark:text-white/70 text-lg">
+            Trusted by <span class="text-primary font-semibold">10,000+</span> clients
           </p>
 
-          <!-- Icons Row -->
-          <div class="flex items-center text-gray-500 dark:text-gray-300 gap-5 text-sm">
-            <span>🏠 4</span>
-            <span>🛁 2</span>
-            <span>📐 122,200 sqft</span>
-          </div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+            Find Your Perfect <span class="text-primary">Home</span>
+          </h1>
 
-          <!-- Price + Button -->
-          <div class="flex items-center justify-between">
-            <p class="text-primary text-2xl font-bold">$1,239</p>
-            <a href="#" class="px-4 py-2 text-sm rounded-md bg-primary text-white hover:bg-accent transition">
-              View Detail
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- CARD END -->
-
-      <!-- CARD 2 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-          <img src="Images/home1/himg2.png" class="w-full h-56 object-cover" alt="Property">
-          <span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-md text-sm">For Rent</span>
-        </div>
-
-        <div class="p-5 space-y-4 text-left">
-          <h3 class="text-lg font-semibold dark:text-white">High-Rise Townhouse</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
-            Southwestern Ontario, Ontario, Canada
+          <p class="text-dark/70 dark:text-white/70 text-lg">
+            We make buying, renting, and managing properties simple & secure.
           </p>
 
-          <div class="flex items-center text-gray-500 dark:text-gray-300 gap-5 text-sm">
-            <span>🏠 4</span>
-            <span>🛁 2</span>
-            <span>📐 122,200 sqft</span>
-          </div>
-
-          <div class="flex items-center justify-between">
-            <p class="text-primary text-2xl font-bold">$1,239</p>
-            <a href="#" class="px-4 py-2 text-sm rounded-md bg-primary text-white hover:bg-accent transition">
-              View Detail
-            </a>
+          <div class="flex gap-4">
+            <a href="services.html"
+              class="px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition">Explore Services</a>
+            <a href="contact.html"
+              class="px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition">Contact</a>
           </div>
         </div>
-      </div>
 
-      <!-- CARD 3 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-          <img src="Images/home1/himg3.png" class="w-full h-56 object-cover" alt="Property">
-          <span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-md text-sm">For Rent</span>
-        </div>
+        <!-- Right -->
+        <div class="relative flex justify-center md:justify-end">
+          <img src="Images/joethommas-1-1.jpg" class="rounded-xl shadow-xl w-full max-w-md">
 
-        <div class="p-5 space-y-4 text-left">
-          <h3 class="text-lg font-semibold dark:text-white">High-Rise Townhouse</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
-            Southwestern Ontario, Ontario, Canada
-          </p>
-
-          <div class="flex items-center text-gray-500 dark:text-gray-300 gap-5 text-sm">
-            <span>🏠 4</span>
-            <span>🛁 2</span>
-            <span>📐 122,200 sqft</span>
-          </div>
-
-          <div class="flex items-center justify-between">
-            <p class="text-primary text-2xl font-bold">$1,239</p>
-            <a href="#" class="px-4 py-2 text-sm rounded-md bg-primary text-white hover:bg-accent transition">
-              View Detail
-            </a>
+          <div
+            class="absolute bottom-4 right-4 bg-white dark:bg-dark text-dark dark:text-white px-4 py-3 rounded-lg shadow-lg border border-light/50">
+            <p class="text-xl font-bold text-primary">10k+</p>
+            <p>Exclusive Agents</p>
+            <p class="text-sm text-dark/60 dark:text-white/60">Verified Listings</p>
           </div>
         </div>
+
       </div>
+    </section>
 
-      <!-- CARD 4 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-          <img src="Images/home1/himg4.png" class="w-full h-56 object-cover" alt="Property">
-          <span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-md text-sm">For Rent</span>
+
+
+    <!-- ================= SEARCH ================= -->
+    <section class="py-14 bg-white dark:bg-dark">
+      <div class="container mx-auto px-4">
+        <div
+          class="bg-light dark:bg-dark/60 backdrop-blur-lg px-6 py-6 rounded-xl shadow-lg flex flex-col md:flex-row gap-4">
+
+          <input type="text" placeholder="Search properties..."
+            class="w-full px-4 py-3 rounded-md bg-white dark:bg-dark border border-light/50 dark:border-white/20">
+
+          <select
+            class="w-full md:w-40 px-4 py-3 rounded-md bg-white dark:bg-dark border border-light/50 dark:border-white/20">
+            <option>All</option>
+            <option>Rent</option>
+            <option>Buy</option>
+            <option>Commercial</option>
+          </select>
+
+          <a href="listings.html"
+            class="px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition text-center">
+            Search
+          </a>
+
         </div>
+      </div>
+    </section>
 
-        <div class="p-5 space-y-4 text-left">
-          <h3 class="text-lg font-semibold dark:text-white">High-Rise Townhouse</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
-            Southwestern Ontario, Ontario, Canada
-          </p>
 
-          <div class="flex items-center text-gray-500 dark:text-gray-300 gap-5 text-sm">
-            <span>🏠 4</span>
-            <span>🛁 2</span>
-            <span>📐 122,200 sqft</span>
+
+    <!-- ================= FEATURED PROPERTIES ================= -->
+    <section class="py-20 bg-gradient-to-b from-white to-light dark:from-dark/95 dark:to-dark/80">
+      <div class="container mx-auto px-4 text-center">
+
+        <h2 class="text-primary text-3xl font-semibold">Featured Properties</h2>
+        <p class="text-dark/70 dark:text-white/70 mt-3 mb-14">Explore premium curated listings.</p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+          <!-- CARD -->
+          <div class="rounded-xl bg-white dark:bg-dark shadow-lg hover:-translate-y-1 transition overflow-hidden">
+            <img src="Images/home1/himg1.png" class="w-full h-56 object-cover">
+
+            <div class="p-5 space-y-4 text-left">
+              <h3 class="text-lg font-semibold">Modern Townhouse</h3>
+              <p class="text-dark/60 dark:text-white/60">Ontario, Canada</p>
+
+              <div class="flex items-center gap-5 text-dark/60 dark:text-white/60 text-sm">
+                <span>🏠 4</span>
+                <span>🛁 2</span>
+                <span>📐 1200 sqft</span>
+              </div>
+
+              <div class="flex items-center justify-between">
+                <p class="text-primary text-2xl font-bold">$1,239</p>
+                <a href="listing-details.html" class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90">
+                  View
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div class="flex items-center justify-between">
-            <p class="text-primary text-2xl font-bold">$1,239</p>
-            <a href="#" class="px-4 py-2 text-sm rounded-md bg-primary text-white hover:bg-accent transition">
-              View Detail
-            </a>
-          </div>
-        </div>
-      </div>
+          <!-- OTHER CARDS REPEATED CLEANLY -->
+          <div class="rounded-xl bg-white dark:bg-dark shadow-lg hover:-translate-y-1 transition overflow-hidden">
+            <img src="Images/home1/himg3.png" class="w-full h-56 object-cover">
 
-      <!-- CARD 5 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-          <img src="Images/home1/himg1.png" class="w-full h-56 object-cover" alt="Property">
-          <span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-md text-sm">For Rent</span>
-        </div>
-
-        <div class="p-5 space-y-4 text-left">
-          <h3 class="text-lg font-semibold dark:text-white">High-Rise Townhouse</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
-            Southwestern Ontario, Ontario, Canada
-          </p>
-
-          <div class="flex items-center text-gray-500 dark:text-gray-300 gap-5 text-sm">
-            <span>🏠 4</span>
-            <span>🛁 2</span>
-            <span>📐 122,200 sqft</span>
+            <div class="p-5 space-y-4 text-left">
+              <h3 class="text-lg font-semibold">Luxury Villa</h3>
+              <p class="text-dark/60 dark:text-white/60">Ontario, Canada</p>
+              <div class="flex items-center gap-5 text-dark/60 dark:text-white/60 text-sm">
+                <span>🏠 5</span>
+                <span>🛁 4</span>
+                <span>📐 2600 sqft</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <p class="text-primary text-2xl font-bold">$2,850</p>
+                <a href="listing-details.html"
+                  class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90">View</a>
+              </div>
+            </div>
           </div>
 
-          <div class="flex items-center justify-between">
-            <p class="text-primary text-2xl font-bold">$1,239</p>
-            <a href="#" class="px-4 py-2 text-sm rounded-md bg-primary text-white hover:bg-accent transition">
-              View Detail
-            </a>
-          </div>
-        </div>
-      </div>
+          <div class="rounded-xl bg-white dark:bg-dark shadow-lg hover:-translate-y-1 transition overflow-hidden">
+            <img src="Images/home1/himg4.png" class="w-full h-56 object-cover">
 
-      <!-- CARD 6 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-        <div class="relative">
-        <img src="Images/home1/himg2.png" class="w-full h-56 object-cover" alt="Property">
-          <span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-md text-sm">For Rent</span>
-        </div>
-
-        <div class="p-5 space-y-4 text-left">
-          <h3 class="text-lg font-semibold dark:text-white">High-Rise Townhouse</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
-            Southwestern Ontario, Ontario, Canada
-          </p>
-
-          <div class="flex items-center text-gray-500 dark:text-gray-300 gap-5 text-sm">
-            <span>🏠 4</span>
-            <span>🛁 2</span>
-            <span>📐 122,200 sqft</span>
+            <div class="p-5 space-y-4">
+              <h3 class="text-lg font-semibold">City Apartment</h3>
+              <p class="text-dark/60 dark:text-white/60">Toronto, Canada</p>
+              <div class="flex items-center gap-5 text-dark/60 dark:text-white/60 text-sm">
+                <span>🏠 3</span>
+                <span>🛁 2</span>
+                <span>📐 980 sqft</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <p class="text-primary text-2xl font-bold">$1,950</p>
+                <a href="listing-details.html"
+                  class="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90">View</a>
+              </div>
+            </div>
           </div>
 
-          <div class="flex items-center justify-between">
-            <p class="text-primary text-2xl font-bold">$1,239</p>
-            <a href="#" class="px-4 py-2 text-sm rounded-md bg-primary text-white hover:bg-accent transition">
-              View Detail
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- View All Button -->
-    <div class="mt-12">
-      <a href="#"
-         class="inline-block bg-primary hover:bg-accent text-white px-10 py-3 rounded-md font-medium transition">
-        View All
-      </a>
-    </div>
-
-  </div>
-</section>
-<!-- ================= SECTION 6A: SERVICES ================= -->
-<section class="w-full py-16">
-  <div class="container mx-auto px-4 text-center">
-
-    <!-- Section Heading -->
-    <p class="text-primary text-3xl  md:text-3xl font-semibold tracking-wide mb-2">DISCOVER OUR SERVICES</p>
-    <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-12">
-      What We Are Providing
-    </h2>
-
-    <!-- Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <!-- Card 1 -->
-      <div class="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
-        <div class="text-primary text-4xl mb-4">🏡</div>
-        <h3 class="text-xl font-semibold text-secondary dark:text-white mb-3">Rent A Property</h3>
-        <p class="text-gray-600 dark:text-gray-300">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
-        <div class="text-primary text-4xl mb-4">🏠</div>
-        <h3 class="text-xl font-semibold text-secondary dark:text-white mb-3">Sell A Property</h3>
-        <p class="text-gray-600 dark:text-gray-300">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="bg-white dark:bg-gray-800 shadow-lg p-8 rounded-xl">
-        <div class="text-primary text-4xl mb-4">🏘️</div>
-        <h3 class="text-xl font-semibold text-secondary dark:text-white mb-3">Buy A Property</h3>
-        <p class="text-gray-600 dark:text-gray-300">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-<!-- ================= SECTION 6B: WHO WE ARE ================= -->
-<section class="w-full py-20">
-  <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-
-    <!-- LEFT CONTENT -->
-    <div class="space-y-6">
-
-      <p class="text-primary text-3xl md:text-3xl font-semibold">WHO WE ARE?</p>
-
-      <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white">
-        The Experts In Property
-      </h2>
-
-      <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-        We are a leading company in the real-estate sector, specializing in providing
-        a wide range of services and solutions to meet the needs of buying, renting,
-        and managing real estate assets. With experience and dedication, we are committed
-        to offering the best.
-      </p>
-
-      <!-- Stats Grid -->
-      <div class="grid grid-cols-2 gap-5">
-
-        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-lg shadow-sm">
-          <p class="text-primary text-3xl font-bold">8+</p>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">Years Experience</p>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-lg shadow-sm">
-          <p class="text-primary text-3xl font-bold">350+</p>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">Expert Researchers</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-lg shadow-sm">
-          <p class="text-primary text-3xl font-bold">10K+</p>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">Real Estate Agents</p>
-        </div>
-
-        <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-5 rounded-lg shadow-sm">
-          <p class="text-primary text-3xl font-bold">2.5K+</p>
-          <p class="text-gray-600 dark:text-gray300 text-sm">Listing for Sale</p>
-        </div>
-      </div>
-
-      <!-- CTA Button -->
-      <a href="#"
-         class="inline-block bg-primary hover:bg-accent text-white px-6 py-3 rounded-md font-medium transition">
-         Explore More
-      </a>
-
-    </div>
-
-    <!-- RIGHT IMAGE -->
-    <div class="flex justify-center md:justify-end">
-      <img src="Images/listings/homes1.jpg"
-           alt="Building"
-           class="w-full max-w-lg rounded-xl shadow-xl">
-    </div>
-
-  </div>
-</section>
-
-<!-- ================= SECTION 7: PROPERTY GALLERY ================= -->
-<section class="w-full py-16">
-  <div class="container mx-auto px-4 text-center">
-
-    <!-- Section Title -->
-    <p class="text-primary text-3xl   md:text-3xl font-semibold tracking-wide mb-2">FIND PROPERTY IN YOUR AREA</p>
-    <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-12">
-      Property In Your Area
-    </h2>
-
-    <!-- Gallery Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-      <!-- ITEM 1 -->
-      <div class="relative group">
-         <img src="Images/about/dymondb.jpg"
-             class="w-full h-72 object-cover rounded-xl shadow-lg">
-        <span class="absolute bottom-4 left-4 text-white text-lg font-semibold bg-black/40 px-3 py-1 rounded-md">
-          High-Rise Townhouse
-        </span>
-      </div>
-
-      <!-- ITEM 2 -->
-      <div class="relative group">
-        <img src="Images/joethommas-1-1.jpg"
-             class="w-full h-72 object-cover rounded-xl shadow-lg">
-        <span class="absolute bottom-4 left-4 text-white text-lg font-semibold bg-black/40 px-3 py-1 rounded-md">
-          High-Rise Townhouse
-        </span>
-      </div>
-
-      <!-- ITEM 3 (Tall Image) -->
-      <div class="relative group md:col-span-1">
-        <img src="Images/joethommas-1-1.jpg"
-             class="w-full h-[420px] object-cover rounded-xl shadow-lg">
-        <span class="absolute bottom-4 left-4 text-white text-lg font-semibold bg-black/40 px-3 py-1 rounded-md">
-          High-Rise Townhouse
-        </span>
-      </div>
-
-      <!-- ITEM 4 -->
-      <div class="relative group md:col-span-1">
-        <img src="Images/about/dymondb.jpg"
-             class="w-full h-[420px] object-cover rounded-xl shadow-lg">
-        <span class="absolute bottom-4 left-4 text-white text-lg font-semibold bg-black/40 px-3 py-1 rounded-md">
-          High-Rise Townhouse
-        </span>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-<!-- ================= SECTION 8A: MEET OUR AGENTS ================= -->
-<section class="w-full py-20">
-  <div class="container mx-auto px-4">
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
-
-      <!-- LEFT TEXT BLOCK -->
-      <div>
-        <p class="text-primary text-3xl md:text-3xl font-semibold tracking-wide mb-2">DISCOVER OUR AGENTS</p>
-
-        <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-4">
-          Meet Our Agents
-        </h2>
-
-        <p class="text-gray-600 dark:text-gray-300 mb-6 pr-6">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-          totam rem aperiam, eaque ipsa quae ab illo.
-        </p>
-
-        <a href="#"
-           class="inline-block bg-primary text-white px-6 py-3 rounded-md hover:bg-accent transition">
-          Become Our Agents
+        <a href="listing.html"
+          class="mt-12 inline-block px-10 py-3 bg-primary text-white rounded-md hover:bg-primary/90">
+          View All
         </a>
 
-        <!-- Navigation Arrows -->
-        <div class="flex items-center gap-4 mt-6">
-          <button class="w-10 h-10 flex justify-center items-center rounded-full border border-gray-400 dark:border-gray-600 hover:bg-primary hover:text-white transition">
-            ←
-          </button>
-          <button class="w-10 h-10 flex justify-center items-center rounded-full border border-gray-400 dark:border-gray-600 hover:bg-primary hover:text-white transition">
-            →
-          </button>
-        </div>
       </div>
+    </section>
 
-      <!-- AGENT CARD 1 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-        <img src="Images/home1/team1.png" 
-             class="w-full h-80 object-cover" alt="Agent 1">
 
-        <div class="p-5 space-y-1">
-          <h3 class="text-xl font-semibold dark:text-white">Rachel Dan</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">Agent License: 090-0048-8346</p>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">Mobile: (559) 992 5009</p>
-        </div>
-      </div>
 
-      <!-- AGENT CARD 2 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-        <img src="Images/home1/team2.png" 
-             class="w-full h-80 object-cover" alt="Agent 2">
+    <!-- ================= SERVICES ================= -->
+    <section class="py-20 bg-gradient-to-b from-light to-white dark:from-dark/90 dark:to-dark">
+      <div class="container mx-auto px-4 text-center">
 
-        <div class="p-5 space-y-1">
-          <h3 class="text-xl font-semibold dark:text-white">Rachel Dan</h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">Agent License: 090-0048-8346</p>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">Mobile: (559) 992 5009</p>
-        </div>
-      </div>
+        <h2 class="text-primary text-3xl font-semibold">Our Services</h2>
+        <p class="text-dark/70 dark:text-white/70 mt-3 mb-14">
+          Professional real estate solutions for all your needs.
+        </p>
 
-    </div>
+        <div class="grid md:grid-cols-3 gap-10">
 
-  </div>
-</section>
-
-<!-- ================= SECTION 8B: PREMIUM BANNER (Exact Background Image) ================= -->
-<section 
-  class="w-full py-28 bg-cover bg-center relative"
-  style="background-image: url('Images/bae508b00ad2cf39e24abd3ea7bbe4253b8f5857.jpg');">
-
-  <!-- Dark Overlay for readability -->
-  <div class="absolute inset-0 bg-black/40"></div>
-
-  <div class="container mx-auto px-4 relative z-10">
-
-    <div class="max-w-2xl text-white">
-
-      <!-- Logo -->
-      <p class="text-white text-xl font-semibold mb-4 flex items-center gap-2">
-        <img src="https://placehold.co/32x32?text=R" class="w-8 h-8">
-        RealPress
-      </p>
-
-      <!-- Heading -->
-      <h2 class="text-3xl md:text-5xl font-bold leading-snug mb-6">
-        Explore More Premium Features<br />
-        And Dynamic Layouts With RealPress
-      </h2>
-
-      <!-- Description -->
-      <p class="text-gray-200 mb-8 text-lg leading-relaxed">
-        Try different demos to unlock advanced functionalities and a richer experience!
-      </p>
-
-      <!-- Button -->
-      <a href="#"
-        class="inline-block bg-white text-primary px-10 py-3 rounded-md font-semibold hover:bg-gray-200 transition">
-        Explore More
-      </a>
-    </div>
-
-    <!-- Right Side Demo Cards (floating images) -->
-    <!-- <div class="absolute right-8 top-1/2 -translate-y-1/2 hidden md:block">
-
-      <img src="https://placehold.co/300x420?text=Demo1"
-           class="w-56 rounded-xl shadow-xl rotate-[-8deg] mb-6 opacity-95">
-
-      <img src="https://placehold.co/300x420?text=Demo2"
-           class="w-56 rounded-xl shadow-xl rotate-[5deg] opacity-95">
-    </div> -->
-
-  </div>
-</section>
-
-<!-- ================= SECTION 9: OUR BLOG ================= -->
-<section class="w-full py-16">
-  <div class="container mx-auto px-4 text-center">
-
-    <!-- Section Title -->
-    <p class="text-primary text-3xl md:text-4xl font-semibold tracking-wide mb-2">
-      DISCOVER OUR STORY
-    </p>
-    <h2 class="text-2xl md:text-2xl font-bold text-secondary dark:text-white mb-12">
-      Our Blog
-    </h2>
-
-    <!-- Blog Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <!-- Blog Card 1 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-       <img src="Images/home1/himg2.png"
-             class="w-full h-56 object-cover">
-
-        <div class="p-6 text-left">
-          <h3 class="text-lg font-semibold text-secondary dark:text-white mb-3">
-            Want To Succeed In Real Estate? Focus On These Habits
-          </h3>
-
-          <!-- Meta Tags -->
-          <div class="flex items-center gap-4 text-gray-600 dark:text-gray-300 text-sm mb-3">
-            <span class="flex items-center gap-1">📅 January 10, 2022</span>
-            <span class="flex items-center gap-1">🏷️ Technology</span>
+          <!-- CARD -->
+          <div class="p-8 bg-white dark:bg-dark shadow-xl hover:-translate-y-2 transition rounded-xl">
+            <div class="text-primary text-4xl mb-4">🏡</div>
+            <h3 class="text-xl font-semibold">Rent A Property</h3>
+            <p class="text-dark/60 dark:text-white/60 mt-2">Find affordable rental options.</p>
+            <a href="services.html" class="mt-4 inline-block text-primary font-medium hover:underline">Learn More</a>
           </div>
 
-          <!-- Description -->
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
-            A fairy tale (alternative names include fairytale, fairy story, magic tale,
-            or wonder tale) is a short story that belongs to the folklore genre.
-          </p>
-        </div>
-      </div>
-
-      <!-- Blog Card 2 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-        <img src="Images/home1/himg2.png"
-             class="w-full h-56 object-cover">
-
-        <div class="p-6 text-left">
-          <h3 class="text-lg font-semibold text-secondary dark:text-white mb-3">
-            Want To Succeed In Real Estate? Focus On These Habits
-          </h3>
-
-          <div class="flex items-center gap-4 text-gray-600 dark:text-gray-300 text-sm mb-3">
-            <span class="flex items-center gap-1">📅 January 10, 2022</span>
-            <span class="flex items-center gap-1">🏷️ Technology</span>
+          <div class="p-8 bg-white dark:bg-dark shadow-xl hover:-translate-y-2 transition rounded-xl">
+            <div class="text-primary text-4xl mb-4">🏠</div>
+            <h3 class="text-xl font-semibold">Sell A Property</h3>
+            <p class="text-dark/60 dark:text-white/60 mt-2">List your home for top deals.</p>
+            <a href="services.html" class="mt-4 inline-block text-primary font-medium hover:underline">Learn More</a>
           </div>
 
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
-            A fairy tale (alternative names include fairytale, fairy story, magic tale,
-            or wonder tale) is a short story that belongs to the folklore genre.
-          </p>
-        </div>
-      </div>
-
-      <!-- Blog Card 3 -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
-       <img src="Images/home1/himg2.png"
-             class="w-full h-56 object-cover">
-
-        <div class="p-6 text-left">
-          <h3 class="text-lg font-semibold text-secondary dark:text-white mb-3">
-            Want To Succeed In Real Estate? Focus On These Habits
-          </h3>
-
-          <div class="flex items-center gap-4 text-gray-600 dark:text-gray-300 text-sm mb-3">
-            <span class="flex items-center gap-1">📅 January 10, 2022</span>
-            <span class="flex items-center gap-1">🏷️ Technology</span>
+          <div class="p-8 bg-white dark:bg-dark shadow-xl hover:-translate-y-2 transition rounded-xl">
+            <div class="text-primary text-4xl mb-4">🏘️</div>
+            <h3 class="text-xl font-semibold">Buy A Property</h3>
+            <p class="text-dark/60 dark:text-white/60 mt-2">Find verified properties.</p>
+            <a href="services.html" class="mt-4 inline-block text-primary font-medium hover:underline">Learn More</a>
           </div>
 
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
-            A fairy tale (alternative names include fairytale, fairy story, magic tale,
-            or wonder tale) is a short story that belongs to the folklore genre.
-          </p>
         </div>
+
       </div>
-
-    </div>
-
-    <!-- View All Button -->
-    <div class="mt-12">
-      <a href="#"
-         class="inline-block bg-primary hover:bg-accent text-white px-10 py-3 rounded-md font-medium transition">
-        View All
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<div id="site-footer"></div>
-<script type="module" src="footer.js"></script>
-
-
-  </div>
+    </section>
 
 
 
-<script>
-  // Theme toggle logic
-  const toggle = document.getElementById("themeToggle");
-  toggle.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.toggle("light");
-  });
-</script>
-<script>
-  // Mobile menu toggle
-  const mobileBtn = document.getElementById("mobileMenuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
+    <!-- ================= WHO WE ARE ================= -->
+    <section class="py-20 bg-gradient-to-b from-white to-light dark:from-dark/90 dark:to-dark/70">
+      <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
-  mobileBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-</script>
-<script>
-   // Auto-highlight active page
-   const page = document.body.getAttribute("data-page"); 
-   document.querySelectorAll(".nav-link").forEach(link => {
-      if (link.dataset.page === page) {
-         link.classList.add("text-primary", "font-semibold");
-      }
-   });
+        <div class="space-y-6">
+          <h2 class="text-primary text-3xl font-semibold">Who We Are</h2>
+          <p class="text-xl font-bold">Experts in Real Estate & Property Management</p>
 
-   // Set breadcrumb from data-page
-   const bread = {
-      home: "Home",
-      listing: "Listing",
-      contact: "Contact",
-      about: "About",
-      blog: "Blog"
-   };
-   if (bread[page]) {
-      document.getElementById("breadcrumbPage").innerText = bread[page];
-   }
+          <p class="text-dark/70 dark:text-white/70">
+            Compass Housing Society delivers trustworthy real estate services with transparent communication, expert
+            guidance, and reliable support.
+          </p>
 
-   // Mobile menu toggle
-   const btn = document.getElementById("mobileMenuBtn");
-   const menu = document.getElementById("mobileMenu");
+          <div class="grid grid-cols-2 gap-6">
+            <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+              <p class="text-primary text-3xl font-bold">8+</p>
+              <p>Years Experience</p>
+            </div>
+            <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+              <p class="text-primary text-3xl font-bold">350+</p>
+              <p>Researchers</p>
+            </div>
+            <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+              <p class="text-primary text-3xl font-bold">10K+</p>
+              <p>Agents</p>
+            </div>
+            <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+              <p class="text-primary text-3xl font-bold">2.5K+</p>
+              <p>Listings</p>
+            </div>
+          </div>
 
-   btn.addEventListener("click", () => {
-     menu.classList.toggle("hidden");
-   });
-</script>
+        </div>
+
+        <div class="flex justify-center md:justify-end">
+          <img src="Images/listings/homes1.jpg" class="rounded-xl shadow-xl w-full max-w-lg">
+        </div>
+
+      </div>
+    </section>
+
+
+
+    <!-- ================= BLOG ================= -->
+    <section class="py-20 bg-white dark:bg-dark">
+      <div class="container mx-auto px-4 text-center">
+
+        <h2 class="text-primary text-3xl font-semibold">Latest Blog Posts</h2>
+        <p class="text-dark/70 dark:text-white/70 mt-3 mb-12">Stay updated with real estate insights.</p>
+
+        <div class="grid md:grid-cols-3 gap-10">
+
+          <div class="bg-white dark:bg-dark shadow-lg rounded-xl overflow-hidden">
+            <img src="Images/home1/himg1.png" class="w-full h-56 object-cover">
+            <div class="p-6 text-left">
+              <h3 class="text-lg font-semibold">Real Estate Success Habits</h3>
+              <p class="text-dark/60 dark:text-white/60 mt-2">Tips to grow in real estate.</p>
+              <a href="blog-details.html" class="text-primary font-medium hover:underline mt-3 inline-block">Read More
+                →</a>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-dark shadow-lg rounded-xl overflow-hidden">
+            <img src="Images/home1/himg2.png" class="w-full h-56 object-cover">
+            <div class="p-6 text-left">
+              <h3 class="text-lg font-semibold">Market Trends 2024</h3>
+              <p class="text-dark/60 dark:text-white/60 mt-2">Understanding new opportunities.</p>
+              <a href="blog-details.html" class="text-primary font-medium hover:underline mt-3 inline-block">Read More
+                →</a>
+            </div>
+          </div>
+
+          <div class="bg-white dark:bg-dark shadow-lg rounded-xl overflow-hidden">
+            <img src="Images/home1/himg3.png" class="w-full h-56 object-cover">
+            <div class="p-6 text-left">
+              <h3 class="text-lg font-semibold">Should You Rent or Buy?</h3>
+              <p class="text-dark/60 dark:text-white/60 mt-2">Pros and cons explained.</p>
+              <a href="blog-details.html" class="text-primary font-medium hover:underline mt-3 inline-block">Read More
+                →</a>
+            </div>
+          </div>
+
+        </div>
+
+        <a href="blog.html" class="mt-14 inline-block px-10 py-3 bg-primary text-white rounded-md hover:bg-primary/90">
+          View All
+        </a>
+
+      </div>
+    </section>
+
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+  <script src="footer.js" type="module"></script>
+
+
+  <!-- DARK MODE -->
+  <script>
+    document.getElementById("themeToggle").onclick = () => {
+      document.documentElement.classList.toggle("dark");
+      document.documentElement.classList.toggle("light");
+    };
+  </script>
 
 </body>
+
 </html>
