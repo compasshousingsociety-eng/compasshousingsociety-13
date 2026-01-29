@@ -52,6 +52,12 @@
     padding-top: 40px !important;
     padding-bottom: 40px !important;
   }
+    @media (min-width: 1024px) { /* Tailwind lg breakpoint */
+    section {
+      padding-left: 2.5rem !important;
+      padding-right: 2.5rem !important;
+    }
+  }
   </style>
 </head>
 
@@ -68,7 +74,7 @@
   <script src="header.js"></script>
 
   <!-- MAIN CONTAINER -->
-  <div class="container mx-auto px-4 py-14 mt-[110px]">
+  <section class="container mx-auto px-4 py-14 mt-[110px]">
 
     <!-- TITLE -->
     <h2 class="text-center text-3xl font-bold mb-10">Our Blog</h2>
@@ -232,8 +238,9 @@
 
     </div>
 
-</div>
-  </div>
+    </div>
+
+  </section>
 
   <!-- FOOTER -->
   <div id="site-footer" ></div>
@@ -257,12 +264,32 @@
   </script>
 
   <!-- THEME TOGGLE -->
-  <script>
-    const toggle = document.getElementById("themeToggle");
-    toggle.addEventListener("click", () => {
-      document.documentElement.classList.toggle("dark");
-    });
-  </script>
+<script>
+  const html = document.documentElement;
+
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
 
 </body>
 </html>

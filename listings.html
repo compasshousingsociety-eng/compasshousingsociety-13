@@ -74,7 +74,12 @@
     padding-top: 40px !important;
     padding-bottom: 40px !important;
   }
-
+  @media (min-width: 1024px) { /* Tailwind lg breakpoint */
+    section {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
   </style>
 </head>
 
@@ -116,51 +121,6 @@
     </div>
   </section>
 
-  <!-- ======================= SEARCH BAR ======================= -->
-  <!-- <section class="py-4">
-    <div class="container mx-auto px-4">
-      <div
-        class="bg-light dark:bg-dark/40 border border-light/40 dark:border-white/20 rounded-xl p-6 shadow-lg"
-      >
-        <div class="grid md:grid-cols-5 gap-4">
-          <input
-            id="searchInput"
-            type="text"
-            placeholder="Search address..."
-            class="bg-white dark:bg-dark border border-light/40 dark:border-white/20 px-4 py-3 rounded-md w-full"
-          />
-
-          <select
-            id="typeFilter"
-            class="bg-white dark:bg-dark border border-light/40 dark:border-white/20 px-4 py-3 rounded-md"
-          >
-            <option value="">Property Type</option>
-          </select>
-
-          <select
-            id="statusFilter"
-            class="bg-white dark:bg-dark border border-light/40 dark:border-white/20 px-4 py-3 rounded-md"
-          >
-            <option value="">Status</option>
-          </select>
-
-          <select
-            id="bedsFilter"
-            class="bg-white dark:bg-dark border border-light/40 dark:border-white/20 px-4 py-3 rounded-md"
-          >
-            <option value="">Beds</option>
-          </select>
-
-          <button
-            id="searchBtn"
-            class="bg-primary text-white px-6 py-3 rounded-md hover:bg-primary/90"
-          >
-            Search 🔍
-          </button>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
   <!-- ======================= PROPERTIES GRID ======================= -->
   <section class="py-14">
@@ -185,20 +145,34 @@
   <div id="site-footer"></div>
   <script src="footer.js" type="module"></script>
 
-
 <script>
-/* ============================================================
-   THEME TOGGLE
-============================================================ */
-document.getElementById("themeToggle").onclick = () => {
-  document.documentElement.classList.toggle("dark");
-  document.documentElement.classList.toggle("light");
-};
+  const html = document.documentElement;
 
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
 
-/* ============================================================
-   DUMMY PROPERTY DATA PER CATEGORY
-============================================================ */
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+<script>
+
 const propertyData = {
   All: [
     { id: 1, title: "Luxury Family House", price: 1239, type: "House", status: "Rent",

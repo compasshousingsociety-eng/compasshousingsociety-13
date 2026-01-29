@@ -36,6 +36,7 @@
 
   <!-- Watermark -->
   <style>
+    
     /* body::before {
       content: "";
       position: fixed;
@@ -66,13 +67,21 @@
     section {
       padding-top: 40px !important;
       padding-bottom: 40px !important;
+
     }
+
+      @media (min-width: 1024px) { /* Tailwind lg breakpoint */
+    section {
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+    }
+  }
   </style>
 
 </head>
 
 
-<body class="bg-light dark:bg-dark text-dark dark:text-white">
+<body data-page="home1" class="bg-light dark:bg-dark text-dark dark:text-white">
 
   <!-- THEME TOGGLE -->
   <button id="themeToggle"
@@ -257,21 +266,21 @@
             <div class="text-primary text-4xl mb-4">🏡</div>
             <h3 class="text-xl font-semibold">Rent A Property</h3>
             <p class="text-dark/60 dark:text-white/60 mt-2">Find affordable rental options.</p>
-            <a href="services.html" class="mt-4 inline-block text-primary font-medium hover:underline">Learn More</a>
+            <!-- <a href="services.html" class="mt-4 inline-block text-primary font-medium hover:underline">Learn More</a> -->
           </div>
 
           <div class="p-8 bg-white dark:bg-dark shadow-xl hover:-translate-y-2 transition rounded-xl">
             <div class="text-primary text-4xl mb-4">🏠</div>
             <h3 class="text-xl font-semibold">Sell A Property</h3>
             <p class="text-dark/60 dark:text-white/60 mt-2">List your home for top deals.</p>
-            <a href="services.html" class="mt-4 inline-block text-primary font-medium hover:underline">Learn More</a>
+            <!-- <a href="services.html" class="mt-4 inline-block text-primary font-medium hover:underline">Learn More</a> -->
           </div>
 
           <div class="p-8 bg-white dark:bg-dark shadow-xl hover:-translate-y-2 transition rounded-xl">
             <div class="text-primary text-4xl mb-4">🏘️</div>
             <h3 class="text-xl font-semibold">Buy A Property</h3>
             <p class="text-dark/60 dark:text-white/60 mt-2">Find verified properties.</p>
-            <a href="services.html" class="mt-4 inline-block text-primary font-medium hover:underline">Learn More</a>
+            <!-- <a href="services.html" class="mt-4 inline-block text-primary font-medium hover:underline">Learn More</a> -->
           </div>
 
         </div>
@@ -338,7 +347,11 @@
             <div class="p-6 text-left">
               <h3 class="text-lg font-semibold">Real Estate Success Habits</h3>
               <p class="text-dark/60 dark:text-white/60 mt-2">Tips to grow in real estate.</p>
-              <a href="blog-details.html" class="text-primary font-medium hover:underline mt-3 inline-block">Read More
+              <a href="blog-details.html" 
+             
+                        class="mt-12 inline-block px-10 py-3 bg-primary text-white rounded-md hover:bg-primary/90"
+
+              >Read More
                 →</a>
             </div>
           </div>
@@ -348,7 +361,9 @@
             <div class="p-6 text-left">
               <h3 class="text-lg font-semibold">Market Trends 2024</h3>
               <p class="text-dark/60 dark:text-white/60 mt-2">Understanding new opportunities.</p>
-              <a href="blog-details.html" class="text-primary font-medium hover:underline mt-3 inline-block">Read More
+              <a href="blog-details.html"           class="mt-12 inline-block px-10 py-3 bg-primary text-white rounded-md hover:bg-primary/90">
+
+                Read More
                 →</a>
             </div>
           </div>
@@ -358,7 +373,8 @@
             <div class="p-6 text-left">
               <h3 class="text-lg font-semibold">Should You Rent or Buy?</h3>
               <p class="text-dark/60 dark:text-white/60 mt-2">Pros and cons explained.</p>
-              <a href="blog-details.html" class="text-primary font-medium hover:underline mt-3 inline-block">Read More
+              <a href="blog-details.html"           class="mt-12 inline-block px-10 py-3 bg-primary text-white rounded-md hover:bg-primary/90">
+Read More
                 →</a>
             </div>
           </div>
@@ -381,12 +397,32 @@
 
 
   <!-- DARK MODE -->
-  <script>
-    document.getElementById("themeToggle").onclick = () => {
-      document.documentElement.classList.toggle("dark");
-      document.documentElement.classList.toggle("light");
-    };
-  </script>
+ <script>
+  const html = document.documentElement;
+
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
 
 </body>
 

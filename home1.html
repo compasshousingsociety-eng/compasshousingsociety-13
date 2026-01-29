@@ -54,7 +54,7 @@
 
 </head>
 
-<body data-page="home2" class="bg-white dark:bg-dark text-dark dark:text-white font-sans">
+<body data-page="home2" class=" bg-white dark:bg-dark text-dark dark:text-white font-sans">
 
 <!-- Theme Toggle -->
 <button id="themeToggle"
@@ -71,7 +71,7 @@
 <!-- ===================================================
    HERO SECTION (Kept)
 =================================================== -->
-<section class="relative bg-gradient-to-b from-light/80 to-white/80 dark:from-dark/90 dark:to-dark/90 py-24 rounded-xl">
+<section class="relative bg-gradient-to-b from-light/80 to-white/80 dark:from-dark/90 dark:to-dark/90 py-24 lg:px-10 rounded-xl">
 
   <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
@@ -216,7 +216,7 @@
 <!-- ===================================================
    ABOUT SECTION (Kept)
 =================================================== -->
-<section class="py-20 bg-light dark:bg-dark/40">
+<section class="py-20 lg:px-10 bg-light dark:bg-dark/40">
   <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
     <!-- IMAGE -->
@@ -264,7 +264,7 @@
 <!-- ===================================================
    FEATURED PROPERTIES (Kept)
 =================================================== -->
-<section class="py-20 bg-light/50 dark:bg-dark/40">
+<section class="py-20 lg:px-10 bg-light/50 dark:bg-dark/40">
   <div class="container mx-auto px-4 text-center">
 
     <h2 class="text-primary text-3xl font-semibold">Featured Properties</h2>
@@ -313,11 +313,21 @@
 <!-- ===================================================
    TESTIMONIAL (Kept)
 =================================================== -->
-<section class="py-20 bg-light dark:bg-dark/40">
+<section class="py-20 lg:px-10 bg-light dark:bg-dark/40">
   <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
 
-    <div>
+    <!-- <div class=" dark:bg-gray-500 p-4 rounded">
       <img src="Images/home1/worldmap.png" class="opacity-80 w-full">
+    </div> -->
+    <div class=" dark:bg-gray-500 p-4 rounded">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508612!2d144.9556513156896!3d-37.81732397975161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ5JzAyLjQiUyAxNDTCsDU3JzIyLjQiRQ!5e0!3m2!1sen!2sin!4v1700000000000" 
+        width="100%" 
+        height="200" 
+        style="border:0; border-radius:8px;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
     </div>
 
     <div class="bg-primary text-white rounded-xl p-8 space-y-6 shadow-lg">
@@ -341,7 +351,7 @@
 <!-- ===================================================
    CTA (Kept)
 =================================================== -->
-<section class="py-16 bg-primary text-white">
+<section class="py-16 lg:px-10 bg-primary text-white">
   <div class="container mx-auto px-4 text-center">
 
     <h2 class="text-3xl md:text-4xl font-bold">Ready to Start Your Property Journey?</h2>
@@ -363,12 +373,36 @@
 <div id="site-footer"></div>
 <script src="footer.js" type="module"></script>
 
+
+
 <script>
+  const html = document.documentElement;
+
   document.getElementById("themeToggle").onclick = () => {
-    document.documentElement.classList.toggle("dark");
-    document.documentElement.classList.toggle("light");
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
   };
 </script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+
+
 
 </body>
 </html>

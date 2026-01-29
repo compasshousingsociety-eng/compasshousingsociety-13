@@ -569,11 +569,34 @@
       });
 
       // Theme Toggle
-      document.getElementById('themeToggle').onclick = () =>
-        document.documentElement.classList.toggle('dark');
     });
   </script>
+<script>
+  const html = document.documentElement;
 
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
 </body>
 
 </html>

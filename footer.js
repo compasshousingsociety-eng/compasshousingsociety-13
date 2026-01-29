@@ -9,7 +9,7 @@ export function loadFooter(selector = "site-footer") {
   }
 
   container.innerHTML = `
-<footer class="w-full bg-gray-100 dark:bg-gray-900 py-10 border-t border-gray-300 dark:border-gray-700">
+<footer class=" lg:px-10 w-full bg-gray-100 dark:bg-gray-900 py-10 border-t border-gray-300 dark:border-gray-700">
   <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-5 gap-6">
 
     <!-- LEFT COLUMN -->
@@ -127,21 +127,36 @@ export function loadFooter(selector = "site-footer") {
         <li><a href="404.html" class="hover:text-primary">Privacy Policy</a></li>
       </ul>
 
-      <h4 class="text-lg font-semibold text-secondary dark:text-white mt-4">Subscribe</h4>
-
-      <div class="flex">
-        <input
-          type="email"
-          placeholder="Your Email"
-          class="px-4 py-2 w-full rounded-l-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary dark:text-white focus:ring-2 focus:ring-primary outline-none"
-        />
-        <button id="subscribe-btn" class="px-6 bg-primary hover:bg-primary/90 text-white rounded-r-md">
-          Subscribe
-        </button>
-      </div>
+    
     </div>
+    <div class="space-y-3 md:col-span-2">
+  <h4 class="text-lg font-semibold text-secondary dark:text-white mt-4">Subscribe</h4>
 
+  <div class="flex w-full">
+    <input
+      type="email"
+      placeholder="Your Email"
+      class="flex-grow px-4 py-2.5 min-w-0 rounded-l-md border border-gray-300 
+             dark:border-gray-700 bg-white dark:bg-gray-800 text-secondary 
+             dark:text-white focus:ring-2 focus:ring-primary outline-none"
+    />
+
+    <button
+      id="subscribe-btn"
+      class="px-6 py-2.5 bg-primary hover:bg-primary/90 text-white rounded-r-md 
+             whitespace-nowrap"
+    >
+      Subscribe
+    </button>
   </div>
+</div>
+
+
+
+
+
+
+
 </footer>
   `;
 
