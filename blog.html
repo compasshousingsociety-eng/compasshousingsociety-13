@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog</title>
+
+  <!-- TailwindCSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            secondary: "#0F172A",
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Global Button Class -->
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    html.dark body::before {
+      opacity: 0.05;
+      filter: brightness(0.6);
+    }
+
+    /* GLOBAL BUTTON STYLE */
+    .btn-primary {
+      @apply bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-primary/90 transition;
+    }
+      section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+    @media (min-width: 1024px) { /* Tailwind lg breakpoint */
+    section {
+      padding-left: 2.5rem !important;
+      padding-right: 2.5rem !important;
+    }
+  }
+  </style>
+</head>
+
+<body data-page="blog" class="bg-white dark:bg-gray-900 text-secondary dark:text-white">
+
+  <!-- THEME TOGGLE -->
+  <button id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
+
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
+
+  <!-- MAIN CONTAINER -->
+  <section class="container mx-auto px-4 py-14 mt-[110px]">
+
+    <!-- TITLE -->
+    <h2 class="text-center text-3xl font-bold mb-10">Our Blog</h2>
+
+    <!-- ========== FEATURED BLOG GRID ========== -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-14">
+
+      <!-- BIG LEFT FEATURED -->
+      <div class="col-span-2 relative rounded-xl overflow-hidden shadow-lg group">
+        <img src="Images/blog.jpg" class="w-full h-[300px] object-cover" />
+
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+        <div class="absolute bottom-4 left-4 text-white">
+          <span class="px-3 py-1 bg-blue-600 text-xs rounded-md">Real Estate</span>
+
+          <h3 class="text-xl font-semibold mt-3">
+            High Rise Townhouse Investment Review
+          </h3>
+
+          <div class="flex items-center gap-4 text-sm opacity-90 mt-2">
+            <span>📅 Jan 10, 2022</span>
+            <span>👤 Admin</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SMALL BLOG ITEMS -->
+      <div class="space-y-4">
+
+        <a href="blog-details.html"
+           class="flex gap-4 items-center rounded-lg overflow-hidden shadow border hover:shadow-lg transition">
+          <img src="Images/home1/himg2.png" class="w-28 h-20 object-cover" />
+          <div class="p-2">
+            <h4 class="font-semibold">Blog Title Here</h4>
+            <p class="text-xs text-gray-500 mt-1">📅 Jan 10, 2022</p>
+          </div>
+        </a>
+
+        <a href="blog-details.html"
+           class="flex gap-4 items-center rounded-lg overflow-hidden shadow border hover:shadow-lg transition">
+          <img src="Images/home1/himg2.png" class="w-28 h-20 object-cover" />
+          <div class="p-2">
+            <h4 class="font-semibold">Blog Title Here</h4>
+            <p class="text-xs text-gray-500 mt-1">📅 Jan 10, 2022</p>
+          </div>
+        </a>
+
+        <a href="blog-details.html"
+           class="flex gap-4 items-center rounded-lg overflow-hidden shadow border hover:shadow-lg transition">
+          <img src="Images/home1/himg2.png" class="w-28 h-20 object-cover" />
+          <div class="p-2">
+            <h4 class="font-semibold">Blog Title Here</h4>
+            <p class="text-xs text-gray-500 mt-1">📅 Jan 10, 2022</p>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- ========== SEARCH + SORT ========== -->
+    <div class="flex flex-wrap justify-between items-center gap-4 my-10">
+
+    <!-- ========== BLOG GRID ========== -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+
+      <!-- ITEM -->
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
+
+        <img src="Images/home1/ga4.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
+        </div>
+      </a>
+
+      <!-- OTHER DUPLICATES (8 remaining) -->
+      <!-- Just repeated as in your file—kept unchanged except structure fixed -->
+
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
+
+        <img src="Images/home1/ga2.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
+        </div>
+      </a>
+
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
+
+        <img src="Images/home1/himg1.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
+        </div>
+      </a>
+
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
+
+        <img src="Images/home1/himg4.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
+        </div>
+      </a>
+
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
+
+        <img src="Images/home1/himg3.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
+        </div>
+      </a>
+
+      <a href="blog-details.html"
+        class="block bg-white dark:bg-gray-900 rounded-xl border shadow hover:shadow-lg transition">
+
+        <img src="Images/home1/ga7.png" class="w-full h-48 object-cover rounded-t-xl" />
+
+        <div class="p-4">
+          <div class="flex items-center gap-3 text-xs text-gray-500 mb-2">
+            <span>📅 January 10, 2022</span> <span>•</span> <span>🏷️ Technology</span>
+          </div>
+
+          <h4 class="font-semibold mb-2">Blog Title Goes Here</h4>
+          <p class="text-gray-500 dark:text-gray-400 text-sm">A fairy tale… short description.</p>
+        </div>
+      </a>
+
+    </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <div id="site-footer" ></div>
+  <script type="module" src="footer.js"></script>
+
+  <!-- DROPDOWN SCRIPT -->
+  <script>
+    const sortToggle = document.getElementById("sortToggle");
+    const sortMenu = document.getElementById("sortMenu");
+
+    sortToggle.addEventListener("click", () => {
+      sortMenu.classList.toggle("hidden");
+    });
+
+    sortMenu.querySelectorAll("p").forEach(item => {
+      item.addEventListener("click", () => {
+        sortToggle.innerHTML = item.textContent + " ⌄";
+        sortMenu.classList.add("hidden");
+      });
+    });
+  </script>
+
+  <!-- THEME TOGGLE -->
+<script>
+  const html = document.documentElement;
+
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+
+</body>
+</html>

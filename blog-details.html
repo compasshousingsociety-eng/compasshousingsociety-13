@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Details</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    html.dark body::before {
+      opacity: 0.05;
+      filter: brightness(0.6);
+    }
+      section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+    @media (min-width: 1024px) { 
+          section {
+            padding-left: 2.5rem !important;
+            padding-right: 2.5rem !important;
+          }
+      }
+  </style>
+
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            secondary: "#0F172A",
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body data-page="blogdetails" class="bg-white dark:bg-gray-900 dark:text-gray-100">
+
+  <!-- THEME -->
+  <button id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
+
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
+
+  <!-- MAIN WRAPPER -->
+  <div class="container mx-auto px-4 py-12 max-w-4xl mt-[110px]">
+
+   
+
+    <!-- TITLE -->
+    <h1 class="text-center text-3xl md:text-4xl font-bold text-secondary dark:text-white mb-8">
+      Considering Women’s Leadership On <br> International Women’s Day
+    </h1>
+
+    <!-- IMAGE -->
+    <img src="Images/bd.jpg" class="rounded-xl w-full object-cover mb-8 shadow" />
+
+    <!-- CONTENT -->
+    <div class="space-y-6 text-gray-700 dark:text-gray-300 leading-relaxed">
+      <p>
+        Education is a powerful tool that empowers women to step into leadership positions confidently.
+      </p>
+
+      <h2 class="text-xl font-semibold">Familiarize Yourself With The Available Modes Of Learning</h2>
+      <p>
+        Women now have access to a wide range of educational opportunities.
+      </p>
+
+      <h2 class="text-xl font-semibold">Practical Exposure</h2>
+      <p>
+        Practical training equips women with real-world leadership skills.
+      </p>
+
+      <h2 class="text-xl font-semibold">Virtual Learning Environments</h2>
+      <p>
+        Remote learning enables women to upskill without geographical limitations.
+      </p>
+
+      <h2 class="text-xl font-semibold">Create Leadership Paths</h2>
+      <p>
+        Structured promotion paths help remove barriers for women.
+      </p>
+
+      <h2 class="text-xl font-semibold">Ensure Activities Are Measurable Success</h2>
+      <p>
+        Organizations must measure the success of women-leadership initiatives.
+      </p>
+    </div>
+
+    <!-- TAGS + SHARE -->
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mt-10 gap-4">
+      <div class="flex gap-2">
+        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-md">Women</span>
+        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-md">Leadership</span>
+        <span class="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-sm rounded-md">Education</span>
+      </div>
+
+      <div class="flex items-center gap-4 text-gray-600 dark:text-gray-300">
+        <span>Share:</span>
+        <button>👍</button>
+        <button>🐦</button>
+        <button>🔗</button>
+      </div>
+    </div>
+
+    <hr class="my-8 border-gray-300 dark:border-gray-700" />
+
+    <!-- PREV/NEXT -->
+    <div class="flex justify-between items-center">
+      <button class="text-primary hover:underline" onclick="window.location.href='coming-soon.html'">← Previous Message</button>
+      <button class="text-primary hover:underline"onclick="window.location.href='coming-soon.html'">Next Message →</button>
+    </div>
+
+    <!-- COMMENT SECTION -->
+    <h3 class="text-xl font-semibold mt-12 mb-6">Comments</h3>
+
+    <div class="space-y-6">
+      <!-- Comment 1 -->
+      <div class="flex gap-4">
+        <img src="https://placehold.co/60x60?text=A" class="w-12 h-12 rounded-full" />
+        <div>
+          <h4 class="font-semibold">Preston Stole</h4>
+          <p class="text-xs text-gray-500">Today, 09:36 AM</p>
+          <p class="text-sm mt-1">Amazing insights!</p>
+        </div>
+      </div>
+
+      <!-- Comment 2 -->
+      <div class="flex gap-4">
+        <img src="https://placehold.co/60x60?text=B" class="w-12 h-12 rounded-full" />
+        <div>
+          <h4 class="font-semibold">Paulineto</h4>
+          <p class="text-xs text-gray-500">Today, 09:36 AM</p>
+          <p class="text-sm mt-1">Very helpful. Thanks!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMMENT FORM -->
+    <div class="mt-12">
+      <h3 class="text-xl font-semibold mb-4">Leave A Comment</h3>
+
+      <textarea id="commentBox" rows="5"
+        class="w-full border rounded-lg p-4 dark:bg-gray-800 dark:border-gray-700 outline-none"
+        placeholder="Write your comment..."></textarea>
+
+      <button id="submitComment"
+        class="mt-4 px-6 py-2 bg-primary text-white rounded-md  transition">
+        Submit
+      </button>
+
+      <p id="successMsg" class="text-green-600 text-sm mt-3 hidden">
+        ✅ Comment submitted successfully!
+      </p>
+    </div>
+
+    <!-- FEATURED ARTICLES -->
+    <section class="w-full py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-center text-3xl font-bold mb-12">Featured Articles</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md border p-4">
+            <img src="Images/home1/himg3.png" class="w-full h-56 object-cover rounded-lg" />
+            <h3 class="text-lg font-semibold mt-3">Want To Succeed In Real Estate?</h3>
+            <p class="text-sm text-gray-500 mt-1">📅 January 10, 2022 • 🏷️ Technology</p>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md border p-4">
+            <img src="Images/home1/himg2.png" class="w-full h-56 object-cover rounded-lg" />
+            <h3 class="text-lg font-semibold mt-3">Success Habits In Real Estate</h3>
+            <p class="text-sm text-gray-500 mt-1">📅 January 10, 2022 • 🏷️ Technology</p>
+          </div>
+
+          <div class="bg-white dark:bg-gray-900 rounded-xl shadow-md border p-4">
+            <img src="Images/home1/himg1.png" class="w-full h-56 object-cover rounded-lg" />
+            <h3 class="text-lg font-semibold mt-3">Key Real Estate Practices</h3>
+            <p class="text-sm text-gray-500 mt-1">📅 January 10, 2022 • 🏷️ Technology</p>
+          </div>
+          
+
+        </div>
+
+        <!-- <div class="mt-10 text-center">
+          <button class="px-6 py-2 bg-primary text-white rounded-md ">View All</button>
+        </div> -->
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div id="site-footer" ></div>
+  <script type="module" src="footer.js"></script>
+
+  <!-- COMMENT FORM FIX -->
+  <script>
+    const submitBtn = document.getElementById("submitComment");
+    const commentBox = document.getElementById("commentBox");
+    const successMsg = document.getElementById("successMsg");
+
+    submitBtn.addEventListener("click", () => {
+      const text = commentBox.value.trim();
+
+      if (!text) {
+        alert("Please write a comment before submitting.");
+        return;
+      }
+
+      successMsg.classList.remove("hidden");
+      commentBox.value = ""; // RESET FIELD
+    });
+  </script>
+
+  <!-- THEME -->
+ <script>
+  const html = document.documentElement;
+
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+
+</body>
+</html>

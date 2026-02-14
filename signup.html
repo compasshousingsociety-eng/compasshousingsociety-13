@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Compass Housing</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .fa-classic,
+    .fa-regular,
+    .fa-solid,
+    .far,
+    .fas {
+      font-family: "Font Awesome 6 Free";
+      margin-top: 30px;
+    }
+
+    section {
+      /* padding-top: 4px !important; */
+      padding-bottom: 40px !important;
+    }
+
+    html.dark body::before {
+      opacity: 0.05;
+      filter: brightness(0.6);
+    }
+
+    /* Global button */
+    .btn-primary {
+      @apply w-full py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition;
+    }
+
+    /* Password field container */
+    .password-container {
+      position: relative;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #6b7280;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .password-toggle:hover {
+      color: #374151;
+    }
+
+    .dark .password-toggle:hover {
+      color: #d1d5db;
+    }
+
+    /* Prevent spaces input */
+    input.no-spaces {
+      user-select: none;
+    }
+
+    input[type="password"]::-ms-reveal,
+    input[type="password"]::-ms-clear {
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      section {
+        padding-left: 2.5rem !important;
+        padding-right: 2.5rem !important;
+      }
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: "#1A56DB", secondary: "#0F172A" },
+          fontFamily: { sans: ["Inter", "sans-serif"] },
+        },
+      },
+      darkMode: "class",
+    };
+  </script>
+</head>
+
+<body data-page="signup" class="bg-gray-50 dark:bg-gray-900 text-secondary dark:text-white">
+
+  <!-- Theme Toggle -->
+  <!-- <button id="themeToggle" class="fixed bottom-5 right-5 p-3 rounded-full btn-primary w-auto">
+    🌓
+  </button> -->
+  <button id="themeToggle"
+    class="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 z-[999]">
+    🌓
+  </button>
+
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
+
+  <!-- MAIN WRAPPER -->
+  <div class="py-14 min-h-screen flex items-center justify-center px-4 mt-[130px]">
+
+    <div class="w-full max-w-lg bg-white dark:bg-gray-800 shadow-xl rounded-2xl p-8">
+
+      <h2 class="text-3xl font-bold text-center mb-6">Create Your Account</h2>
+
+      <p class="text-center text-gray-500 dark:text-gray-300 mb-8">
+        Sign up to access all Compass Housing features.
+      </p>
+
+      <!-- FORM -->
+      <form id="signupForm" class="space-y-5" novalidate>
+
+        <!-- NAME -->
+        <div>
+          <label class="text-sm font-medium">Full Name <span class="text-red-500">*</span></label>
+          <input id="name" type="text" class="w-full px-4 py-3 border rounded-lg bg-white dark:bg-gray-900 outline-none"
+            placeholder="Enter your full name (letters only, no spaces)" />
+          <p id="nameError" class="text-red-500 text-xs mt-1 hidden">
+            Full name must contain only letters. No spaces, numbers or special characters allowed.
+          </p>
+        </div>
+
+        <!-- EMAIL -->
+        <div>
+          <label class="text-sm font-medium">Email <span class="text-red-500">*</span></label>
+          <input id="email" type="email"
+            class="w-full px-4 py-3 border rounded-lg bg-white dark:bg-gray-900 outline-none"
+            placeholder="Enter your email (no spaces)" />
+          <p id="emailError" class="text-red-500 text-xs mt-1 hidden">
+            Please enter a valid email address without spaces.
+          </p>
+        </div>
+
+        <!-- PASSWORD -->
+        <div class="password-container">
+          <label class="text-sm font-medium">Password <span class="text-red-500">*</span></label>
+          <input id="password" type="password"
+            class="w-full px-4 py-3 border rounded-lg bg-white dark:bg-gray-900 outline-none pr-10"
+            placeholder="Minimum 8 characters (no spaces)" />
+          <button type="button" class="password-toggle" id="togglePassword">
+            <i class="fas fa-eye"></i>
+          </button>
+          <p id="passwordError" class="text-red-500 text-xs mt-1 hidden">
+            Password must be at least 8 characters without spaces.
+          </p>
+        </div>
+
+        <!-- CONFIRM PASSWORD -->
+        <div class="password-container">
+          <label class="text-sm font-medium">Confirm Password <span class="text-red-500">*</span></label>
+          <input id="confirmPassword" type="password"
+            class="w-full px-4 py-3 border rounded-lg bg-white dark:bg-gray-900 outline-none pr-10"
+            placeholder="Re-enter password (no spaces)" />
+          <button type="button" class="password-toggle" id="toggleConfirmPassword">
+            <i class="fas fa-eye"></i>
+          </button>
+          <p id="confirmError" class="text-red-500 text-xs mt-1 hidden">
+            Passwords do not match. Cannot contain spaces.
+          </p>
+        </div>
+
+
+
+      </form>
+
+      <!-- REGISTER BUTTON BELOW FORM -->
+      <div class="mt-6">
+        <button id="registerButton" type="button"
+          class="w-full py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition">
+          Register
+        </button>
+
+        <!-- ALREADY REGISTERED LINK -->
+        <p class="text-center text-sm text-gray-600 dark:text-gray-300 mt-4">
+          Already registered?
+          <a href="coming-soon.html" class="text-primary hover:underline font-medium">Click here to login</a>
+        </p>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+  <script type="module" src="footer.js"></script>
+
+  <!-- VALIDATION SCRIPT -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('signupForm');
+      const nameInput = document.getElementById('name');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const confirmPasswordInput = document.getElementById('confirmPassword');
+      const registerButton = document.getElementById('registerButton');
+      const togglePasswordBtn = document.getElementById('togglePassword');
+      const toggleConfirmPasswordBtn = document.getElementById('toggleConfirmPassword');
+
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+      const confirmError = document.getElementById('confirmError');
+
+      // Real-time validation flags
+      let isNameValid = false;
+      let isEmailValid = false;
+      let isPasswordValid = false;
+      let isConfirmValid = false;
+
+      // Track if form has been submitted
+      let formSubmitted = false;
+
+      // Prevent space key in all inputs
+      function preventSpaceInput(event) {
+        if (event.key === ' ' || event.code === 'Space') {
+          event.preventDefault();
+          return false;
+        }
+      }
+
+      // Apply space prevention to all inputs
+      [nameInput, emailInput, passwordInput, confirmPasswordInput].forEach(input => {
+        input.addEventListener('keydown', preventSpaceInput);
+      });
+
+      // Prevent paste with spaces
+      function preventSpacePaste(event) {
+        const pasteData = event.clipboardData.getData('text');
+        if (pasteData.includes(' ')) {
+          event.preventDefault();
+          return false;
+        }
+      }
+
+      // Apply paste prevention
+      [nameInput, emailInput, passwordInput, confirmPasswordInput].forEach(input => {
+        input.addEventListener('paste', preventSpacePaste);
+      });
+
+      // Password toggle functionality
+      togglePasswordBtn.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+      });
+
+      toggleConfirmPasswordBtn.addEventListener('click', function () {
+        const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPasswordInput.setAttribute('type', type);
+        this.querySelector('i').classList.toggle('fa-eye');
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+      });
+
+      // Helper function to reset field styles
+      function resetField(field) {
+        field.classList.remove('border-red-500');
+      }
+
+      function markFieldError(field, errorElement) {
+        field.classList.add('border-red-500');
+        errorElement.classList.remove('hidden');
+      }
+
+      function hideFieldError(field, errorElement) {
+        field.classList.remove('border-red-500');
+        errorElement.classList.add('hidden');
+      }
+
+      // Validate all fields and return true if all valid
+      function validateAllFields() {
+        // Trigger validation for all fields
+        validateName();
+        validateEmail();
+        validatePassword();
+        validateConfirmPassword();
+
+        return isNameValid && isEmailValid && isPasswordValid && isConfirmValid;
+      }
+
+      // Show success message and reset form
+      function showSuccessAndReset() {
+        alert("Account created successfully!");
+        form.reset();
+
+        // Reset all field styles
+        [nameInput, emailInput, passwordInput, confirmPasswordInput].forEach(resetField);
+        [nameError, emailError, passwordError, confirmError].forEach(el => el.classList.add('hidden'));
+
+        // Reset password toggle icons
+        passwordInput.setAttribute('type', 'password');
+        confirmPasswordInput.setAttribute('type', 'password');
+        togglePasswordBtn.querySelector('i').className = 'fas fa-eye';
+        toggleConfirmPasswordBtn.querySelector('i').className = 'fas fa-eye';
+
+        // Reset validation flags
+        isNameValid = isEmailValid = isPasswordValid = isConfirmValid = false;
+        formSubmitted = false;
+      }
+
+      // Name validation - STRICTLY ONLY LETTERS, NO SPACES ALLOWED
+      function validateName() {
+        const value = nameInput.value;
+
+        // Check for empty
+        if (value === '') {
+          isNameValid = false;
+          if (formSubmitted) {
+            nameError.textContent = 'Full name cannot be empty.';
+            markFieldError(nameInput, nameError);
+          }
+          return;
+        }
+
+        // Check for ANY spaces (keydown should prevent this, but double-check)
+        if (/\s/.test(value)) {
+          isNameValid = false;
+          if (formSubmitted) {
+            nameError.textContent = 'Name cannot contain spaces. Use letters only.';
+            markFieldError(nameInput, nameError);
+          }
+          return;
+        }
+
+        // STRICT: Check for ONLY letters (A-Z, a-z) - NO SPACES, NO NUMBERS, NO SPECIAL CHARS
+        const nameRegex = /^[A-Za-z]+$/;
+
+        if (!nameRegex.test(value)) {
+          isNameValid = false;
+          if (formSubmitted) {
+            nameError.textContent = 'Full name must contain only letters (A-Z, a-z). No spaces, numbers or special characters allowed.';
+            markFieldError(nameInput, nameError);
+          }
+        } else {
+          isNameValid = true;
+          hideFieldError(nameInput, nameError);
+        }
+      }
+
+      // Email validation - NO SPACES ALLOWED
+      function validateEmail() {
+        const value = emailInput.value;
+
+        // Check for empty
+        if (value === '') {
+          isEmailValid = false;
+          if (formSubmitted) {
+            emailError.textContent = 'Email cannot be empty.';
+            markFieldError(emailInput, emailError);
+          }
+          return;
+        }
+
+        // Check for ANY spaces
+        if (/\s/.test(value)) {
+          isEmailValid = false;
+          if (formSubmitted) {
+            emailError.textContent = 'Email cannot contain spaces.';
+            markFieldError(emailInput, emailError);
+          }
+          return;
+        }
+
+        // Check email format (no spaces)
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/;
+
+        if (!emailRegex.test(value)) {
+          isEmailValid = false;
+          if (formSubmitted) {
+            emailError.textContent = 'Please enter a valid email address without spaces.';
+            markFieldError(emailInput, emailError);
+          }
+        } else {
+          isEmailValid = true;
+          hideFieldError(emailInput, emailError);
+        }
+      }
+
+      // Password validation - NO SPACES ALLOWED
+      function validatePassword() {
+        const value = passwordInput.value;
+
+        // Check for empty
+        if (value === '') {
+          isPasswordValid = false;
+          if (formSubmitted) {
+            passwordError.textContent = 'Password cannot be empty.';
+            markFieldError(passwordInput, passwordError);
+          }
+          return;
+        }
+
+        // Check for ANY spaces
+        if (/\s/.test(value)) {
+          isPasswordValid = false;
+          if (formSubmitted) {
+            passwordError.textContent = 'Password cannot contain spaces.';
+            markFieldError(passwordInput, passwordError);
+          }
+          return;
+        }
+
+        // Check minimum length - 8 characters
+        if (value.length < 8) {
+          isPasswordValid = false;
+          if (formSubmitted) {
+            passwordError.textContent = 'Password must be at least 8 characters.';
+            markFieldError(passwordInput, passwordError);
+          }
+        } else {
+          isPasswordValid = true;
+          hideFieldError(passwordInput, passwordError);
+        }
+      }
+
+      // Confirm password validation - NO SPACES ALLOWED
+      function validateConfirmPassword() {
+        const value = confirmPasswordInput.value;
+        const passwordValue = passwordInput.value;
+
+        // Check for empty
+        if (value === '') {
+          isConfirmValid = false;
+          if (formSubmitted) {
+            confirmError.textContent = 'Confirm password cannot be empty.';
+            markFieldError(confirmPasswordInput, confirmError);
+          }
+          return;
+        }
+
+        // Check for ANY spaces
+        if (/\s/.test(value)) {
+          isConfirmValid = false;
+          if (formSubmitted) {
+            confirmError.textContent = 'Confirm password cannot contain spaces.';
+            markFieldError(confirmPasswordInput, confirmError);
+          }
+          return;
+        }
+
+        // Check if passwords match
+        if (value !== passwordValue) {
+          isConfirmValid = false;
+          if (formSubmitted) {
+            confirmError.textContent = 'Passwords do not match.';
+            markFieldError(confirmPasswordInput, confirmError);
+          }
+        } else {
+          isConfirmValid = true;
+          hideFieldError(confirmPasswordInput, confirmError);
+        }
+      }
+
+      // Real-time input events (hide errors when user starts typing)
+      nameInput.addEventListener('input', function () {
+        // Remove any spaces that might have been pasted
+        if (/\s/.test(this.value)) {
+          this.value = this.value.replace(/\s/g, '');
+        }
+
+        // Remove any non-letter characters
+        this.value = this.value.replace(/[^A-Za-z]/g, '');
+
+        if (formSubmitted) {
+          validateName();
+        }
+      });
+
+      emailInput.addEventListener('input', function () {
+        // Remove any spaces that might have been pasted
+        if (/\s/.test(this.value)) {
+          this.value = this.value.replace(/\s/g, '');
+        }
+
+        if (formSubmitted) {
+          validateEmail();
+        }
+      });
+
+      passwordInput.addEventListener('input', function () {
+        // Remove any spaces that might have been pasted
+        if (/\s/.test(this.value)) {
+          this.value = this.value.replace(/\s/g, '');
+        }
+
+        if (formSubmitted) {
+          validatePassword();
+          // Re-validate confirm password when password changes
+          validateConfirmPassword();
+        }
+      });
+
+      confirmPasswordInput.addEventListener('input', function () {
+        // Remove any spaces that might have been pasted
+        if (/\s/.test(this.value)) {
+          this.value = this.value.replace(/\s/g, '');
+        }
+
+        if (formSubmitted) {
+          validateConfirmPassword();
+        }
+      });
+
+      // Form submission (when clicking "Create Account" button inside form)
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        formSubmitted = true;
+
+        // Validate all fields
+        const isValid = validateAllFields();
+
+        if (isValid) {
+          // Success - show alert and reset
+          showSuccessAndReset();
+        } else {
+          // Only show visual errors, no alert for errors
+          // Focus on first invalid field
+          if (!isNameValid) {
+            nameInput.focus();
+          } else if (!isEmailValid) {
+            emailInput.focus();
+          } else if (!isPasswordValid) {
+            passwordInput.focus();
+          } else if (!isConfirmValid) {
+            confirmPasswordInput.focus();
+          }
+        }
+      });
+
+      // Register Button Click (outside form)
+      registerButton.addEventListener('click', function () {
+        formSubmitted = true;
+
+        // Validate all fields
+        const isValid = validateAllFields();
+
+        if (isValid) {
+          // Success - show alert and reset
+          showSuccessAndReset();
+        } else {
+          // Only show visual errors, no alert for errors
+          // Focus on first invalid field
+          if (!isNameValid) {
+            nameInput.focus();
+          } else if (!isEmailValid) {
+            emailInput.focus();
+          } else if (!isPasswordValid) {
+            passwordInput.focus();
+          } else if (!isConfirmValid) {
+            confirmPasswordInput.focus();
+          }
+        }
+      });
+
+      // Theme Toggle
+    });
+  </script>
+  <script>
+    const html = document.documentElement;
+
+    document.getElementById("themeToggle").onclick = () => {
+      const isDark = html.classList.toggle("dark");
+
+      if (isDark) {
+        html.classList.remove("light");
+        localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.add("light");
+        localStorage.setItem("theme", "light");
+      }
+    };
+  </script>
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    } else {
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+</body>
+
+</html>

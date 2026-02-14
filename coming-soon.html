@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coming Soon - Compass Housing</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { primary: "#1A56DB", secondary: "#0F172A" },
+          fontFamily: { sans: ["Inter", "sans-serif"] },
+        },
+      },
+      darkMode: "class",
+    };
+  </script>
+
+  <style>
+    section {
+      padding-top: 40px !important;
+      padding-bottom: 40px !important;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    @media (min-width: 1024px) {
+      section {
+        padding-left: 2.5rem !important;
+        padding-right: 2.5rem !important;
+      }
+    }
+  </style>
+
+  <style>
+    /* Global Button */
+    .btn-primary {
+      @apply px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90 transition;
+    }
+
+    /* Validation styles */
+    .error-border {
+      @apply border-red-500;
+    }
+  </style>
+</head>
+
+<body data-page="comingsoon" class="bg-white dark:bg-gray-900 text-secondary dark:text-white"
+  style="padding-top: 1rem;">
+
+  <!-- Theme Toggle -->
+  <button id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
+
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
+
+  <!-- PAGE CONTENT -->
+  <div class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20">
+
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2 mb-6">
+      <img src="Images/colored-logo.png" class="w-12 h-12" />
+      <span class="text-3xl font-bold">Compass Housing</span>
+    </a>
+
+    <!-- Title -->
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Coming Soon</h1>
+
+    <p class="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-xl mb-10">
+      We're working hard to bring you something amazing. Stay tuned!
+    </p>
+
+    <!-- COUNTDOWN -->
+    <div id="countdown" class="flex gap-6 md:gap-12 text-center mb-12">
+
+      <div>
+        <h2 id="days" class="text-4xl font-bold">00</h2>
+        <p class="text-sm mt-1">Days</p>
+      </div>
+
+      <div>
+        <h2 id="hours" class="text-4xl font-bold">00</h2>
+        <p class="text-sm mt-1">Hours</p>
+      </div>
+
+      <div>
+        <h2 id="minutes" class="text-4xl font-bold">00</h2>
+        <p class="text-sm mt-1">Minutes</p>
+      </div>
+
+      <div>
+        <h2 id="seconds" class="text-4xl font-bold">00</h2>
+        <p class="text-sm mt-1">Seconds</p>
+      </div>
+
+    </div>
+
+    <!-- EMAIL SUBSCRIBE -->
+    <div class="flex flex-col sm:flex-row items-center gap-2 w-full max-w-md">
+      <input id="notifyEmail" type="email" placeholder="Enter your email"
+        class="px-4 py-3 w-full rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 outline-none border border-gray-300 dark:border-gray-700" />
+      <button id="notifyBtn" class="px-4 py-3 bg-primary text-white font-semibold rounded-lg whitespace-nowrap">
+        Notify Me
+      </button>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div id="site-footer"></div>
+  <script type="module" src="footer.js"></script>
+
+  <!-- COUNTDOWN SCRIPT -->
+  <script>
+    const targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 7);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const dist = targetDate - now;
+
+      if (dist <= 0) return;
+
+      document.getElementById("days").innerText =
+        Math.floor(dist / (1000 * 60 * 60 * 24));
+
+      document.getElementById("hours").innerText =
+        Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+      document.getElementById("minutes").innerText =
+        Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+
+      document.getElementById("seconds").innerText =
+        Math.floor((dist % (1000 * 60)) / 1000);
+    }
+    setInterval(updateCountdown, 1000);
+  </script>
+
+  <!-- NOTIFY ME VALIDATION -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const emailInput = document.getElementById("notifyEmail");
+      const btn = document.getElementById("notifyBtn");
+
+      // Real-time validation to remove error border when user starts typing
+      emailInput.addEventListener('input', function () {
+        this.classList.remove('error-border', 'border-red-500');
+      });
+
+      btn.addEventListener("click", () => {
+        // Remove any previous error border
+        emailInput.classList.remove('error-border', 'border-red-500');
+
+        const email = emailInput.value.trim();
+
+        // Check if empty
+        if (email === '') {
+          emailInput.classList.add('error-border', 'border-red-500');
+          alert("Please enter your email address.");
+          return;
+        }
+        function validateEmail(email) {
+          const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/;
+          return regex.test(email);
+        }
+
+        // Example
+        // const email = document.getElementById("email").value;
+
+        if (validateEmail(email)) {
+          // alert("Valid Email");
+          alert("Successfully done! We will notify you when we launch.");
+          emailInput.value = "";
+        } else {
+          alert("Please enter a valid email address");
+        }
+        // Check email format - strict validation
+        // const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+        // if (!emailRegex.test(email)) {
+        //   emailInput.classList.add('error-border', 'border-red-500');
+        //   alert("Please enter a valid email address.");
+        //   return;
+        // }
+
+        // Check for spaces (should not contain spaces)
+        // if (/\s/.test(email)) {
+        //   emailInput.classList.add('error-border', 'border-red-500');
+        //   alert("Email address cannot contain spaces.");
+        //   return;
+        // }
+
+        // Success - show alert and reset field
+
+
+        emailInput.classList.remove('error-border', 'border-red-500');
+      });
+    });
+  </script>
+
+  <!-- THEME TOGGLE -->
+  <script>
+    const html = document.documentElement;
+
+    document.getElementById("themeToggle").onclick = () => {
+      const isDark = html.classList.toggle("dark");
+
+      if (isDark) {
+        html.classList.remove("light");
+        localStorage.setItem("theme", "dark");
+      } else {
+        html.classList.add("light");
+        localStorage.setItem("theme", "light");
+      }
+    };
+  </script>
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+
+    if (savedTheme === "dark") {
+      document.documentElement.classList.add("dark");
+      document.documentElement.classList.remove("light");
+    } else {
+      document.documentElement.classList.add("light");
+      document.documentElement.classList.remove("dark");
+    }
+  </script>
+
+</body>
+
+</html>

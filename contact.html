@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+
+  <!-- Tailwind CSS (Only Once) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Custom Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            secondary: "#0F172A",
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* Global Page Watermark Background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    html.dark body::before {
+      opacity: 0.10;
+      filter: brightness(0.4);
+    }
+
+    /* Form field error styling */
+    .error-border {
+      border-color: #ef4444;
+      box-shadow: 0 0 0 1px #ef4444;
+    }
+      section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+    @media (min-width: 1024px) { /* Tailwind lg breakpoint */
+    section {
+      padding-left: 2.5rem !important;
+      padding-right: 2.5rem !important;
+    }
+  }
+  </style>
+
+</head>
+
+<body data-page="contact" class="bg-white dark:bg-gray-900 text-secondary dark:text-white">
+
+  <!-- Theme Toggle -->
+  <button
+    id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
+
+  <!-- HEADER -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
+
+  <!-- ================= CONTACT PAGE ================= -->
+  <section class="container mx-auto px-4 py-14 mt-[110px]">
+
+    <!-- Page Title -->
+    <h2 class="text-3xl flex justify-center font-bold mb-10">Contact Us</h2>
+
+    <!-- Row 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+      <!-- LEFT IMAGE -->
+      <img src="Images/contact.jpg"
+           alt="Contact illustration"
+           class="w-full h-[420px] object-cover rounded-xl shadow-md" />
+
+      <!-- RIGHT FORM -->
+      <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700
+                  rounded-xl p-8 shadow-md">
+
+        <h3 class="text-2xl font-bold text-center mb-2">Get In Touch</h3>
+
+        <p class="text-center text-gray-600 dark:text-gray-400 text-sm mb-6">
+          Please enter your details and we will get back to you shortly.
+        </p>
+
+        <!-- FORM -->
+        <form id="contactForm" class="space-y-4" novalidate>
+
+          <!-- NAME FIELD -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              Name <span class="text-red-500">*</span>
+            </label>
+
+            <input 
+              id="name"
+              type="text"
+              placeholder="Enter your name"
+              class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
+                     border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary"
+              data-validate="true"
+              data-validation-type="alphabet" />
+
+            <p id="nameError" class="text-red-500 text-xs mt-1 hidden">
+              Please enter a valid name (letters only, no numbers or special characters).
+            </p>
+          </div>
+
+          <!-- EMAIL FIELD -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              Email <span class="text-red-500">*</span>
+            </label>
+
+            <input 
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
+                     border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary"
+              data-validate="true"
+              data-validation-type="email" />
+
+            <p id="emailError" class="text-red-500 text-xs mt-1 hidden">
+              Please enter a valid email address.
+            </p>
+          </div>
+
+          <!-- MESSAGE FIELD -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              Message <span class="text-red-500">*</span>
+            </label>
+
+            <textarea 
+              id="message"
+              rows="4"
+              placeholder="Tell us a little bit about your destination dream"
+              class="w-full px-4 py-3 border rounded-md bg-white dark:bg-gray-800 
+                     border-gray-300 dark:border-gray-700 outline-none focus:ring-2 focus:ring-primary"
+              data-validate="true"
+              data-validation-type="text"></textarea>
+
+            <p id="messageError" class="text-red-500 text-xs mt-1 hidden">
+              Please enter your message.
+            </p>
+          </div>
+
+          <button
+            type="submit"
+            class="w-full py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition">
+            Submit Now
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-14">
+
+      <!-- CONTACT INFO -->
+      <div>
+        <h3 class="text-2xl font-bold mb-4">Connecting Near Or Far</h3>
+
+        <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+          Feel free to reach out to us using the contact form. Our team will respond quickly
+          and help you find the perfect property that suits your needs.
+        </p>
+
+        <p class="mb-2"><strong>Address:</strong> 3755 St SE Salem, Australia</p>
+        <p class="mb-2"><strong>Mobile:</strong> (305) 555-4446</p>
+        <p class="mb-4"><strong>Email:</strong> youremail@gmail.com</p>
+
+        <!-- Social Icons (SVG) -->
+        <div class="flex items-center gap-4 text-xl opacity-80">
+
+          <a class="hover:text-primary transition"><i class="fa-brands fa-facebook"></i></a>
+          <a class="hover:text-primary transition"><i class="fa-brands fa-twitter"></i></a>
+          <a class="hover:text-primary transition"><i class="fa-brands fa-instagram"></i></a>
+          <a class="hover:text-primary transition"><i class="fa-brands fa-youtube"></i></a>
+
+        </div>
+      </div>
+
+      <!-- MAP -->
+      <div class=" z-[-1] rounded-xl overflow-hidden shadow-lg border border-gray-300 dark:border-gray-700">
+        <div id="contactMap" class="w-full h-[350px]"></div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <div id="site-footer"></div>
+  <script type="module" src="footer.js"></script>
+
+  <!-- ================= LEAFLET MAP ================= -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+  <script>
+    // MAP INIT
+    const map = L.map('contactMap').setView([40.7128, -74.0060], 10);
+
+    // TILE LAYER
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+    }).addTo(map);
+
+    // MARKER
+    L.marker([40.7128, -74.0060])
+      .addTo(map)
+      .bindPopup("Our Office Location")
+      .openPopup();
+  </script>
+
+  <script>
+  const html = document.documentElement;
+
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+
+ <script>
+  // DOM Elements
+  const form = document.getElementById("contactForm");
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const messageInput = document.getElementById("message");
+
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const messageError = document.getElementById("messageError");
+
+  // Track if form has been submitted (to show errors)
+  let formSubmitted = false;
+
+  // Validation Functions
+  function validateName(name) {
+    const trimmed = name.trim();
+    if (!trimmed) {
+      return { isValid: false, message: "Name is required." };
+    }
+    if (!/^[A-Za-z\s]+$/.test(trimmed)) {
+      return { isValid: false, message: "Only letters and spaces allowed. No numbers or special characters." };
+    }
+    return { isValid: true };
+  }
+
+  function validateEmail(email) {
+    const trimmed = email.trim();
+    if (!trimmed) {
+      return { isValid: false, message: "Email is required." };
+    }
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/;
+    if (!emailRegex.test(trimmed)) {
+      return { isValid: false, message: "Please enter a valid email address." };
+    }
+    return { isValid: true };
+  }
+
+  function validateMessage(message) {
+    const trimmed = message.trim();
+    if (!trimmed) {
+      return { isValid: false, message: "Message is required." };
+    }
+    return { isValid: true };
+  }
+
+  // Show error function
+  function showError(inputElement, errorElement, message) {
+    errorElement.textContent = message;
+    errorElement.classList.remove("hidden");
+    inputElement.classList.add("error-border");
+  }
+
+  // Hide error function
+  function hideError(inputElement, errorElement) {
+    errorElement.classList.add("hidden");
+    inputElement.classList.remove("error-border");
+  }
+
+  // Setup input listeners to hide errors when user starts typing
+  function setupInputListeners() {
+    // Name field - hide error on input and prevent numbers/special chars
+    nameInput.addEventListener("input", function() {
+      // Remove any numbers or special characters (keep only letters and spaces)
+      this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+      
+      // Hide error if it was showing
+      if (formSubmitted) {
+        const result = validateName(this.value);
+        if (result.isValid) {
+          hideError(nameInput, nameError);
+        }
+      }
+    });
+
+    // Email field - hide error on input
+    emailInput.addEventListener("input", function() {
+      // Remove leading spaces
+      this.value = this.value.replace(/^\s+/g, '');
+      
+      // Hide error if it was showing
+      if (formSubmitted) {
+        const result = validateEmail(this.value);
+        if (result.isValid) {
+          hideError(emailInput, emailError);
+        }
+      }
+    });
+
+    // Message field - hide error on input
+    messageInput.addEventListener("input", function() {
+      // Remove leading spaces
+      this.value = this.value.replace(/^\s+/g, '');
+      
+      // Hide error if it was showing
+      if (formSubmitted) {
+        const result = validateMessage(this.value);
+        if (result.isValid) {
+          hideError(messageInput, messageError);
+        }
+      }
+    });
+
+    // Prevent space as first character in all fields
+    [nameInput, emailInput, messageInput].forEach(input => {
+      input.addEventListener("keydown", (e) => {
+        if (e.key === ' ' && input.value.length === 0) {
+          e.preventDefault();
+        }
+      });
+    });
+  }
+
+  // Initialize
+  document.addEventListener("DOMContentLoaded", () => {
+    // Setup input listeners
+    setupInputListeners();
+
+    // Reset form function
+    function resetForm() {
+      nameInput.value = '';
+      emailInput.value = '';
+      messageInput.value = '';
+      
+      // Hide all errors
+      hideError(nameInput, nameError);
+      hideError(emailInput, emailError);
+      hideError(messageInput, messageError);
+      
+      // Reset form submitted flag
+      formSubmitted = false;
+    }
+
+    // Form submission
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      
+      // Set flag that form has been submitted (so errors can show)
+      formSubmitted = true;
+      
+      let isValid = true;
+
+      // Validate all fields
+      const nameResult = validateName(nameInput.value);
+      const emailResult = validateEmail(emailInput.value);
+      const messageResult = validateMessage(messageInput.value);
+
+      // Show/hide errors
+      if (!nameResult.isValid) {
+        showError(nameInput, nameError, nameResult.message);
+        isValid = false;
+      } else {
+        hideError(nameInput, nameError);
+      }
+
+      if (!emailResult.isValid) {
+        showError(emailInput, emailError, emailResult.message);
+        isValid = false;
+      } else {
+        hideError(emailInput, emailError);
+      }
+
+      if (!messageResult.isValid) {
+        showError(messageInput, messageError, messageResult.message);
+        isValid = false;
+      } else {
+        hideError(messageInput, messageError);
+      }
+
+      // If all validations pass
+      if (isValid) {
+        // Show success message
+        alert("Form submitted successfully!");
+        
+        // Reset form after OK is clicked
+        setTimeout(() => {
+          resetForm();
+        }, 100);
+      }
+    });
+  });
+</script>
+
+</body>
+
+</html>

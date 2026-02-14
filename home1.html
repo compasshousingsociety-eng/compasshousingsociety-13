@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Compass Housing – Home 2</title>
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            dark: "#0F172A",
+            light: "#F5F7FA",
+            secondary: "#0F172A" 
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Watermark -->
+  <style>
+    html::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 480px;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+      section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+    @media (min-width: 1024px) { 
+          section {
+            padding-left: 2.5rem !important;
+            padding-right: 2.5rem !important;
+          }
+      }
+  </style>
+
+</head>
+
+<body data-page="home2" class=" bg-white dark:bg-dark text-dark dark:text-white font-sans">
+
+<!-- Theme Toggle -->
+<button id="themeToggle"
+  class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:opacity-80">
+  🌓
+</button>
+
+<!-- HEADER -->
+<div id="site-header"></div>
+<script src="header.js"></script>
+
+<main class="pt-28">
+
+<!-- ===================================================
+   HERO SECTION (Kept)
+=================================================== -->
+<section class="relative bg-gradient-to-b from-light/80 to-white/80 dark:from-dark/90 dark:to-dark/90 py-24 lg:px-10 rounded-xl">
+
+  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- LEFT -->
+    <div class="space-y-6">
+      <p class="text-lg text-dark/70 dark:text-white/70">
+        Trusted by <span class="text-primary font-semibold">10,000+</span> families
+      </p>
+
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+        Discover Your <span class="text-primary">Next Home</span>
+      </h1>
+
+      <p class="text-dark/70 dark:text-white/70">
+        We help you find, buy, and manage properties with ease and confidence.
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+        Esse iste, cum expedita eaque asperiores reprehenderit facilis, architecto ut aliquam animi mollitia hic praesentium, quibusdam pariatur provident autem! Non, sapiente nisi.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis temporibus modi consequuntur recusandae, ullam unde ratione placeat ea amet itaque, aspernatur dolorum non accusamus excepturi dignissimos et dicta sapiente labore!
+      </p>
+
+    
+    </div>
+
+    <!-- RIGHT SEARCH CARD -->
+  <!-- PROPERTY SEARCH CARD (Functional Version) -->
+<div class="flex justify-center">
+  <div class="bg-white dark:bg-dark rounded-xl shadow-xl p-6 w-full max-w-sm space-y-5">
+
+    <!-- Tabs -->
+    <div class="flex items-center gap-6 border-b border-light/50 dark:border-white/20 pb-3">
+      <button id="tabBuy" 
+        class="tab-btn text-primary font-semibold border-b-2 border-primary pb-1">
+        Buy
+      </button>
+
+      <button id="tabRent" 
+        class="tab-btn text-dark/50 dark:text-white/50 hover:text-primary transition">
+        Rent
+      </button>
+    </div>
+
+    <!-- Property Type -->
+    <select id="propertyType"
+      class="w-full px-4 py-3 rounded-md bg-light dark:bg-dark border border-light/40 dark:border-white/20">
+      <option value="">Select Property Type</option>
+      <option>Apartment</option>
+      <option>Villa</option>
+      <option>Townhouse</option>
+      <option>Commercial Space</option>
+    </select>
+
+    <!-- Location -->
+    <select id="location"
+      class="w-full px-4 py-3 rounded-md bg-light dark:bg-dark border border-light/40 dark:border-white/20">
+      <option value="">Select Location</option>
+      <option>Toronto</option>
+      <option>Ontario</option>
+      <option>British Columbia</option>
+      <option>Vancouver</option>
+    </select>
+
+    <!-- Budget (Dynamic) -->
+    <select id="budget"
+      class="w-full px-4 py-3 rounded-md bg-light dark:bg-dark border border-light/40 dark:border-white/20">
+      <option value="">Select Budget</option>
+      <!-- dynamically updated -->
+    </select>
+
+    <!-- Search Button -->
+    <button id="searchBtn"
+      class="w-full py-3 bg-primary text-white rounded-md  transition flex items-center justify-center gap-2">
+      <span>Search</span> 🔍
+    </button>
+
+  </div>
+</div>
+
+<!-- FUNCTIONALITY SCRIPT -->
+<script>
+  const tabBuy = document.getElementById("tabBuy");
+  const tabRent = document.getElementById("tabRent");
+  const budgetSelect = document.getElementById("budget");
+
+  // Budget options for Buy / Rent
+  const buyBudgets = [
+    "Up to $100,000",
+    "$100,000 – $300,000",
+    "$300,000 – $700,000",
+    "$700,000 – $1,500,000",
+    "$1,500,000+"
+  ];
+
+  const rentBudgets = [
+    "Up to $500/month",
+    "$500 – $1,000/month",
+    "$1,000 – $2,000/month",
+    "$2,000 – $3,500/month",
+    "$3,500+"
+  ];
+
+  // Load Default (BUY)
+  function loadBudget(options) {
+    budgetSelect.innerHTML = '<option value="">Select Budget</option>';
+    options.forEach(b => {
+      const opt = document.createElement("option");
+      opt.textContent = b;
+      budgetSelect.appendChild(opt);
+    });
+  }
+
+  // Activate Buy Tab by default
+  loadBudget(buyBudgets);
+
+  // Tab switching logic
+  tabBuy.onclick = () => {
+    tabBuy.classList.add("text-primary", "font-semibold", "border-primary", "border-b-2");
+    tabRent.classList.remove("text-primary", "font-semibold", "border-primary", "border-b-2");
+    tabRent.classList.add("text-dark/50", "dark:text-white/50");
+
+    loadBudget(buyBudgets);
+  };
+
+  tabRent.onclick = () => {
+    tabRent.classList.add("text-primary", "font-semibold", "border-primary", "border-b-2");
+    tabBuy.classList.remove("text-primary", "font-semibold", "border-primary", "border-b-2");
+    tabBuy.classList.add("text-dark/50", "dark:text-white/50");
+
+    loadBudget(rentBudgets);
+  };
+
+  // Search Button – UX feedback only
+  document.getElementById("searchBtn").onclick = () => {
+    alert("Search initiated! (You can connect backend later)");
+  };
+</script>
+
+
+  </div>
+
+</section>
+
+<!-- ===================================================
+   ABOUT SECTION (Kept)
+=================================================== -->
+<section class="py-20 lg:px-10 bg-light dark:bg-dark/40">
+  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- IMAGE -->
+    <div class="rounded-2xl overflow-hidden shadow-xl w-full max-w-sm mx-auto">
+      <img src="Images/home1/ga1.png" class="w-full h-full object-cover">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="space-y-6">
+      <h2 class="text-3xl font-semibold text-primary">About Us</h2>
+      <p class="text-xl font-bold">A trusted partner in real estate services</p>
+
+      <p class="text-dark/70 dark:text-white/70">
+        Compass Housing Society brings years of expertise in helping individuals and businesses 
+        find the perfect property tailored to their needs.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Quae fuga delectus inventore consectetur neque voluptates ex assumenda fugit, natus laudantium ipsum omnis reiciendis debitis possimus repudiandae maxime adipisci a expedita.
+      </p>
+
+      <div class="grid grid-cols-2 gap-6">
+        <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+          <p class="text-primary text-3xl font-bold">10K+</p>
+          <p class="text-dark/60 dark:text-white/60">Happy Clients</p>
+        </div>
+        <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+          <p class="text-primary text-3xl font-bold">8+</p>
+          <p class="text-dark/60 dark:text-white/60">Years Experience</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-6">
+        <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+          <p class="text-primary text-3xl font-bold">100+</p>
+          <p class="text-dark/60 dark:text-white/60">Citys</p>
+        </div>
+        <div class="p-5 bg-white dark:bg-dark shadow rounded-lg">
+          <p class="text-primary text-3xl font-bold">2k</p>
+          <p class="text-dark/60 dark:text-white/60">Employees</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================================================
+   FEATURED PROPERTIES (Kept)
+=================================================== -->
+<section class="py-20 lg:px-10 bg-light/50 dark:bg-dark/40">
+  <div class="container mx-auto px-4 text-center">
+
+    <h2 class="text-primary text-3xl font-semibold">Featured Properties</h2>
+    <p class="text-dark/70 dark:text-white/70 mt-2">
+      Explore our curated premium services.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-10 mt-12">
+
+      <div class="bg-white dark:bg-dark shadow rounded-xl overflow-hidden">
+        <img src="Images/home1/himg1.png" class="w-full h-56 object-cover">
+        <div class="p-5 text-left">
+          <h3 class="text-lg font-semibold">Modern Apartment</h3>
+          <p class="text-dark/60 dark:text-white/60">LA, California</p>
+          <p class="text-primary text-2xl font-bold mt-4">$1,240</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-dark shadow rounded-xl overflow-hidden">
+        <img src="Images/home1/himg2.png" class="w-full h-56 object-cover">
+        <div class="p-5 text-left">
+          <h3 class="text-lg font-semibold">Family House</h3>
+          <p class="text-dark/60 dark:text-white/60">Miami, Florida</p>
+          <p class="text-primary text-2xl font-bold mt-4">$2,540</p>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-dark shadow rounded-xl overflow-hidden">
+        <img src="Images/home1/himg3.png" class="w-full h-56 object-cover">
+        <div class="p-5 text-left">
+          <h3 class="text-lg font-semibold">Luxury Villa</h3>
+          <p class="text-dark/60 dark:text-white/60">Austin, Texas</p>
+          <p class="text-primary text-2xl font-bold mt-4">$4,920</p>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="blog-details.html" class="mt-10 inline-block px-10 py-3 bg-primary text-white rounded-md hover:bg-primary/90">
+      View All
+    </a>
+
+  </div>
+</section>
+
+<!-- ===================================================
+   TESTIMONIAL (Kept)
+=================================================== -->
+<section class="py-20 lg:px-10 bg-light dark:bg-dark/40">
+  <div class="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+
+    <!-- <div class=" dark:bg-gray-500 p-4 rounded">
+      <img src="Images/home1/worldmap.png" class="opacity-80 w-full">
+    </div> -->
+    <div class=" dark:bg-gray-500 p-4 rounded">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508612!2d144.9556513156896!3d-37.81732397975161!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ5JzAyLjQiUyAxNDTCsDU3JzIyLjQiRQ!5e0!3m2!1sen!2sin!4v1700000000000" 
+        width="100%" 
+        height="200" 
+        style="border:0; border-radius:8px;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <div class="bg-primary text-white rounded-xl p-8 space-y-6 shadow-lg">
+      <p>
+        “Compass Housing helped me find the perfect home in less than a week. 
+        Their guidance, expertise, and support were exceptional.”
+      </p>
+
+      <div class="flex items-center gap-3">
+        <img src="https://placehold.co/60x60?text=AG" class="w-12 h-12 rounded-full">
+        <div>
+          <h4 class="text-lg font-semibold">Alex Garcia</h4>
+          <p class="text-sm opacity-80">Investor</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================================================
+   CTA (Kept)
+=================================================== -->
+<section class="py-16 lg:px-10 bg-primary text-white">
+  <div class="container mx-auto px-4 text-center">
+
+    <h2 class="text-3xl md:text-4xl font-bold">Ready to Start Your Property Journey?</h2>
+    <p class="text-white/80 mt-2">Get expert guidance tailored to your needs.</p>
+
+    <a href="contact.html"
+          class="w-full py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition flex items-center justify-center gap-2"
+
+      >
+      Contact Us Today →
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<div id="site-footer"></div>
+<script src="footer.js" type="module"></script>
+
+
+
+<script>
+  const html = document.documentElement;
+
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+
+
+
+</body>
+</html>

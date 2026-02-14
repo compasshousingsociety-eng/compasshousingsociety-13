@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Property Listing - Compass Housing</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+      section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+    @media (min-width: 1024px) { 
+          section {
+            padding-left: 2.5rem !important;
+            padding-right: 2.5rem !important;
+          }
+      }
+  
+  </style>
+    
+<!-- Leaflet Map CSS -->
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+<!-- Leaflet JS -->
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          primary: "#1A56DB",
+          secondary: "#0F172A",
+        }
+      }
+    }
+  };
+</script>
+
+
+</head>
+
+<body data-page="servicesDetails" class="bg-white dark:bg-gray-900 text-secondary dark:text-white font-sans">
+
+<!-- HEADER SPACER -->
+  <button
+    id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
+<div id="site-header"></div>
+<script src="header.js"></script>
+
+<!-- ===================== PROPERTY DETAILS - SECTION 1 ===================== -->
+<section class="w-full py-10  mt-[110px]">
+  <div class="container mx-auto px-4">
+
+    <!-- TOP BAR: TITLE + PRICE -->
+    <div class="flex flex-col md:flex-row justify-between md:items-start gap-4 mb-6">
+
+      <!-- LEFT SIDE -->
+      <div>
+        <h1 class="text-3xl md:text-4xl font-bold text-secondary dark:text-white mb-3">
+          High-Rise Townhouse In California
+        </h1>
+
+        <!-- Badges -->
+        <div class="flex items-center gap-3 mb-3">
+
+          <!-- For Rent badge -->
+          <span class="px-3 py-1 text-xs font-medium bg-blue-100 text-primary rounded-md">
+            For Rent
+          </span>
+
+          <!-- Stars -->
+          <div class="flex items-center text-yellow-400 text-sm">
+            ⭐⭐⭐⭐⭐
+          </div>
+
+          <!-- Reviews -->
+          <span class="text-gray-600 dark:text-gray-300 text-sm">
+            (2 Reviews)
+          </span>
+        </div>
+
+        <!-- Location -->
+        <div class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+              d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z"/>
+          </svg>
+          Southwestern Ontario, Ontario, Canada
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE PRICE -->
+      <div class="text-right">
+        <p class="text-2xl md:text-3xl font-bold text-primary">$425,000</p>
+        <p class="text-gray-600 dark:text-gray-300 text-sm mt-1">1,200/sq ft</p>
+      </div>
+    </div>
+
+    <!-- ================= GALLERY GRID ================= -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+
+      <!-- BIG LEFT IMAGE -->
+      <div class="md:col-span-2">
+        <img
+          src="Images/about/dymondb.jpg"
+          class="w-full rounded-xl h-[420px] object-cover"
+        />
+      </div>
+
+      <!-- RIGHT SIDE SMALL IMAGES GRID -->
+      <div class="grid grid-cols-2 gap-4">
+
+        <img src="Images/listings/homes1.jpg"
+             class="w-full h-[200px] rounded-xl object-cover" />
+
+        <img src="Images/listings/homes1.jpg"
+             class="w-full h-[200px] rounded-xl object-cover" />
+
+        <img src="Images/listings/homes1.jpg"
+             class="w-full h-[200px] rounded-xl object-cover" />
+
+        <!-- Last image with overlay -->
+        <div class="relative">
+          <img src="Images/listings/homes1.jpg"
+               class="w-full h-[200px] rounded-xl object-cover" />
+
+          <div class="absolute inset-0 bg-black/50 rounded-xl flex items-center justify-center">
+            <span class="text-white text-xl font-semibold">+1</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+<section class="w-full py-10">
+  <div class="container mx-auto px-4">
+
+    <!-- ====== TWO COLUMN LAYOUT (Left + Right) ====== -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+
+      <!-- ======================================= -->
+      <!-- LEFT SIDE (2 COLUMNS WIDE) -->
+      <!-- ======================================= -->
+      <div class="lg:col-span-2 space-y-8">
+
+        <!-- ============ OVERVIEW CARD ============ -->
+        <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+
+          <!-- Title Row -->
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-lg font-semibold text-secondary dark:text-white">Overview</h3>
+            <span class="text-sm text-gray-500 dark:text-gray-400">Property ID: H234</span>
+          </div>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+
+            <div class="flex flex-col items-center">
+              <p class="font-semibold text-secondary dark:text-white">2</p>
+              <p class="text-gray-500 text-sm">Bedrooms</p>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <p class="font-semibold text-secondary dark:text-white">2</p>
+              <p class="text-gray-500 text-sm">Bathrooms</p>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <p class="font-semibold text-secondary dark:text-white">2</p>
+              <p class="text-gray-500 text-sm">Garage</p>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <p class="font-semibold text-secondary dark:text-white">2022</p>
+              <p class="text-gray-500 text-sm">Year Built</p>
+            </div>
+
+            <div class="flex flex-col items-center">
+              <p class="font-semibold text-secondary dark:text-white">1,354</p>
+              <p class="text-gray-500 text-sm">Area Size</p>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- ============ INFORMATION CARD ============ -->
+        <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+
+          <h3 class="text-lg font-semibold text-secondary dark:text-white mb-6">Information</h3>
+
+          <!-- Info Grid -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+
+            <div>
+              <p class="text-gray-500">Price</p>
+              <p class="font-semibold text-secondary dark:text-white">$425,000</p>
+            </div>
+
+            <div>
+              <p class="text-gray-500">Area Size</p>
+              <p class="font-semibold text-secondary dark:text-white">3453 Sq Ft</p>
+            </div>
+
+            <div>
+              <p class="text-gray-500">Rooms</p>
+              <p class="font-semibold text-secondary dark:text-white">3</p>
+            </div>
+
+            <div>
+              <p class="text-gray-500">Year Built</p>
+              <p class="font-semibold text-secondary dark:text-white">2022</p>
+            </div>
+
+            <div>
+              <p class="text-gray-500">Land Area Size</p>
+              <p class="font-semibold text-secondary dark:text-white">5064 Sq Ft</p>
+            </div>
+
+            <div>
+              <p class="text-gray-500">Property ID</p>
+              <p class="font-semibold text-secondary dark:text-white">H234</p>
+            </div>
+
+            <div>
+              <p class="text-gray-500">Bedrooms</p>
+              <p class="font-semibold text-secondary dark:text-white">6</p>
+            </div>
+
+          </div>
+
+          <!-- Amenities -->
+          <div class="flex flex-wrap gap-4 mt-6">
+            <span class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm">HVAC</span>
+            <span class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm">Backyard</span>
+            <span class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm">Laundry</span>
+            <span class="px-4 py-2 rounded-md bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 text-sm">Dryer</span>
+          </div>
+
+          <!-- Description -->
+          <p class="mt-6 text-gray-600 dark:text-gray-300 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed convallis dolor sit amet dolor eleifend...
+          </p>
+
+        </div>
+
+
+        <!-- ============ MAP CARD ============ -->
+        <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-secondary dark:text-white">Map Location</h3>
+            <button  onclick="window.open('https://www.google.com/maps?q=43.45,-80.483','_blank')" class="px-4 py-2 bg-primary text-white text-sm rounded-md hover:bg-primary/90">
+              Open Map
+            </button>
+           
+
+          </div>
+
+          <!-- FIXED MAP LOADING -->
+          <!-- <img
+            src="Images/listing/map.png"
+            onerror="this.src='https://placehold.co/900x300?text=Map+Image+Missing';"
+            class="w-full h-[330px] object-cover rounded-xl shadow-md"
+          /> -->
+<div id="realMap" class="w-full h-[330px] rounded-xl shadow-md z-0"></div>
+
+        </div>
+
+      </div>
+
+      <!-- ======================================= -->
+      <!-- RIGHT SIDE (1 COLUMN WIDE) -->
+      <!-- ======================================= -->
+      <div class="space-y-8">
+
+        <!-- Right side content already correct from your code -->
+        <!-- Property Summary Box -->
+        <!-- ADS Box -->
+        <!-- (No changes made here for accuracy) -->
+
+        <!-- PROPERTY SUMMARY BOX -->
+        <div class="bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-700 p-6 shadow-sm">
+          <h3 class="text-lg font-semibold text-secondary dark:text-white mb-2">High-Rise Townhouse</h3>
+
+          <div class="flex items-center gap-2 mb-3">
+            <span class="px-3 py-1 text-xs font-medium bg-blue-50 text-primary rounded-md border border-primary/20">For Rent</span>
+            <div class="text-yellow-400 flex items-center text-sm">⭐⭐⭐⭐⭐</div>
+            <span class="text-gray-500 dark:text-gray-400 text-sm">(2 Reviews)</span>
+          </div>
+
+          <div class="flex items-center gap-2 text-gray-500 dark:text-gray-300 text-sm mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z" />
+              <path stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z" />
+            </svg>
+            Southwestern Ontario, Ontario, Canada
+          </div>
+
+          <p class="text-3xl font-bold text-secondary dark:text-white">$425,000</p>
+          <p class="text-gray-500 dark:text-gray-400 text-sm mb-5">1,200/sq ft</p>
+
+          <h4 class="font-semibold text-secondary dark:text-white mb-3">Contact With Us Now !</h4>
+
+          <div class="flex items-center gap-4 p-4 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+            <img src="Images/home1/team1.png" class="w-12 h-12 rounded-full object-cover" />
+            <div>
+              <h4 class="font-semibold text-secondary dark:text-white">Rachel Dan</h4>
+              <p class="text-gray-600 dark:text-gray-300 text-sm">📞 0485 526 258</p>
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between gap-4 mt-4">
+            <!-- <button class="flex-1 py-2.5 rounded-md border border-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-700 transition">Call Now</button> -->
+             <a href="contact.html">
+            <button class="px-6 py-2 bg-primary text-white rounded-md  rounded-md transition">Send A Message</button>
+
+             </a>
+          </div>
+        </div>
+
+        <!-- ADS BOX -->
+        <div class="rounded-xl overflow-hidden shadow-md relative">
+          <img src="Images/about/dymondb.jpg" class="w-full h-[260px] object-cover" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+          <div class="absolute bottom-6 left-6 text-white">
+            <h3 class="text-xl font-semibold mb-2">New Template</h3>
+            <p class="text-sm opacity-90 max-w-xs">Advertise your real estate to a wider audience with our landing page.</p>
+
+            <button class="mt-4 px-4 py-2 bg-primary rounded-md text-white text-sm hover:bg-primary/90 transition">
+              Try It Now
+            </button>
+
+            <div class="flex gap-2 mt-4">
+              <img src="Images/home1/himg1.png" class="w-20 h-14 rounded-md object-cover" />
+              <img src="Images/home1/himg2.png" class="w-20 h-14 rounded-md object-cover" />
+              <img src="Images/home1/himg3.png" class="w-20 h-14 rounded-md object-cover" />
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  
+</section>
+
+<!-- ================= FLOOR PLANS SECTION ================= -->
+
+
+<!-- ================= VIDEO + REVIEWS SECTION ================= -->
+<section class="w-full py-14">
+  <div class="container mx-auto px-4">
+
+    <!-- VIDEO TITLE -->
+    <h2 class="text-xl font-semibold text-secondary dark:text-white mb-4">
+      Video
+    </h2>
+
+    <!-- VIDEO EMBED -->
+    <div class="w-full mb-10">
+    
+      <iframe class="w-full h-[380px] md:h-[420px] rounded-xl shadow-lg"  title="Property Video"
+        frameborder="0"
+         width="260" height="215" src="https://www.youtube.com/embed/vzxHngZdD_c?si=-Uboggo_16o7eAyQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" ></iframe>
+    </div>
+
+    <!-- =============== CUSTOMER REVIEWS HEADER =============== -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+
+      <!-- LEFT: TITLE & RATING -->
+      <div>
+        <h2 class="text-xl font-semibold text-secondary dark:text-white">
+          What Our Customers Say
+        </h2>
+
+        <div class="flex items-center gap-2 mt-2 text-sm text-gray-600 dark:text-gray-300">
+          <span class="text-yellow-400 text-base">★★★★★</span>
+          <span>5.0</span>
+          <span class="mx-1">•</span>
+          <span>1,540+ Reviews</span>
+        </div>
+      </div>
+
+      <!-- RIGHT: Write Review Button -->
+     <a href="contact.html">
+       <button
+        class="px-6 py-2 bg-primary text-white rounded-md  rounded-md transition">
+        Write A Review
+      </button>
+     </a>
+    </div>
+
+    <!-- =============== REVIEW CARDS =============== -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- REVIEW CARD 1 -->
+      <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm">
+        
+        <!-- Header Row -->
+        <div class="flex items-center gap-4 mb-4">
+          <img src="Images/home1/team3.png"
+               class="w-12 h-12 rounded-full object-cover" />
+
+          <div>
+            <h4 class="font-semibold text-secondary dark:text-white">Rachel Dan</h4>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Today 09:28 AM</p>
+          </div>
+        </div>
+
+        <!-- Rating -->
+        <div class="text-yellow-400 mb-3 text-base">
+          ★★★★★
+        </div>
+
+        <!-- Review Content -->
+        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Vel illum dolore eu fugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit.
+        </p>
+      </div>
+
+      <!-- REVIEW CARD 2 -->
+      <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-6 rounded-xl shadow-sm">
+        
+        <div class="flex items-center gap-4 mb-4">
+          <img src="Images/home1/team2.png"
+               class="w-12 h-12 rounded-full object-cover" />
+
+          <div>
+            <h4 class="font-semibold text-secondary dark:text-white">Rachel Dan</h4>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Today 09:35 AM</p>
+          </div>
+        </div>
+
+        <div class="text-yellow-400 mb-3 text-base">
+          ★★★★★
+        </div>
+
+        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Vel illum dolore eu fugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ================== SIMILAR PROPERTIES ================== -->
+<section class="w-full py-14">
+  <div class="container mx-auto px-4">
+
+    <!-- Title -->
+    <h2 class="text-center text-2xl font-semibold text-secondary dark:text-white mb-10">
+      Similar Properties
+    </h2>
+
+    <!-- Property Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- CARD 1 -->
+      <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm overflow-hidden">
+
+        <div class="relative">
+          <img src="Images/home1/himg3.png"
+               class="w-full h-56 object-cover" />
+
+          <!-- For Rent tag -->
+          <span class="absolute top-3 left-3 px-3 py-1 text-xs font-medium 
+                       bg-blue-600 text-white rounded-md">
+            For Rent
+          </span>
+
+          <!-- Heart Icon -->
+          <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor" onclick="alert('Saved to Wishlist')">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M3.172 5.172a4 4 0 015.656 0L12 8.343l3.172-3.171a4 4 0 115.656 5.656L12 21.657 3.172 10.828a4 4 0 010-5.656z" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Content -->
+        <div class="p-5">
+
+          <h3 class="text-lg font-semibold text-secondary dark:text-white mb-2">
+            High-Rise Townhouse
+          </h3>
+
+          <div class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z" />
+            </svg>
+            Southwestern Ontario, Ontario, Canada
+          </div>
+
+          <!-- Icons Row -->
+          <div class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400 mb-4">
+            <span class="flex items-center gap-1">🏠 41</span>
+            <span class="flex items-center gap-1">🛁 32</span>
+            <span class="flex items-center gap-1">📐 122,280 sq ft</span>
+          </div>
+
+          <!-- Price + Button -->
+          <div class="flex items-center justify-between">
+            <p class="text-xl font-bold text-primary">$1.239 <span class="text-gray-500 text-sm">/Month</span></p>
+
+            <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 
+                           text-secondary dark:text-white rounded-md hover:bg-gray-100 
+                           dark:hover:bg-gray-700 text-sm transition" >
+              View Detail
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- CARD 2 (same as card 1, replace image) -->
+      <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm overflow-hidden">
+
+        <div class="relative">
+            <img src="Images/home1/himg2.png"
+               class="w-full h-56 object-cover" />
+
+          <span class="absolute top-3 left-3 px-3 py-1 text-xs bg-blue-600 text-white rounded-md">For Rent</span>
+
+          <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" onclick="alert('Saved to Wishlist')">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M3.172 5.172a4 4 0 015.656 0L12 8.343l3.172-3.171a4 4 0 115.656 5.656L12 21.657 3.172 10.828a4 4 0 010-5.656z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="p-5">
+          <h3 class="text-lg font-semibold text-secondary dark:text-white mb-2">High-Rise Townhouse</h3>
+          <div class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z" />
+            </svg>
+            Southwestern Ontario, Ontario, Canada
+          </div>
+
+          <div class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400 mb-4">
+            <span class="flex items-center gap-1">🏠 41</span>
+            <span class="flex items-center gap-1">🛁 32</span>
+            <span class="flex items-center gap-1">📐 122,280 sq ft</span>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <p class="text-xl font-bold text-primary">$1.239 <span class="text-gray-500 text-sm">/Month</span></p>
+            <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-secondary dark:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-sm transition">View Detail</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 (same structure) -->
+      <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm overflow-hidden">
+
+        <div class="relative">
+            <img src="Images/home1/himg1.png"
+               class="w-full h-56 object-cover" />
+
+          <span class="absolute top-3 left-3 px-3 py-1 text-xs bg-blue-600 text-white rounded-md">For Rent</span>
+
+          <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white shadow flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-600" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" onclick="alert('Saved to Wishlist')">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M3.172 5.172a4 4 0 015.656 0L12 8.343l3.172-3.171a4 4 0 115.656 5.656L12 21.657 3.172 10.828a4 4 0 010-5.656z" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="p-5">
+          <h3 class="text-lg font-semibold text-secondary dark:text-white mb-2">High-Rise Townhouse</h3>
+
+          <div class="flex items-center gap-2 text-gray-600 dark:text-gray-300 text-sm mb-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" onclick="alert('Saved to Wishlist')">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 11.25a2.25 2.25 0 110-4.5 2.25 2.25 0 010 4.5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 21.75c4.97-6.14 7.5-10.39 7.5-13.5a7.5 7.5 0 10-15 0c0 3.11 2.53 7.36 7.5 13.5z" />
+            </svg>
+            Southwestern Ontario, Ontario, Canada
+          </div>
+
+          <div class="flex items-center gap-6 text-sm text-gray-500 dark:text-gray-400 mb-4">
+            <span class="flex items-center gap-1">🏠 41</span>
+            <span class="flex items-center gap-1">🛁 32</span>
+            <span class="flex items-center gap-1">📐 122,280 sq ft</span>
+          </div>
+
+          <div class="flex items-center justify-between">
+            <p class="text-xl font-bold text-primary">$1.239 <span class="text-gray-500 text-sm">/Month</span></p>
+            <button class="px-4 py-2 border border-gray-300 dark:border-gray-600 text-secondary dark:text-white rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-sm transition">View Detail</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VIEW ALL BUTTON -->
+<div class="mt-10 text-center">
+<a href="services.html"
+   class="px-6 py-2 bg-primary text-white rounded-md rounded-md transition">
+  See All Services
+</a>
+</div>
+
+
+
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<div id="site-footer" class="px-4 md:px-8"></div>
+<script type="module" src="footer.js"></script>
+
+<script>
+  const html = document.documentElement;
+
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // SET PROPERTY LOCATION (Example: Ontario Canada)
+    const lat = 43.4500;
+    const lng = -80.4830;
+
+    // Initialize map
+    const map = L.map("realMap").setView([lat, lng], 13);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+    }).addTo(map);
+
+    // Add Marker
+    L.marker([lat, lng])
+      .addTo(map)
+      .bindPopup("<b>Property Location</b><br>Ontario, Canada")
+      .openPopup();
+  });
+</script>
+
+<script>
+   // Auto-highlight active page
+   const page = document.body.getAttribute("data-page"); 
+   document.querySelectorAll(".nav-link").forEach(link => {
+      if (link.dataset.page === page) {
+         link.classList.add("text-primary", "font-semibold");
+      }
+   });
+
+   // Set breadcrumb from data-page
+   const bread = {
+      home: "Home",
+      listing: "Listing",
+      contact: "Contact",
+      about: "About",
+      blog: "Blog",
+      listingDetails:"Listing Details"
+   };
+   if (bread[page]) {
+      document.getElementById("breadcrumbPage").innerText = bread[page];
+   }
+
+   // Mobile menu toggle
+   const btn = document.getElementById("mobileMenuBtn");
+   const menu = document.getElementById("mobileMenu");
+
+   btn.addEventListener("click", () => {
+     menu.classList.toggle("hidden");
+   });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services – Compass Housing Society</title>
+
+  <!-- FONT -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- CONFIG -->
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            dark: "#0F172A",
+            light: "#F5F7FA",
+             secondary: "#0F172A" 
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+<style>
+  .btn {
+    @apply px-6 py-3 rounded-md font-medium text-sm 
+           transition duration-200 ease-in-out 
+           inline-flex items-center justify-center;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-white;
+  }
+
+  .btn-light {
+    @apply bg-light text-dark dark:bg-dark/40 dark:text-white 
+           hover:bg-light/80 dark:hover:bg-dark/60;
+  }
+</style>
+
+  <!-- WATERMARK -->
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 500px;
+      opacity: 0.06;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+  section {
+    padding-top: 40px !important;
+    padding-bottom: 40px !important;
+  }
+   @media (min-width: 1024px) { 
+          section {
+            padding-left: 2.5rem !important;
+            padding-right: 2.5rem !important;
+          }
+      }
+  </style>
+</head>
+
+<body
+  data-page="services"
+  class="bg-white dark:bg-dark text-dark dark:text-white font-sans"
+>
+  <!-- ======================= THEME TOGGLE ======================= -->
+  <button
+    id="themeToggle"
+    class="fixed bottom-6 right-6 p-3 rounded-full bg-primary text-white shadow-lg hover:bg-primary/90 z-[999]"
+  >
+    🌓
+  </button>
+
+  <!-- ======================= HEADER ======================= -->
+  <div id="site-header"></div>
+  <script src="header.js"></script>
+
+  <div class="pt-28"></div>
+
+  <!-- ======================= PAGE TITLE ======================= -->
+  <section class="py-10 bg-light/40 dark:bg-dark/30 border-b border-light/40 dark:border-white/10">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-4xl font-bold">Explore Services</h1>
+      <p class="text-dark/60 dark:text-white/60 mt-2 max-w-xl mx-auto">
+        Find premium services across top locations.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================= CATEGORY FILTER ======================= -->
+  <section class="py-10">
+    <div class="container mx-auto px-4 text-center">
+    <div id="categoryTabs" class="flex flex-wrap justify-center gap-3">
+  <!-- JS will insert buttons here -->
+</div>
+
+    </div>
+  </section>
+
+
+  <!-- ======================= PROPERTIES GRID ======================= -->
+  <section class="py-14">
+    <div class="container mx-auto px-4">
+      <div
+        id="propertyGrid"
+        class="grid md:grid-cols-2 lg:grid-cols-3 gap-10"
+      ></div>
+
+      <div class="text-center mt-10">
+        <a href="services-details.html"
+          id="loadMoreBtn"
+          class="px-10 py-3 bg-primary text-white rounded-md hover:bg-primary/90"
+        >
+          Load More
+      </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <div id="site-footer"></div>
+  <script src="footer.js" type="module"></script>
+
+<script>
+  const html = document.documentElement;
+
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+<script>
+
+const propertyData = {
+  All: [
+    { id: 1, title: "Luxury Family House", price: 1239, type: "House", status: "Rent",
+      beds: 4, baths: 2, area: "2000 sqft", location: "Toronto, Ontario",
+      img: "Images/listings/litings1.jpg" },
+    { id: 2, title: "Modern Apartment Suite", price: 980, type: "Apartment", status: "Rent",
+      beds: 2, baths: 1, area: "880 sqft", location: "Vancouver, BC",
+      img: "Images/listings/litings1.jpg" },
+    { id: 3, title: "Lake View Villa", price: 2150, type: "Villa", status: "Sale",
+      beds: 5, baths: 4, area: "3200 sqft", location: "Calgary, Alberta",
+      img: "Images/listings/litings1.jpg" },
+  ],
+
+  House: [
+    { id: 4, title: "Cozy 3-Bedroom House", price: 1100, type: "House", status: "Rent",
+      beds: 3, baths: 2, area: "1500 sqft", location: "Ottawa, Ontario",
+      img: "Images/listings/litings1.jpg" },
+    { id: 5, title: "Newly Renovated House", price: 1800, type: "House", status: "Sale",
+      beds: 4, baths: 3, area: "2100 sqft", location: "Edmonton, Alberta",
+      img: "Images/listings/litings1.jpg" }
+  ],
+
+  Apartment: [
+    { id: 6, title: "Downtown Apartment", price: 850, type: "Apartment", status: "Rent",
+      beds: 1, baths: 1, area: "560 sqft", location: "Montreal, Quebec",
+      img: "Images/listings/litings1.jpg" },
+    { id: 7, title: "Premium City Apartment", price: 1450, type: "Apartment", status: "Sale",
+      beds: 2, baths: 2, area: "940 sqft", location: "Toronto, Ontario",
+      img: "Images/listings/litings1.jpg" }
+  ],
+
+  Villa: [
+    { id: 8, title: "Seaside Luxury Villa", price: 3200, type: "Villa", status: "Sale",
+      beds: 6, baths: 5, area: "4500 sqft", location: "Halifax, Nova Scotia",
+      img: "Images/listings/litings1.jpg" },
+    { id: 9, title: "Mountain View Villa", price: 2700, type: "Villa", status: "Rent",
+      beds: 5, baths: 4, area: "3900 sqft", location: "Banff, Alberta",
+      img: "Images/listings/litings1.jpg" }
+  ]
+};
+
+
+/* ============================================================
+   CREATE CATEGORY BUTTONS (IMPORTANT!)
+============================================================ */
+const categories = ["All", "House", "Apartment", "Villa"];
+const categoryTabs = document.getElementById("categoryTabs");
+
+categories.forEach(cat => {
+  const btn = document.createElement("button");
+  btn.dataset.category = cat;
+
+  btn.className = "px-6 py-2 bg-primary text-white rounded-md shadow"
+    // cat === "All"
+    //   ? "px-6 py-2 bg-primary text-white rounded-md shadow"
+    //   : "px-6 py-2 bg-light dark:bg-dark/40 text-dark dark:text-white rounded-md border border-light/40 dark:border-white/10";
+
+  btn.innerText = cat;
+  categoryTabs.appendChild(btn);
+});
+
+
+/* ============================================================
+   RENDER PROPERTY CARD
+============================================================ */
+function renderCard(item) {
+  return `
+    <div class="rounded-xl bg-white dark:bg-dark shadow-md overflow-hidden hover:-translate-y-1 transition">
+      <img src="${item.img}" class="w-full h-56 object-cover">
+
+      <div class="p-5">
+        <p class="text-primary text-xl font-semibold">$${item.price}</p>
+
+        <h3 class="text-lg font-semibold mt-2">${item.title}</h3>
+
+        <p class="text-dark/60 dark:text-white/60 text-sm mt-1">📍 ${item.location}</p>
+
+        <div class="flex items-center gap-5 text-sm text-dark/60 dark:text-white/60 mt-4">
+          <span>🏠 ${item.beds} Beds</span>
+          <span>🛁 ${item.baths} Baths</span>
+          <span>📐 ${item.area}</span>
+        </div>
+
+  
+      </div>
+    </div>`;
+}
+
+
+/* ============================================================
+   RENDER GRID
+============================================================ */
+let activeCategory = "All";
+let visibleCount = 3;
+
+function renderGrid() {
+  const list = propertyData[activeCategory];
+  const grid = document.getElementById("propertyGrid");
+  grid.innerHTML = "";
+
+  list.slice(0, visibleCount).forEach(item => {
+    grid.innerHTML += renderCard(item);
+  });
+}
+
+// 👉 Initial Load
+renderGrid();
+
+
+/* ============================================================
+   CATEGORY CLICK HANDLER
+============================================================ */
+categoryTabs.querySelectorAll("button").forEach(btn => {
+  btn.onclick = () => {
+    // reset all buttons
+    categoryTabs.querySelectorAll("button").forEach(b =>
+      b.classList.remove("bg-primary", "text-white")
+    );
+
+    // highlight active
+    btn.classList.add("bg-primary", "text-white");
+
+    activeCategory = btn.dataset.category;
+    visibleCount = 3;
+
+    renderGrid();
+  };
+});
+
+
+/* ============================================================
+   LOAD MORE
+============================================================ */
+document.getElementById("loadMoreBtn").onclick = () => {
+  visibleCount += 3;
+  renderGrid();
+};
+</script>
+<script>
+  function applyButtonStyles() {
+    document.querySelectorAll("#categoryTabs button").forEach(b => {
+      b.classList.remove("btn-primary");
+      b.classList.add("btn-light");
+    });
+  }
+
+  categoryTabs.querySelectorAll("button").forEach(btn => {
+    btn.onclick = () => {
+      applyButtonStyles();
+      btn.classList.remove("btn-light");
+      btn.classList.add("btn-primary");
+
+      activeCategory = btn.dataset.category;
+      visibleCount = 3;
+
+      renderGrid();
+    };
+  });
+
+  // Set "All" as default active
+  setTimeout(() => {
+    const first = document.querySelector('#categoryTabs button[data-category="All"]');
+    if (first) first.classList.replace("btn-light", "btn-primary");
+  }, 50);
+</script>
+
+
+</body>
+</html>

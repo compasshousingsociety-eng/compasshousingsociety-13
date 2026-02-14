@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 - Page Not Found</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      margin: auto;
+      background-image: url("Images/transparent-logo-1.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 600px auto;
+      opacity: 0.10;
+      pointer-events: none;
+      z-index: -1;
+    }
+      @media (min-width: 1024px) { 
+          section {
+            padding-left: 2.5rem !important;
+            padding-right: 2.5rem !important;
+          }
+      }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#1A56DB",
+            secondary: "#0F172A",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+        },
+      },
+      darkMode: "class",
+    };
+    
+  </script>
+</head>
+
+<body data-page="404" class="bg-white dark:bg-gray-900 text-secondary dark:text-white">
+  <button
+    id="themeToggle"
+    class="fixed bottom-5 right-5 z-[999] p-3 rounded-full bg-primary text-white shadow-lg hover:bg-secondary transition">
+    🌓
+  </button>
+<!-- ========== GLOBAL HEADER ========== -->
+<div id="site-header"></div>
+<script src="header.js"></script>
+
+<!-- SPACER FIXED HEADER -->
+<div class="pt-28"></div>
+
+<!-- ========================== 404 CONTENT ========================== -->
+<section class="flex flex-col items-center justify-center text-center px-4 py-20">
+
+  <h1 class="text-8xl font-extrabold text-primary mb-4">404</h1>
+
+  <h2 class="text-3xl font-bold text-secondary dark:text-white mb-4">
+    Page Not Found
+  </h2>
+
+  <p class="text-gray-600 dark:text-gray-400 max-w-lg mb-8">
+    Oops! The page you're looking for doesn't exist or has been moved.
+    Please check the URL or go back to the homepage.
+  </p>
+
+  <!-- BUTTONS -->
+  <div class="flex items-center gap-4">
+    <a href="index.html"
+       class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition">
+      Go to Home
+    </a>
+
+    <a href="contact.html"
+       class="px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary/90 transition">
+      Contact Support
+    </a>
+  </div>
+
+  
+
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+  <div id="site-footer" class="px-4 md:px-8"></div>
+  <script type="module" src="footer.js"></script>
+<script>
+  const html = document.documentElement;
+
+  document.getElementById("themeToggle").onclick = () => {
+    const isDark = html.classList.toggle("dark");
+
+    if (isDark) {
+      html.classList.remove("light");
+      localStorage.setItem("theme", "dark");
+    } else {
+      html.classList.add("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+</script>
+<script>
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    document.documentElement.classList.add("dark");
+    document.documentElement.classList.remove("light");
+  } else {
+    document.documentElement.classList.add("light");
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+</body>
+</html>
