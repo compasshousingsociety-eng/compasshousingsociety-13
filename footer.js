@@ -9,12 +9,12 @@ export function loadFooter(selector = "site-footer") {
   }
 
   container.innerHTML = `
-<footer class="w-full bg-gray-100 dark:bg-gray-900 py-10 border-t border-gray-300 dark:border-gray-700">
+<footer class="w-full bg-gray-100 dark:bg-gray-900 py-12 border-t border-gray-300 dark:border-gray-700">
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
       
       <!-- LEFT COLUMN - Company Info -->
-      <div class="md:col-span-3 space-y-4">
+      <div class="md:col-span-2 lg:col-span-3 space-y-4">
         <div class="flex items-center gap-2">
           <img src="Images/transparent-logo-1.png" class="w-10 h-10 flex-shrink-0" alt="Logo" />
           <h3 class="text-2xl font-bold text-secondary dark:text-white whitespace-nowrap">Compass Housing</h3>
@@ -61,7 +61,7 @@ export function loadFooter(selector = "site-footer") {
       </div>
 
       <!-- EXPLORE -->
-      <div class="md:col-span-2 space-y-4">
+      <div class="md:col-span-1 lg:col-span-2 space-y-4">
         <h4 class="text-lg font-semibold text-secondary dark:text-white">Explore</h4>
         <ul class="text-gray-600 dark:text-gray-300 space-y-3 text-sm">
           <li><a href="about.html" class="hover:text-primary transition-colors">About Us</a></li>
@@ -73,7 +73,7 @@ export function loadFooter(selector = "site-footer") {
       </div>
 
       <!-- LINKS -->
-      <div class="md:col-span-2 space-y-4">
+      <div class="md:col-span-1 lg:col-span-2 space-y-4">
         <h4 class="text-lg font-semibold text-secondary dark:text-white">Links</h4>
         <ul class="text-gray-600 dark:text-gray-300 space-y-3 text-sm">
           <li><a href="services.html" class="hover:text-primary transition-colors">Services</a></li>
@@ -85,7 +85,7 @@ export function loadFooter(selector = "site-footer") {
       </div>
 
       <!-- LOCATION -->
-      <div class="md:col-span-2 space-y-4">
+      <div class="md:col-span-2 lg:col-span-2 space-y-4">
         <h4 class="text-lg font-semibold text-secondary dark:text-white">Our Location</h4>
         <p class="text-gray-600 dark:text-gray-300 text-sm">
           Visit our nearest branch or reach us directly through our map.
@@ -102,11 +102,11 @@ export function loadFooter(selector = "site-footer") {
       </div>
 
       <!-- SUBSCRIBE -->
-      <div class="md:col-span-3 space-y-4">
+      <div class="md:col-span-2 lg:col-span-3 space-y-4">
         <h4 class="text-lg font-semibold text-secondary dark:text-white">Subscribe</h4>
         <p class="text-gray-600 dark:text-gray-300 text-sm">Get insider updates, special announcements, and valuable resources — no spam, only useful content.</p>
 
-        <div class="flex w-full">
+        <div class="flex w-full max-w-md">
           <input
             type="email"
             placeholder="Your Email"
@@ -116,7 +116,7 @@ export function loadFooter(selector = "site-footer") {
           />
           <button
             id="subscribe-btn"
-            class="px-6 py-2.5 bg-primary hover:bg-primary/90 text-white rounded-r-md 
+            class="px-6 py-2.5 bg-primary hover:bg-secondary text-white rounded-r-md 
                    whitespace-nowrap transition-colors font-medium text-sm"
           >
             Subscribe

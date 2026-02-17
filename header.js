@@ -34,4 +34,14 @@ fetch("header.html")
       .addEventListener("click", () => {
         document.getElementById("mobileMenu").classList.toggle("hidden");
       });
+
+    const themeToggle = document.getElementById("themeToggle");
+    const themeToggleHost = document.getElementById("themeToggleHost");
+
+    if (themeToggle && themeToggleHost) {
+      themeToggleHost.appendChild(themeToggle);
+      themeToggle.className =
+        "p-2 rounded-md border border-gray-300 dark:border-gray-600 text-secondary dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition";
+      themeToggle.removeAttribute("style");
+    }
   });

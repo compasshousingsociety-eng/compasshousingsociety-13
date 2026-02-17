@@ -1,7 +1,7 @@
 <!-- <header class="w-full bg-white dark:bg-secondary border-b border-gray-200 dark:border-gray-700 fixed top-0 left-0 z-50">
 
 
-  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
 
     <a href="index.html" class="flex items-center gap-2">
       <img src="Images/colored-logo.png" class="w-8 h-8" />
@@ -77,16 +77,16 @@
 <header class="w-full bg-white dark:bg-secondary border-b border-gray-200 dark:border-gray-700 fixed top-0 left-0 z-50">
 
   <!-- NAV BAR -->
-  <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+  <div class="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
 
     <!-- LOGO -->
-    <a href="index.html" class="flex items-center gap-2">
+    <a href="index.html" class="flex items-center gap-2 shrink-0 min-w-0">
       <img src="Images/colored-logo.png" class="w-8 h-8" />
-      <span class="text-xl font-bold text-secondary dark:text-white">Compass Housing Society</span>
+      <span class="text-base xl:text-xl font-bold text-secondary dark:text-white whitespace-nowrap">Compass Housing Society</span>
     </a>
 
     <!-- DESKTOP MENU -->
-    <nav class="hidden md:flex items-center gap-8 text-secondary dark:text-gray-200 font-medium">
+    <nav class="hidden lg:flex items-center gap-5 text-secondary dark:text-gray-200 font-medium">
 
       <!-- ===== SHOW ONLY 4 MAIN LINKS ===== -->
       <a href="index.html" class="hover:text-primary nav-link" data-page="home1">Home 1</a>
@@ -141,7 +141,8 @@
     </nav>
 
     <!-- RIGHT BUTTONS -->
-    <div class="hidden md:flex items-center gap-4">
+    <div class="hidden lg:flex items-center gap-3 shrink-0">
+      <div id="themeToggleHost" class="flex items-center"></div>
       <a href="signup.html" data-page="signup"  class=" px-4 py-2 bg-primary text-white rounded-md text-center">Sign Up</a>
 
       <a href="coming-soon.html" data-page="comingsoon"
@@ -151,7 +152,7 @@
     </div>
 
     <!-- MOBILE MENU BUTTON -->
-    <button id="mobileMenuBtn" class="md:hidden text-3xl dark:text-white">☰</button>
+    <button id="mobileMenuBtn" class="lg:hidden text-3xl dark:text-white">☰</button>
 
   </div>
 
@@ -166,7 +167,7 @@
 
   <!-- =============== MOBILE MENU (ALL LINKS SHOW) =============== -->
   <div id="mobileMenu"
-       class="hidden bg-white dark:bg-secondary shadow-md px-4 py-4 md:hidden flex-col w-full space-y-3 text-lg">
+       class="hidden bg-white dark:bg-secondary shadow-md px-4 py-4 lg:hidden flex-col w-full space-y-3 text-lg">
 
     <a href="index.html" class="block py-2 border-b nav-link" data-page="home1">Home 1</a>
     <a href="home1.html" class="block py-2 border-b nav-link" data-page="home2">Home 2</a>
@@ -188,5 +189,6 @@
   </div>
 
 </header>
+
 
 
