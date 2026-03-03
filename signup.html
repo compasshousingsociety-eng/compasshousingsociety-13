@@ -386,7 +386,7 @@
         }
 
         // Check email format (no spaces)
-        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/i;
 
         if (!emailRegex.test(value)) {
           isEmailValid = false;

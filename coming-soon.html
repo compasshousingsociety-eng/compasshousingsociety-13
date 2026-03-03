@@ -180,7 +180,7 @@
           return;
         }
         function validateEmail(email) {
-          const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/;
+          const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/i;
           return regex.test(email);
         }
 

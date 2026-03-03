@@ -299,7 +299,7 @@
     if (!trimmed) {
       return { isValid: false, message: "Email is required." };
     }
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/;
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|in|org|net)$/i;
     if (!emailRegex.test(trimmed)) {
       return { isValid: false, message: "Please enter a valid email address." };
     }
