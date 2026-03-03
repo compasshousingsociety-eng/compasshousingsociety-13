@@ -11,13 +11,13 @@ export function loadFooter(selector = "site-footer") {
   container.innerHTML = `
 <footer class="w-full bg-gray-100 dark:bg-gray-900 py-12 border-t border-gray-300 dark:border-gray-700">
   <div class="container mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.1fr_1.3fr] gap-10 lg:gap-8 items-start">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_0.5fr_0.5fr_1.5fr_1.6fr] gap-10 lg:gap-8 items-start">
       
       <!-- LEFT COLUMN - Company Info -->
       <div class="space-y-4 min-w-0">
         <div class="flex items-center gap-2">
           <img src="Images/transparent-logo-1.png" class="w-10 h-10 flex-shrink-0" alt="Logo" />
-          <h3 class="text-2xl font-bold text-secondary dark:text-white whitespace-nowrap">Compass Housing</h3>
+          <h3 class="text-2xl font-bold text-secondary dark:text-white whitespace-nowrap">Compass Housing Society</h3>
         </div>
 
         <ul class="space-y-3 text-gray-600 dark:text-gray-300 text-sm">
@@ -125,6 +125,13 @@ export function loadFooter(selector = "site-footer") {
       </div>
 
     </div>
+     <div class="mt-6 pt-4 border-t border-gray-300 dark:border-gray-700 flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between text-xs text-gray-500 dark:text-gray-400">
+      <p>Copyright 2026 Compass Housing Society. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="coming-soon.html" class="hover:text-primary transition-colors">Terms</a>
+        <a href="coming-soon.html" class="hover:text-primary transition-colors">Privacy</a>
+      </div>
+    </div>
   </div>
 </footer>
   `;
@@ -158,3 +165,5 @@ export function loadFooter(selector = "site-footer") {
 }
 
 document.addEventListener("DOMContentLoaded", () => loadFooter());
+
+
